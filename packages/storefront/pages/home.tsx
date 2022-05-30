@@ -1,7 +1,7 @@
 import Image from "next/image";
-import { FC } from "react";
+import type { NextPage } from "next";
 
-const Home: FC = () => {
+const Home: NextPage = () => {
   return (
     <>
       <header className="bg-dark py-5">
