@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { NextPage } from "next";
+import pimage from "../public/product.jpeg";
 
 const Home: NextPage = () => {
   return (
@@ -24,7 +25,8 @@ const Home: NextPage = () => {
                 <Image
                   className="card-img-top"
                   src={
-                    "https://cdn.shopify.com/s/files/1/0359/6350/2651/files/about1_71e1f591-e3d4-456e-be12-03e0afed0c73.jpg?v=1588135206"
+                    pimage
+                    //"https://cdn.shopify.com/s/files/1/0359/6350/2651/files/about1_71e1f591-e3d4-456e-be12-03e0afed0c73.jpg?v=1588135206"
                   }
                   alt="..."
                   layout="fill"

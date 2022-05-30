@@ -14,6 +14,6 @@ module.exports = {
     },
     transformIgnorePatterns: ["/node_modules/"],
     moduleNameMapper: {
-        ".+\\.(css|styl|less|sass|scss|png|jpg|jpeg|ttf|woff|woff2)$": "identity-obj-proxy"
+        ".+\\.(css|styl|less|sass|scss|png|jpg|jpeg|ttf|woff|woff2)$": "<rootDir>/__mocks__/fileMock.js"
     },
   };
