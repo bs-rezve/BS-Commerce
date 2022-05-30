@@ -10,7 +10,7 @@ const Home: FC = () => {
             <h1 data-testid="heading" className="display-4 fw-bolder">
               Storefront
             </h1>
-            <p className="lead fw-normal text-white-50 mb-0">
+            <p data-testid="para" className="lead fw-normal text-white-50 mb-0">
               With this shop hompeage template
             </p>
           </div>
