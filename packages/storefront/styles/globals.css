@@ -1,3 +1,30 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+
+.featuredProducts {
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+.swiper {
+    width: 90%;
+  }
+  
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    height: 100px;
+    width:100%;
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

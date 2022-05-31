@@ -3,12 +3,12 @@ import FeaturedProducts from "../components/home/featuredPtoducts";
 import Counter from "../components/global/components/product/counter";
 import Icon from "../components/global/components/product/icon";
 import Products from "./products";
-import type { User } from "models";
+// import type { User } from "models";
 
-const newUser: User = {
-  id: "2",
-  name: "Asad",
-};
+// const newUser: User = {
+//   id: "2",
+//   name: "Asad",
+// };
 const Home: NextPage = () => {
   return (
     <>
