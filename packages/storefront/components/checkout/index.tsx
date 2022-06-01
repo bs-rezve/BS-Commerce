@@ -5,7 +5,7 @@ import ChevronUp from "../global/icons-for-checkout-page/chevron-up";
 import ShoppingCart from "../global/icons-for-checkout-page/shopping-cart";
 import OrderedProducts from "./orderDetail";
 
-const CheckoutComponent: NextComponentType = (props) => {
+const CheckoutComponent: NextComponentType = (props: any) => {
   const [dropdown, setDropdown] = useState(false);
 
   return (
