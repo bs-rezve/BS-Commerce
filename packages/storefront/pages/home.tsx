@@ -1,10 +1,10 @@
 import type { NextPage } from "next";
-import Search from "./search";
+import Products from "./trendProducts";
 
 const Home: NextPage = () => {
   return (
     <>
-      <Search></Search>
+      <Products></Products>
     </>
   );
 };
