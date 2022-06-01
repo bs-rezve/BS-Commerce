@@ -1,5 +1,4 @@
 import type { GetServerSideProps, NextPage } from "next";
-import { useSelector, useDispatch } from "react-redux";
 import Icon from "./common/icon";
 import ProductInfo from "./common/productInfo";
 import Picture from "./common/picture";
@@ -27,7 +26,9 @@ const Product = (props: any) => {
                             <div className="hover:-translate-y-3 opacity-0 hover:opacity-70 duration-300 absolute inset-0 z-10 flex justify-center items-center text-black font-semibold">
                                 <Icon></Icon>
                             </div>
-                            <ProductInfo product={product}></ProductInfo>
+                            <div className="text-center">
+                                <ProductInfo product={product}></ProductInfo>
+                            </div>
                         </div>
                     </div>
                 </div>

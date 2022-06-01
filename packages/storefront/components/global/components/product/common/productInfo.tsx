@@ -3,7 +3,7 @@ import React from "react";
 const ProductInfo = (props: any) => {
     const { product }: any = props;
     return (
-        <div className=" py-4 text-center">
+        <div className=" py-4">
             <div className="text-inherit text-xl font-medium text-gray-600">
                 {product.title}
             </div>

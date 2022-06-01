@@ -36,7 +36,9 @@ const DealProduct = (props: any) => {
                                     <Icon></Icon>
                                 </div>
                             </div>
-                            <ProductInfo product={product}></ProductInfo>
+                            <div className="text-center">
+                                <ProductInfo product={product}></ProductInfo>
+                            </div>
                         </div>
                     </div>
                 </div>
