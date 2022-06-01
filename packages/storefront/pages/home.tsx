@@ -1,18 +1,10 @@
 import type { NextPage } from "next";
-import Image from "next/image";
-import productPic from "../public/product.jpeg";
-import type { User } from "models";
-import Blog from "@/components/blog/blog";
+import Search from "./search";
 
-const newUser: User = {
-  id: "2",
-  name: "Asad",
-};
 const Home: NextPage = () => {
   return (
     <>
-      {/* <Products></Products> */}
-      <Blog></Blog>
+      <Search></Search>
     </>
   );
 };
