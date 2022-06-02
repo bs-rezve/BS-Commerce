@@ -1,7 +1,5 @@
-import ChevronDown from "@/components/global/icons-for-checkout-page/chevron-down";
 import { Field, Form, Formik } from "formik";
 import Link from "next/link";
-import { useState } from "react";
 
 const Information = () => {
   const initialValues = {
@@ -222,7 +220,7 @@ const Information = () => {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="mb-3">
                   <div className="relative">
                     <Field
