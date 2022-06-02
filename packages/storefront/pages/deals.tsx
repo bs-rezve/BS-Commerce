@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import WeekDeals from "../../components/deals/index";
+import WeekDeals from "../components/deals/index";
 const dealsOfTheWeek: NextPage = () => {
   return (
     <>

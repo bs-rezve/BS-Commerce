@@ -28,8 +28,9 @@ const DealsFilter: NextComponentType = () => {
   };
   return (
     <>
-      <div className="mt-60">
+      <div className="mt-20">
         <div className="accordion" id="accordionExample5">
+          {/* Price Filter Section */}
           <div className="accordion-item bg-white">
             <h2 className="accordion-header mb-0" id="headingOne5">
               <button
@@ -65,11 +66,11 @@ const DealsFilter: NextComponentType = () => {
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
-                      stroke-width="2"
+                      strokeWidth="2"
                     >
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                         d="M5 15l7-7 7 7"
                       />
                     </svg>
@@ -80,11 +81,11 @@ const DealsFilter: NextComponentType = () => {
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
-                      stroke-width="2"
+                      strokeWidth="2"
                     >
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                         d="M19 9l-7 7-7-7"
                       />
                     </svg>
@@ -103,7 +104,7 @@ const DealsFilter: NextComponentType = () => {
               aria-labelledby="headingOne5"
             >
               <div className="accordion-body py-4 px-5">
-                <div className="grid grid-cols-3">
+                <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3">
                   <div className="flex flex-row">
                     <span className="text-sm">$</span>
                     <span className="px-2">
@@ -127,17 +128,17 @@ const DealsFilter: NextComponentType = () => {
                       </span>
                     </div>
                   </div>
-                  <div className="py-4">
-                    {/* temporaty button here */}
-                    <button className="bg-green-500 hover:bg-black text-white font-bold py-2 px-4 rounded">
-                      Filter
-                    </button>
-                  </div>
+                </div>
+                <div className="p-4">
+                  {/* temporaty button here */}
+                  <button className="bg-green-500 hover:bg-black text-white font-bold py-2 px-4 rounded">
+                    Filter
+                  </button>
                 </div>
               </div>
             </div>
           </div>
-
+          {/* Availability Filter Section */}
           <div className="accordion-item bg-white">
             <h2 className="accordion-header mb-0" id="headingTwo5">
               <button
