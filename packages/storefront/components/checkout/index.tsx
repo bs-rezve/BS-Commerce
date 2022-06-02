@@ -3,21 +3,22 @@ import { useState } from "react";
 import ChevronDown from "../global/icons-for-checkout-page/chevron-down";
 import ChevronUp from "../global/icons-for-checkout-page/chevron-up";
 import ShoppingCart from "../global/icons-for-checkout-page/shopping-cart";
+import Information from "./informationPage";
 import OrderedProducts from "./orderDetail";
 
-const CheckoutComponent: NextComponentType = (props: any) => {
+const CheckoutComponent = (props: any) => {
   const [dropdown, setDropdown] = useState(false);
 
   return (
     <>
       <div className="row">
         <div className="flex flex-wrap sm:flex-col-reverse md:flex-col-reverse lg:flex-row justify-between">
-          <div className="flex-initial w-3/5">
-            <p>Form</p>
+          <div className="flex-initial lg:w-3/5">
+            <Information/>
           </div>
 
           <div
-            className="flex-initial w-2/5 h-screen sm:hidden md:hidden lg:block"
+            className="flex-initial lg:w-2/5 sm:hidden md:hidden lg:block"
             style={{ background: "#fafafa" }}
           >
             <OrderedProducts />

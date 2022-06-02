@@ -6,7 +6,7 @@ import Breadcrumbs from "../global/breadcrumbs";
 import Button from "../global/button/button";
 import { loginSchema } from "../global/schemas/loginSchema";
 
-const ForgotPassword: NextComponentType = (props: any) => {
+const ForgotPassword = (props: any) => {
   const router = useRouter();
 
   const handleForgotPassword = (values: any) => {

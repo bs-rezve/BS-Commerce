@@ -9,7 +9,7 @@ import Button from "../global/button/button";
 
 import { loginSchema } from "../global/schemas/loginSchema";
 
-const Signin: NextComponentType = (props) => {
+const Signin = (props: any) => {
   const router = useRouter();
   const baseUrl = "http://localhost:3000";
 

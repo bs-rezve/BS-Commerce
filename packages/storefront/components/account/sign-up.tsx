@@ -1,5 +1,4 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import type { NextComponentType } from "next";
 import { useRouter } from "next/router";
 import axios from "axios";
 import Link from "next/link";
@@ -7,7 +6,7 @@ import Link from "next/link";
 import Breadcrumbs from "../global/breadcrumbs";
 import { registerSchema } from "../global/schemas/loginSchema";
 
-const Signup: NextComponentType = (props) => {
+const Signup = (props: any) => {
   const router = useRouter();
   const baseUrl = "http://localhost:3000";
 
