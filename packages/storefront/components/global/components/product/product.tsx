@@ -13,13 +13,31 @@ const Product = (props: any) => {
                         <div className="relative flex items-center justify-center flex-col">
                             <div className="relative text-white overflow-hidden transition-all duration-700">
                                 <div className="relative inset-0 bg-cover bg-center z-0">
-                                    <Picture
-                                        product={product}
-                                        height={200}
-                                        width={200}
-                                        src={product.images[0]}
-                                        alt={product.category}
-                                    />
+                                        <Picture
+                                            product={product}
+                                            height={200}
+                                            width={200}
+                                            src={product.images[0]}
+                                            alt={product.category}
+                                        />
+                                        {product.stock > 0 ? (
+                                            <div className="border border-[#40a944] rounded-lg bg-[#40a944] absolute top-3 left-3 px-1 py-1 text-white">
+                                                <p> SALE</p>
+                                            </div>
+                                        ) : (
+                                            <div className="border border-[#40a944] rounded-lg bg-[#40a944] absolute top-3 left-3 px-1 py-1 text-white">
+                                                <p> SOLDOUT</p>
+                                            </div>
+                                        )}
+                                        {product.discountPercentage && product.stock > 0 ? (
+                                            <div className="border border-[#40a944] rounded-lg bg-[#40a944] absolute top-3 right-3 px-1 py-1 text-white">
+                                                <p>
+                                                    {`-${product.discountPercentage}%`}
+                                                </p>
+                                            </div>
+                                        ) : (
+                                            <div></div>
+                                        )}
                                 </div>
                             </div>
                             <div className="hover:-translate-y-3 opacity-0 hover:opacity-70 duration-300 absolute inset-0 z-10 flex justify-center items-center text-black font-semibold">

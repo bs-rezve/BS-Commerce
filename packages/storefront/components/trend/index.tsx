@@ -23,7 +23,7 @@ const TrendingProducts: FC = () => {
             (product: any) => product.category === text
         );
         setProducts(newProduct);
-        setFilterKey(text)
+        setFilterKey(text);
     };
     return (
         <>
@@ -35,27 +35,39 @@ const TrendingProducts: FC = () => {
                     <h1 className="text-4xl text-bold ">Trending Products</h1>
                 </div>
 
-                <ul className="flex justify-center text-xs sm:text-xs md:text-lg lg:text-xl m-5 font-semibold ">
-                    <li className="mr-3">
+                <ul className="flex justify-center px-0.5 sm:px-0.5 text-xs sm:text-xs md:text-lg lg:text-xl mx-6 font-semibold mb-8">
+                    <li className="mr-1.5">
                         <button
                             onClick={() => handleClick("smartphones")}
-                            className = {filterKey === "smartphones" ? "border border-[#40A944] inline-block rounded-full bg-white text-[#40A944] px-4 py-1": "inline-block rounded-full bg-white text-black px-4 py-1"}
+                            className={
+                                filterKey === "smartphones"
+                                    ? "border border-[#40A944] inline-block rounded-full bg-white text-[#40A944] px-4 py-1"
+                                    : "hover:border hover:border-[#40A944] inline-block rounded-full bg-white text-black px-4 py-1"
+                            }
                         >
                             SMARTPHONES
                         </button>
                     </li>
-                    <li className="mr-3">
+                    <li className="mr-1.5">
                         <button
                             onClick={() => handleClick("laptops")}
-                            className = {filterKey === "laptops" ? "border border-[#40A944] inline-block rounded-full bg-white text-[#40A944] px-4 py-1": "inline-block rounded-full bg-white text-black px-4 py-1"}
+                            className={
+                                filterKey === "laptops"
+                                    ? "border border-[#40A944] inline-block rounded-full bg-white text-[#40A944] px-4 py-1"
+                                    : "hover:border hover:border-[#40A944] inline-block rounded-full bg-white text-black px-4 py-1"
+                            }
                         >
                             LAPTOPS
                         </button>
                     </li>
-                    <li className="mr-3">
+                    <li className="mr-1.5">
                         <button
                             onClick={() => handleClick("fragrances")}
-                            className = {filterKey === "fragrances" ? "border border-[#40A944] inline-block rounded-full bg-white text-[#40A944] px-4 py-1": "inline-block rounded-full bg-white text-black px-4 py-1"}
+                            className={
+                                filterKey === "fragrances"
+                                    ? "border border-[#40A944] inline-block rounded-full bg-white text-[#40A944] px-4 py-1"
+                                    : "hover:border hover:border-[#40A944] inline-block rounded-full bg-white text-black px-4 py-1"
+                            }
                         >
                             FRAGRANCES
                         </button>
