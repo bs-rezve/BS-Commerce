@@ -35,7 +35,7 @@ const TrendingProducts: FC = () => {
                     <h1 className="text-4xl text-bold ">Trending Products</h1>
                 </div>
 
-                <ul className="flex justify-center text-xl m-5 font-semibold ">
+                <ul className="flex justify-center text-xs sm:text-xs md:text-lg lg:text-xl m-5 font-semibold ">
                     <li className="mr-3">
                         <button
                             onClick={() => handleClick("smartphones")}
