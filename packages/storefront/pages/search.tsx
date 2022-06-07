@@ -20,8 +20,8 @@ const Search: NextPage = () => {
 								<div className="w-full input-group relative flex flex-wrap items-stretch mb-4">
 									<input
 										type="search"
-										className="w-full form-control relative flex-auto min-w-0 block px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded-3xl transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-										placeholder="Search"
+										className="w-full form-control relative flex-auto min-w-0 block px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded-3xl transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:outline-none"
+										placeholder="Search our store"
 									></input>
 									<button
 										type="submit"
