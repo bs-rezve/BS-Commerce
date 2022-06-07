@@ -12,6 +12,13 @@ const ProductInfo = (props: any) => {
             </p>
             <div className="text-lg font-semibold text-green-600">
                 ${product.price}
+                {product.prevPrice ? (
+                    <span className="text-lg font-semibold text-black ml-2">
+                        <s>$</s>{product.prevPrice ? <s>{product.prevPrice}</s>: null}
+                    </span>
+                ) : (
+                    <div></div>
+                )}
             </div>
         </div>
     );
