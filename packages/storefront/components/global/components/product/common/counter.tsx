@@ -3,7 +3,7 @@ import React from "react";
 const Counter = (props: any) => {
     const { time }: any = props;
     return (
-        <div className="rounded flex mb-0">
+        <div className="rounded flex flex-wrap mb-0 justify-center">
             <div className="bg-white px rounded m-1 p-2.5">
                 <p className="text-xl text-center">{time.day}</p>
                 <p className="p-2.0 text-xl">Days</p>

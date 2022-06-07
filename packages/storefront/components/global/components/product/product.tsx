@@ -1,6 +1,7 @@
 import ProductInfo from "./common/productInfo";
 import Picture from "./common/picture";
 import Icon from "../icon";
+import Status from "./common/status";
 
 const Product = (props: any) => {
   const { product }: any = props;
@@ -20,16 +21,7 @@ const Product = (props: any) => {
                     src={product.images[0]}
                     alt={product.category}
                   />
-
-                  <div className="border text-xs border-[#40a944] rounded-lg bg-[#40a944] absolute top-3 left-3 px-1 py-1 text-white">
-                    {product.stock > 0 ? "Sale" : "Soldout"}
-                  </div>
-
-                  {product.discountPercentage && product.stock > 0 ? (
-                    <div className="border border-[#40a944] rounded-lg bg-[#40a944] absolute top-3 right-3 px-1 py-1 text-white text-xs">
-                      <p>{`-${product.discountPercentage}%`}</p>
-                    </div>
-                  ) : null}
+                  <Status product={product}></Status>
                 </div>
               </div>
               <div className="hover:-translate-y-3 opacity-0 hover:opacity-70 duration-300 absolute inset-0 z-10 flex justify-center items-center text-black font-semibold">
