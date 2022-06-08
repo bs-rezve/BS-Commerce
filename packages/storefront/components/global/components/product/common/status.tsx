@@ -1,15 +1,20 @@
 import React from "react";
 
-const Status = ({ product }: any) => {
+interface STATUS {
+    discountPercentage: number,
+    stock: number
+}
+
+const Status = ({ discountPercentage, stock }: STATUS) => {
     return (
         <div>
             <div className="border text-xs border-[#40a944] rounded-lg bg-[#40a944] absolute top-3 left-3 px-1 py-1 text-white">
-                {product.stock > 0 ? "Sale" : "Soldout"}
+                {stock > 0 ? "Sale" : "Soldout"}
             </div>
 
-            {product.discountPercentage && product.stock > 0 ? (
+            {discountPercentage && stock > 0 ? (
                 <div className="border border-[#40a944] rounded-lg bg-[#40a944] absolute top-3 right-3 px-1 py-1 text-white text-xs">
-                    <p>{`-${product.discountPercentage}%`}</p>
+                    <p>{`-${discountPercentage}%`}</p>
                 </div>
             ) : null}
         </div>

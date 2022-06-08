@@ -77,7 +77,7 @@ const TrendingProducts: FC = () => {
           >
             {filteredProduct?.map((product: any) => (
               <SwiperSlide key={product.id}>
-                <Product product={product} />
+                <Product product={product} id={product.id} img={product.images[0]} title={product.title} prevPrice={product.prevPrice} price={product.price} discountPercentage={product.discountPercentage} stock={product.stock} category={product.category}/>
               </SwiperSlide>
             ))}
           </SwiperGrid>

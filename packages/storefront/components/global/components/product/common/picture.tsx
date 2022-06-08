@@ -1,13 +1,20 @@
 import React from "react";
 import Image from "next/image";
 
+// interface IMG { 
+//     height: number,
+//     width: number,
+//     img: string,
+//     alt: string,
+// }
+
 const Picture = (props: any) => {
-    const { product, height, width, src, alt }: any = props;
+    const { height, width, img, alt } = props;
 
     return (
         <div>
             <Image
-                src={src}
+                src={img}
                 alt={alt}
                 width={width}
                 height={height}

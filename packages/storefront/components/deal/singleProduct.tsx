@@ -5,10 +5,10 @@ import Counter from "../global/components/product/common/counter";
 import Status from "../global/components/product/common/status";
 
 const time = {
-    day: "00",
-    hour: "00",
-    min: "00",
-    sec: "00",
+    day: 10,
+    hour: 10,
+    min: 10,
+    sec: 10,
 };
 
 const DealProduct = (props: any) => {
@@ -23,24 +23,24 @@ const DealProduct = (props: any) => {
                             <div className="relative text-white overflow-hidden transition-all duration-700">
                                 <div className="relative inset-0 bg-cover bg-center z-0">
                                     <Picture
-                                        product={product}
                                         height={280}
                                         width={280}
-                                        src={product.images[0]}
+                                        img={product.images[0]}
                                         alt={product.category}
                                     />
-                                    <Status product={product}></Status>
+                                    <Status stock={product.stock} discountPercentage={product.discountPercentage}></Status>
                                 </div>
                             </div>
+                            
 
-                            <div className="md:flex md:flex-wrap lg:flex flex-wrap hover:-translate-y-20 opacity-70 hover:opacity-70 duration-300 absolute inset-0 z-10 sm:justify-center items-center text-black font-semibold">
-                                <Counter time={time}></Counter>
+                            <div className="flex-wrap md:flex md:flex-wrap lg:flex lg:flex-wrap hover:-translate-y-20 opacity-70 hover:opacity-70 duration-300 absolute inset-8 z-10 sm:justify-center items-center text-black font-semibold">
+                                <Counter day={time.day} hour={time.hour} min={time.min} sec={time.sec}/>
                                 <div className="md:hover:hover:translate-y-28 hover:translate-y-20 opacity-0 hover:opacity-90 duration-300 absolute inset-0 z-10 flex justify-center items-center text-black font-semibold">
                                     <Icon />
                                 </div>
                             </div>
                             <div className="text-center">
-                                <ProductInfo product={product} />
+                                <ProductInfo title={product.title} category={product.category} discountPercentage={product.discountPercentage} price={product.price} />
                             </div>
                         </div>
                     </div>
