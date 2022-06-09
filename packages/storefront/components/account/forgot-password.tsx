@@ -4,7 +4,7 @@ import Breadcrumb from "../global/breadcrumbs/breadcrumb";
 import { loginSchema } from "../global/schemas/loginSchema";
 
 interface Values {
-  phone: string;
+  email: string;
 }
 
 const ForgotPassword = () => {
@@ -33,11 +33,11 @@ const ForgotPassword = () => {
           <div className="m-5 sm:m-5 my-3 md:mx-10 lg:mx-10 xl:mx-10">
             <Formik
               initialValues={{
-                phone: "",
+                email: "",
               }}
               onSubmit={(values, actions) => {
                 const data = {
-                  phone: values.phone,
+                  email: values.email,
                 };
                 handleForgotPassword(data);
                 actions.setSubmitting(false);
@@ -51,12 +51,12 @@ const ForgotPassword = () => {
                       <Field
                         type="text"
                         className="w-full p-2 outline-0 placeholder-gray-600"
-                        id="phone"
-                        name="phone"
-                        placeholder="Phone"
+                        id="email"
+                        name="email"
+                        placeholder="Email"
                       />
                       <div className="errMsg text-red-600">
-                        <ErrorMessage name="phone" />
+                        <ErrorMessage name="email" />
                       </div>
                     </div>
 
