@@ -7,12 +7,12 @@ import Breadcrumb from "../global/breadcrumbs/breadcrumb";
 import { loginSchema } from "../global/schemas/loginSchema";
 
 interface Values {
-  phone: string;
+  email: string;
   password: string;
 }
 
 const Signin = () => {
-  function handleSignin(data: FormikValues) {
+  function handleSignin(data: Values) {
     console.log(data);
   }
 
@@ -35,12 +35,12 @@ const Signin = () => {
           <div className="m-5 sm:m-5 my-3 md:mx-10 lg:mx-10 xl:mx-10">
             <Formik
               initialValues={{
-                phone: "",
+                email: "",
                 password: "",
               }}
               onSubmit={(values, actions) => {
                 const data = {
-                  phone: values.phone,
+                  email: values.email,
                   password: values.password,
                 };
                 handleSignin(data);
@@ -55,12 +55,12 @@ const Signin = () => {
                       <Field
                         type="text"
                         className="w-full p-2 placeholder-gray-600 outline-0"
-                        id="phone"
-                        name="phone"
-                        placeholder="Phone"
+                        id="email"
+                        name="email"
+                        placeholder="Email"
                       />
                       <div className="errMsg text-red-600 outline-0">
-                        <ErrorMessage name="phone" />
+                        <ErrorMessage name="email" />
                       </div>
                     </div>
 
@@ -115,5 +115,3 @@ const Signin = () => {
 
 export default Signin;
 
-// phone no: 01715969546
-// Pass: P@ssword123

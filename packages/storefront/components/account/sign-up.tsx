@@ -8,7 +8,7 @@ import Breadcrumb from "../global/breadcrumbs/breadcrumb";
 interface Values {
   firstname: string;
   lastname: string;
-  phone: string;
+  email: string;
   password: string;
   confirm_password: string;
 }
@@ -44,7 +44,7 @@ const Signup = () => {
               initialValues={{
                 firstname: "",
                 lastname: "",
-                phone: "",
+                email: "",
                 password: "",
                 confirm_password: "",
               }}
@@ -52,7 +52,7 @@ const Signup = () => {
                 const data = {
                   firstName: values.firstname,
                   lastName: values.lastname,
-                  phone: values.phone,
+                  email: values.email,
                   password: values.password,
                 };
                 handleSignin(data);
@@ -91,14 +91,14 @@ const Signup = () => {
 
                     <div className="mb-4">
                       <Field
-                        type="phone"
+                        type="email"
                         className="w-full p-2 outline-0 placeholder-gray-600"
-                        id="phone"
-                        name="phone"
-                        placeholder="Phone"
+                        id="email"
+                        name="email"
+                        placeholder="Email"
                       />
                       <div className="errMsg text-red-600">
-                        <ErrorMessage name="phone" />
+                        <ErrorMessage name="email" />
                       </div>
                     </div>
 
