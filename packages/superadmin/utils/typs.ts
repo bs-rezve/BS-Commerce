@@ -1,0 +1,15 @@
+export interface crateValues {
+    email: string,
+    password: string,
+    firstname: string,
+    lastname: string,
+    gender: string,
+    dob: string,
+    companyname: string,
+    ite: boolean,
+    newsletter: any,
+    customerRoles: any,
+    mofVendor: any,
+    active: boolean,
+    adminCommit: string,
+  };

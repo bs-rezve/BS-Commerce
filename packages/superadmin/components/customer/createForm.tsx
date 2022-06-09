@@ -8,9 +8,9 @@ const validationSchema = Yup.object().shape({});
 
 interface Props {
   initData: any;
-  saveBtnRef?: any;
+  saveBtnRef?: string;
   saveHandler: any;
-  saveWithContinueBtnRef?: any;
+  saveWithContinueBtnRef?: string;
 }
 
 const CreateForm: FC<Props> = ({
@@ -41,7 +41,6 @@ const CreateForm: FC<Props> = ({
           isValid,
         }) => (
           <>
-            {/* {disableHandler(!isValid)} */}
             <Form className="">
               <div className="row">
                 <CustomerInfo

@@ -3,10 +3,11 @@ import { useState } from "react";
 import CreateForm from "../../../components/customer/createForm";
 import Accordion from "../../../components/global/accordion";
 import SubmitForm from "../../../components/global/submitForm";
+import { crateValues } from "../../../utils/typs";
 
 const CreateCustomer: NextPage = () => {
   const [objProps, setObjprops] = useState({});
-  const initData = {
+  const initData: crateValues = {
     email: "",
     password: "",
     firstname: "",
@@ -15,10 +16,10 @@ const CreateCustomer: NextPage = () => {
     dob: "",
     companyname: "",
     ite: false,
-    newsletter: "",
-    customerRoles: "",
+    newsletter: [],
+    customerRoles: [],
     mofVendor: "",
-    active: "",
+    active: false,
     adminCommit: "",
   };
 

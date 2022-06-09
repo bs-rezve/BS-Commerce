@@ -4,9 +4,10 @@ import RadioField from "../global/radioButton";
 import Checkbox from "../global/checkbox";
 import SelectDropdown from "../global/select";
 import TextareaField from "../global/textarea";
+import { crateValues } from "../../utils/typs";
 
 interface Props {
-  values: any;
+  values: crateValues;
   setFieldValue: any;
   errors: any;
   touched: any;
