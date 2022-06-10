@@ -19,10 +19,10 @@ const TextareaField: FC<Props> = (props) => {
   const { value, name, errors, touched, label, rows, setFieldValue } = props;
   return (
     <>
-      <div className="form-group row mb-3">
+      <div className="form-group row mb-2">
         <div className="col-md-3">
           <div className={styles.label_wrapper}>
-            <label className="col-form-label fs-5">{label}</label>
+            <label className={styles.col_form_label}>{label}</label>
             <div
               title=""
               data-toggle="tooltip"

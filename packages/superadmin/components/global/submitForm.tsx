@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React, { useRef, useEffect, FC, ReactChild, ReactChildren } from "react";
 
 interface Props {
@@ -51,7 +52,11 @@ const SubmitForm: FC<Props> = ({
           <div className="fs-2 me-2">{title}</div>
           <div className="d-flex align-items-center">
             <i className="bi bi-arrow-left-circle-fill"></i>
-            <span className="fs-5 ms-1">back to {title} list</span>
+            <Link href="/users/customer">
+              <a className="fs-5 ms-1 text-decoration-none">
+                back to {title} list
+              </a>
+            </Link>
           </div>
         </div>
         <div className="d-flex justify-content-end flex-grow-1">

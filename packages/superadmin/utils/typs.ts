@@ -13,3 +13,16 @@ export interface crateValues {
     active: boolean,
     adminCommit: string,
   };
+
+  export interface editValues {
+    customerInfo: crateValues,
+    orders: orders[],
+    address: orders[],
+    shoppingandWishlist: [],
+    activityLog: [],
+    pOrder: string,
+    binstocksub:[],
+    rewordPoints:[]
+  };
+
+  export interface orders {id:string ,total:number, status:string,pstatus:string,shipStatus:string,store:string,createdOn:string }

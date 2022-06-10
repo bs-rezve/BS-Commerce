@@ -34,7 +34,7 @@ const CreateCustomer: NextPage = () => {
         submitBtnText="Save"
         continueBtnText="Save and Continue Edit"
       >
-        <Accordion title="Customer info">
+        <Accordion title="Customer info" id={1} icon="bi bi-info-lg">
           <CreateForm
             {...objProps}
             initData={initData}

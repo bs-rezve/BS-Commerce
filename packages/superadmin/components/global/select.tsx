@@ -30,10 +30,10 @@ const SelectDropdown: FC<Props> = (props) => {
   } = props;
   return (
     <>
-      <div className="row mb-3">
+      <div className="row mb-2">
         <div className="col-md-3">
           <div className={styles.label_wrapper}>
-            <label className="col-form-label fs-5">
+            <label className={styles.col_form_label}>
               {(label || placeholder) && (
                 <label> {label || placeholder} </label>
               )}

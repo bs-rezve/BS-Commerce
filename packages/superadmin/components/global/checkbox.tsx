@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import { Field } from "formik";
 import FormikError from "./formikError";
+import styles from "../../styles/Input.module.css";
 
 interface Props {
   name: string;
@@ -17,7 +18,7 @@ const Checkbox: FC<Props> = (props) => {
       <div className="form-group row mb-1">
         <div className="col-md-3">
           <div className="label-wrapper d-flex justify-content-end">
-            <label className="col-form-label fs-5">{label}</label>
+            <label className={styles.col_form_label}>{label}</label>
             <div
               title=""
               data-toggle="tooltip"
