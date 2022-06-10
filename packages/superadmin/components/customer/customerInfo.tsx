@@ -8,7 +8,7 @@ import { crateValues } from "../../utils/typs";
 
 interface Props {
   values: crateValues;
-  setFieldValue: any;
+  setFieldValue: (name: string, valueOption: {} | string | number) => void;
   errors: any;
   touched: any;
 }
@@ -45,7 +45,7 @@ const CustomerInfo: FC<Props> = ({
         <InputField
           value={values?.firstname}
           label="First name"
-          placeholder={"First name"}
+          placeholder="First name"
           required
           type="text"
           name="firstname"
@@ -62,23 +62,23 @@ const CustomerInfo: FC<Props> = ({
         />
       </div>
       <div className="col-lg-12">
-        <RadioField label={"Date of birth"} type="radio" name="gender" />
+        <RadioField label="Date of birth" type="radio" name="gender" />
       </div>
       <div className="col-lg-12">
         <InputField
           value={values?.dob}
           label={"Date of birth"}
-          placeholder={"Date of birth"}
+          placeholder="Date of birth"
           required
-          type="text"
+          type="date"
           name="dob"
         />
       </div>
       <div className="col-lg-12">
         <InputField
           value={values?.companyname}
-          label={"Company name"}
-          placeholder={"Company name"}
+          label="Company name"
+          placeholder="Company name"
           required
           type="text"
           name="companyname"

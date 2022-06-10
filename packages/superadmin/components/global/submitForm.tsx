@@ -1,7 +1,7 @@
-import React, { useRef, useEffect, FC } from "react";
+import React, { useRef, useEffect, FC, ReactChild, ReactChildren } from "react";
 
 interface Props {
-  children: any;
+  children: ReactChild | ReactChild[] | ReactChildren | ReactChildren[];
   isDisabled: boolean;
   title: string;
   isHiddenSaveWithContinue: boolean;
@@ -21,17 +21,17 @@ const SubmitForm: FC<Props> = ({
   continueBtnText,
   getProps,
 }) => {
-  const saveBtnRef = useRef<HTMLButtonElement | any>();
+  const saveBtnRef = useRef<HTMLButtonElement>(null);
   const saveBtnClicker = () => {
-    if (saveBtnRef && saveBtnRef.current) {
-      saveBtnRef.current.click();
+    if (saveBtnRef && saveBtnRef?.current) {
+      saveBtnRef.current?.click();
     }
   };
 
-  const saveWithContinueBtnRef = useRef<HTMLButtonElement | any>();
+  const saveWithContinueBtnRef = useRef<HTMLButtonElement>(null);
   const saveWithContinueClick = () => {
     if (saveWithContinueBtnRef && saveWithContinueBtnRef.current) {
-      saveWithContinueBtnRef.current.click();
+      saveWithContinueBtnRef.current?.click();
     }
   };
 
@@ -46,15 +46,15 @@ const SubmitForm: FC<Props> = ({
 
   return (
     <div className="">
-      <div className="my-3 d-flex justify-content-between">
-        <div className="d-flex">
+      <div className="my-3 d-flex justify-content-between flex-wrap">
+        <div className="d-flex flex-grow-1">
           <div className="fs-2 me-2">{title}</div>
           <div className="d-flex align-items-center">
             <i className="bi bi-arrow-left-circle-fill"></i>
             <span className="fs-5 ms-1">back to {title} list</span>
           </div>
         </div>
-        <div>
+        <div className="d-flex justify-content-end flex-grow-1">
           <button
             type="submit"
             className={isHiddenSave ? "d-none" : "btn btn-primary me-2"}

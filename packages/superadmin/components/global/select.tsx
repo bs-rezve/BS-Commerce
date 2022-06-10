@@ -2,6 +2,7 @@
 import React, { FC } from "react";
 import Select from "react-select";
 import FormikError from "./formikError";
+import styles from "../../styles/Input.module.css";
 
 interface Props {
   name: string;
@@ -31,7 +32,7 @@ const SelectDropdown: FC<Props> = (props) => {
     <>
       <div className="row mb-3">
         <div className="col-md-3">
-          <div className="label-wrapper d-flex justify-content-end">
+          <div className={styles.label_wrapper}>
             <label className="col-form-label fs-5">
               {(label || placeholder) && (
                 <label> {label || placeholder} </label>

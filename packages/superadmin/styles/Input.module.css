@@ -1,0 +1,10 @@
+.label_wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media (max-width: 1024px) {
+  .label_wrapper {
+    justify-content: flex-start;
+  }
+}

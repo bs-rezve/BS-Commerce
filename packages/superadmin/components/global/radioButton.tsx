@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import { Field } from "formik";
 import FormikError from "./formikError";
+import styles from "../../styles/Input.module.css";
 
 interface Props {
   value?: boolean;
@@ -18,7 +19,7 @@ const RadioField: FC<Props> = (props) => {
     <>
       <div className="form-group row mb-3">
         <div className="col-md-3">
-          <div className="label-wrapper d-flex justify-content-end">
+          <div className={styles.label_wrapper}>
             <label className="col-form-label fs-5">{label}</label>
             <div
               title=""

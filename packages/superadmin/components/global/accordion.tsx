@@ -1,8 +1,8 @@
-import React, { FC } from "react";
+import React, { FC, ReactChild, ReactChildren } from "react";
 
 interface Props {
   title: string;
-  children: any;
+  children: ReactChild | ReactChild[] | ReactChildren | ReactChildren[];
 }
 
 //Need to pass the Accordion object props to the Accordion component
