@@ -7,7 +7,7 @@ interface Props {
   icon?: string;
 }
 
-const AddButton: FC<Props> = ({ title, link, icon }) => {
+const AddButton: FC<Props> = ({ title, link, icon = "bi bi-file-plus" }) => {
   return (
     <div className="btn btn-primary ">
       <i className={`${icon} me-2 align-middle`}></i>

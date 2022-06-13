@@ -7,7 +7,7 @@ interface Props {}
 const Search: FC<Props> = ({}) => {
   return (
     <div className="card">
-      <Accordion title={"Search"} id={1} icon="bi bi-search">
+      <Accordion title={"Search"} id={1} icon="bi bi-search" show={true}>
         <div className="card-body">
           <SearchForm />
         </div>

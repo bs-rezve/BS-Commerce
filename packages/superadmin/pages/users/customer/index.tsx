@@ -6,7 +6,7 @@ import TableInfo from "../../../components/global/table";
 import { useRouter } from "next/router";
 
 const thead = [
-  "",
+  "checkbox",
   "Email",
   "Name",
   "Customer roles",
@@ -42,19 +42,26 @@ const Customer: NextPage = () => {
       </div>
       <Search />
       <div className="card mt-2 p-3">
-        <div className="m-2 fs-5">Learn more about customers</div>
+        <div className="m-2 fs-5">
+          Learn more about <span style={{ color: "#007bff" }}>customers</span>
+        </div>
         <TableInfo tHead={thead} list={customers}>
           {customers?.map((data, index) => (
             <tr key={index}>
-              <th scope="row text-center">
+              <td className="text-center">
                 <input type="checkbox" name="veh" value="bike" />
-              </th>
+              </td>
               <td>{data.email}</td>
               <td>{data.name}</td>
               <td>{data.roles}</td>
               <td>{data.cName}</td>
-              <td>{data.active}</td>
-              <td>
+              <td className="text-center">
+                <i
+                  className="bi bi-check-lg"
+                  style={{ fontSize: "30px", color: "#007fcc" }}
+                ></i>
+              </td>
+              <td className="text-center">
                 <button
                   className="btn btn-light"
                   onClick={() => router.push(`/users/customer/edit/${data.id}`)}

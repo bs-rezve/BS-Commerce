@@ -7,6 +7,24 @@ import styles from "../../styles/Input.module.css";
 
 interface Props {}
 
+const month: any = [
+  { value: 1, label: "1" },
+  { value: 2, label: "2" },
+  { value: 3, label: "3" },
+  { value: 4, label: "4" },
+];
+
+const day: any = [
+  { value: 1, label: "1" },
+  { value: 2, label: "2" },
+  { value: 3, label: "3" },
+  { value: 4, label: "4" },
+  { value: 5, label: "5" },
+  { value: 6, label: "6" },
+  { value: 7, label: "7" },
+  { value: 8, label: "8" },
+];
+
 const SearchForm: FC<Props> = ({}) => {
   const initData = {
     email: "",
@@ -23,7 +41,9 @@ const SearchForm: FC<Props> = ({}) => {
       <Formik
         enableReinitialize={true}
         initialValues={initData}
-        onSubmit={(values, { resetForm }) => {}}
+        onSubmit={(values, { resetForm }) => {
+          console.log(values, "values");
+        }}
       >
         {({
           handleSubmit,
@@ -52,7 +72,7 @@ const SearchForm: FC<Props> = ({}) => {
                     value={values?.company}
                     label="Company"
                     placeholder="Company"
-                    type="number"
+                    type="text"
                     name="company"
                   />
                 </div>
@@ -119,7 +139,7 @@ const SearchForm: FC<Props> = ({}) => {
                         onChange={(valueOption: any) => {
                           setFieldValue("month", valueOption);
                         }}
-                        options={[]}
+                        options={month || []}
                         value={values?.month}
                         isSearchable={true}
                         className="me-2"
@@ -132,10 +152,10 @@ const SearchForm: FC<Props> = ({}) => {
                         onChange={(valueOption: any) => {
                           setFieldValue("day", valueOption);
                         }}
-                        options={[]}
                         value={values?.day}
                         isSearchable={true}
                         name="day"
+                        options={day || []}
                         isMulti={false}
                         placeholder="Day"
                         isClearable={true}
@@ -149,7 +169,7 @@ const SearchForm: FC<Props> = ({}) => {
                     className="btn btn-primary"
                     onSubmit={() => handleSubmit()}
                   >
-                    Search
+                    <i className="bi bi-search me-2 align-middle"></i> Search
                   </button>
                 </div>
               </div>

@@ -51,7 +51,7 @@ const EditForm: FC<Props> = ({
           <>
             <Form className="row">
               <div className="col-lg-12 mb-2">
-                <Accordion title="Customer info" id={1} icon="bi bi-search">
+                <Accordion title="Customer info" id={1} icon="bi bi-info-lg">
                   <CustomerInfo
                     values={values.customerInfo}
                     setFieldValue={setFieldValue}
@@ -61,7 +61,7 @@ const EditForm: FC<Props> = ({
                 </Accordion>
               </div>
               <div className="col-lg-12 mb-2">
-                <Accordion title="Orders" id={2} icon="bi bi-search">
+                <Accordion title="Orders" id={2} icon="bi bi-cart-plus">
                   <OrdersList
                     orderList={values?.orders}
                     setFieldValue={setFieldValue}
@@ -69,7 +69,7 @@ const EditForm: FC<Props> = ({
                 </Accordion>
               </div>
               <div className="col-lg-12 mb-2">
-                <Accordion title="Address" id={3} icon="bi bi-search">
+                <Accordion title="Address" id={3} icon="bi bi-journal-plus">
                   <CustomerAddress
                     addressList={values?.address}
                     setFieldValue={setFieldValue}
@@ -80,7 +80,7 @@ const EditForm: FC<Props> = ({
                 <Accordion
                   title="Current shopping cart and wishlist"
                   id={4}
-                  icon="bi bi-search"
+                  icon="bi bi-cart-fill"
                 >
                   <CurrentShoppingAndWishlist
                     cartList={values?.shoppingandWishlist}
@@ -88,7 +88,7 @@ const EditForm: FC<Props> = ({
                 </Accordion>
               </div>
               <div className="col-lg-12 mb-2">
-                <Accordion title="Activity log" id={5} icon="bi bi-search">
+                <Accordion title="Activity log" id={5} icon="bi bi-list-task">
                   <ActivityLog
                     activityList={values?.activityLog}
                     setFieldValue={setFieldValue}
@@ -99,7 +99,7 @@ const EditForm: FC<Props> = ({
                 <Accordion
                   title="Place order (impersonate)"
                   id={6}
-                  icon="bi bi-search"
+                  icon="bi bi-basket-fill"
                 >
                   <PlaceOrders />
                 </Accordion>
@@ -108,7 +108,7 @@ const EditForm: FC<Props> = ({
                 <Accordion
                   title="Back in stock subscriptions"
                   id={7}
-                  icon="bi bi-search"
+                  icon="bi bi-file-plus-fill"
                 >
                   <Subscription
                     activityList={values?.binstocksub}
@@ -117,7 +117,7 @@ const EditForm: FC<Props> = ({
                 </Accordion>
               </div>
               <div className="col-lg-12 mb-2">
-                <Accordion title="Reward points" id={8} icon="bi bi-search">
+                <Accordion title="Reward points" id={8} icon="bi bi-award-fill">
                   <RewardsPoints
                     setFieldValue={setFieldValue}
                     rewardList={values.rewordPoints}
