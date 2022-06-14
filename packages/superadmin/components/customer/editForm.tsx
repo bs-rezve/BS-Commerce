@@ -10,14 +10,15 @@ import ActivityLog from "./activityLog";
 import PlaceOrders from "./placeOrders";
 import Subscription from "./subcription";
 import RewardsPoints from "./rewardPoints";
+import { editValues } from "../../utils/typs";
 
 // Validation schema
 const validationSchema = Yup.object().shape({});
 
 interface Props {
-  initData: any;
+  initData: editValues;
   saveBtnRef?: string;
-  saveHandler: any;
+  saveHandler: (values: editValues) => void;
   saveWithContinueBtnRef?: string;
 }
 
@@ -34,9 +35,7 @@ const EditForm: FC<Props> = ({
         initialValues={initData}
         validationSchema={validationSchema}
         onSubmit={(values, { resetForm }) => {
-          saveHandler(values, () => {
-            resetForm(initData);
-          });
+          saveHandler(values);
         }}
       >
         {({
@@ -135,7 +134,7 @@ const EditForm: FC<Props> = ({
                 type="reset"
                 style={{ display: "none" }}
                 ref={saveWithContinueBtnRef}
-                onSubmit={() => resetForm(initData)}
+                onSubmit={() => handleSubmit()}
               ></button>
             </Form>
           </>

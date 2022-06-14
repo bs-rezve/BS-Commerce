@@ -2,11 +2,11 @@ import type { NextPage } from "next";
 import { useState } from "react";
 import AddressCreateForm from "../../../components/customer/addressCreateFrom";
 import SubmitForm from "../../../components/global/submitForm";
-import { crateValues } from "../../../utils/typs";
+import { addressData, crateValues } from "../../../utils/typs";
 
 const CreateCustomer: NextPage = () => {
   const [objProps, setObjprops] = useState({});
-  const initData = {
+  const initData: addressData = {
     fname: "",
     lname: "",
     email: "",

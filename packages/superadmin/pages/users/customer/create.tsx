@@ -24,6 +24,8 @@ export const initData: crateValues = {
 const CreateCustomer: NextPage = () => {
   const [objProps, setObjprops] = useState({});
 
+  const saveHandler = (values: crateValues) => {};
+
   return (
     <div
       className="col-md-9 ms-sm-auto col-lg-10 px-md-4"
@@ -47,7 +49,7 @@ const CreateCustomer: NextPage = () => {
           <CreateForm
             {...objProps}
             initData={initData}
-            saveHandler={() => {}}
+            saveHandler={saveHandler}
           />
         </Accordion>
       </SubmitForm>

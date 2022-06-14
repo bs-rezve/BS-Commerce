@@ -2,15 +2,16 @@ import React, { FC } from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import CustomerInfo from "./customerInfo";
+import { crateValues } from "../../utils/typs";
 // import { sleep } from "../../utils/utils";
 
 // Validation schema
 const validationSchema = Yup.object().shape({});
 
 interface Props {
-  initData: any;
+  initData: crateValues;
   saveBtnRef?: string;
-  saveHandler: any;
+  saveHandler: (values: crateValues) => void;
   saveWithContinueBtnRef?: string;
 }
 
@@ -63,7 +64,7 @@ const CreateForm: FC<Props> = ({
                 type="reset"
                 style={{ display: "none" }}
                 ref={saveWithContinueBtnRef}
-                onSubmit={() => resetForm(initData)}
+                onSubmit={() => handleSubmit()}
               ></button>
             </Form>
           </>

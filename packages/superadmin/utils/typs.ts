@@ -42,4 +42,18 @@ export type searchValue = {
   day: DDL | string | [];
 };
 
-
+export interface addressData {
+  fname: string,
+  lname: string,
+  email: string,
+  company: string,
+  country: string,
+  state: string,
+  region: string,
+  city: string,
+  address1: string,
+  address2: string,
+  zip: string,
+  phone: string,
+  fax: string,
+};

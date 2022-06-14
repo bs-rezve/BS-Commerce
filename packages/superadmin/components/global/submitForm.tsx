@@ -9,7 +9,7 @@ interface Props {
   submitBtnText: string;
   continueBtnText: string;
   isHiddenSave: boolean;
-  getProps: any;
+  getProps: (propsObj: {}) => void;
 }
 
 const SubmitForm: FC<Props> = ({

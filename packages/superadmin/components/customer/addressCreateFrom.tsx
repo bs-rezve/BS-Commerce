@@ -1,17 +1,17 @@
 import React, { FC } from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import CustomerInfo from "./customerInfo";
 import InputField from "../global/inputField";
 import SelectDropdown from "../global/select";
+import { addressData } from "../../utils/typs";
 
 // Validation schema
 const validationSchema = Yup.object().shape({});
 
 interface Props {
-  initData: any;
+  initData: addressData;
   saveBtnRef?: string;
-  saveHandler: any;
+  saveHandler: (values: addressData) => void;
   saveWithContinueBtnRef?: string;
 }
 
@@ -27,10 +27,8 @@ const AddressCreateForm: FC<Props> = ({
         enableReinitialize={true}
         initialValues={initData}
         validationSchema={validationSchema}
-        onSubmit={(values, { resetForm }) => {
-          saveHandler(values, () => {
-            resetForm(initData);
-          });
+        onSubmit={(values) => {
+          saveHandler(values);
         }}
       >
         {({
@@ -207,7 +205,7 @@ const AddressCreateForm: FC<Props> = ({
                 type="reset"
                 style={{ display: "none" }}
                 ref={saveWithContinueBtnRef}
-                onSubmit={() => resetForm(initData)}
+                onSubmit={() => handleSubmit()}
               ></button>
             </Form>
           </>
