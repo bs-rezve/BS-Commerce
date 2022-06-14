@@ -4,7 +4,7 @@ import RadioField from "../global/radioButton";
 import Checkbox from "../global/checkbox";
 import SelectDropdown from "../global/select";
 import TextareaField from "../global/textarea";
-import { crateValues } from "../../utils/typs";
+import { crateValues, DDL } from "../../utils/typs";
 
 interface Props {
   values: crateValues;
@@ -62,7 +62,7 @@ const CustomerInfo: FC<Props> = ({
         />
       </div>
       <div className="col-lg-12">
-        <RadioField label="Date of birth" type="radio" name="gender" />
+        <RadioField label="Gender" type="radio" name="gender" />
       </div>
       <div className="col-lg-12">
         <InputField
@@ -98,7 +98,7 @@ const CustomerInfo: FC<Props> = ({
           ]}
           value={values?.newsletter}
           label="Newsletter"
-          onChange={(valueOption: any) => {
+          onChange={(valueOption: DDL) => {
             setFieldValue("newsletter", valueOption);
           }}
           isMulti={true}
@@ -118,7 +118,7 @@ const CustomerInfo: FC<Props> = ({
           ]}
           value={values?.customerRoles}
           label="Customer roles"
-          onChange={(valueOption: any) => {
+          onChange={(valueOption: DDL) => {
             setFieldValue("customerRoles", valueOption);
           }}
           isMulti={true}
@@ -132,13 +132,13 @@ const CustomerInfo: FC<Props> = ({
           name="mofVendor"
           options={[
             { value: 1, label: "mofVendor1" },
-            { value: 1, label: "mofVendor2" },
-            { value: 1, label: "mofVendor3" },
-            { value: 1, label: "mofVendor4" },
+            { value: 2, label: "mofVendor2" },
+            { value: 3, label: "mofVendor3" },
+            { value: 4, label: "mofVendor4" },
           ]}
           value={values?.mofVendor}
           label="Manager of vendor"
-          onChange={(valueOption: any) => {
+          onChange={(valueOption: DDL) => {
             setFieldValue("mofVendor", valueOption);
           }}
           placeholder="Manager of vendor"

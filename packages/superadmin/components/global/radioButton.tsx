@@ -20,7 +20,9 @@ const RadioField: FC<Props> = (props) => {
       <div className="form-group row mb-2">
         <div className="col-md-3">
           <div className={styles.label_wrapper}>
-            <label className={styles.col_form_label}>{label}</label>
+            <label className={styles.col_form_label} htmlFor={name}>
+              {label}
+            </label>
             <div
               title=""
               data-toggle="tooltip"
@@ -33,7 +35,13 @@ const RadioField: FC<Props> = (props) => {
         </div>
         <div className="col-md-9">
           <label className="fs-8 mb-1 d-block ">
-            <Field type={type} className="me-2" name={name} value="Male" />
+            <Field
+              type={type}
+              className="me-2"
+              name={name}
+              value="Male"
+              id={name}
+            />
             Male
           </label>
           <label className="fs-8 d-block">

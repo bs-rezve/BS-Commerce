@@ -4,8 +4,13 @@ import InputField from "../global/inputField";
 import SelectDropdown from "../global/select";
 import Select from "react-select";
 import styles from "../../styles/Input.module.css";
+import { DDL, searchValue } from "../../utils/typs";
+// import { sleep } from "../../utils/utils";
 
-interface Props {}
+interface Props {
+  saveHandler: (values: searchValue) => void;
+  initData: searchValue;
+}
 
 const month: any = [
   { value: 1, label: "1" },
@@ -25,24 +30,15 @@ const day: any = [
   { value: 8, label: "8" },
 ];
 
-const SearchForm: FC<Props> = ({}) => {
-  const initData = {
-    email: "",
-    company: "",
-    fName: "",
-    ipAddress: "",
-    lastName: "",
-    role: "",
-    month: "",
-    day: "",
-  };
+const SearchForm: FC<Props> = ({ saveHandler, initData }) => {
   return (
     <>
       <Formik
         enableReinitialize={true}
         initialValues={initData}
-        onSubmit={(values, { resetForm }) => {
-          console.log(values, "values");
+        onSubmit={async (values, { resetForm }) => {
+          // await sleep(500);
+          saveHandler(values);
         }}
       >
         {({
@@ -107,7 +103,7 @@ const SearchForm: FC<Props> = ({}) => {
                 </div>
                 <div className="col-lg-6">
                   <SelectDropdown
-                    name="store"
+                    name="role"
                     options={[
                       { value: 1, label: "news1" },
                       { value: 2, label: "news2" },
@@ -116,7 +112,7 @@ const SearchForm: FC<Props> = ({}) => {
                     ]}
                     value={values?.role}
                     label="Customer roles"
-                    onChange={(valueOption: any) => {
+                    onChange={(valueOption: DDL) => {
                       setFieldValue("role", valueOption);
                     }}
                     isMulti={false}
@@ -147,6 +143,7 @@ const SearchForm: FC<Props> = ({}) => {
                         isMulti={false}
                         placeholder="Month"
                         isClearable={true}
+                        id="Month"
                       />
                       <Select
                         onChange={(valueOption: any) => {
@@ -159,6 +156,7 @@ const SearchForm: FC<Props> = ({}) => {
                         isMulti={false}
                         placeholder="Day"
                         isClearable={true}
+                        id="Day"
                       />
                     </div>
                   </div>

@@ -18,7 +18,9 @@ const Checkbox: FC<Props> = (props) => {
       <div className="form-group row mb-1">
         <div className="col-md-3">
           <div className="label-wrapper d-flex justify-content-end">
-            <label className={styles.col_form_label}>{label}</label>
+            <label className={styles.col_form_label} htmlFor={name}>
+              {label}
+            </label>
             <div
               title=""
               data-toggle="tooltip"
@@ -31,7 +33,7 @@ const Checkbox: FC<Props> = (props) => {
         </div>
         <div className="col-md-9 d-flex align-items-center">
           <label>
-            <Field type="checkbox" name={name} />
+            <Field type="checkbox" name={name} id={name} />
           </label>
         </div>
       </div>

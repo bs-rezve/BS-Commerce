@@ -22,7 +22,9 @@ const TextareaField: FC<Props> = (props) => {
       <div className="form-group row mb-2">
         <div className="col-md-3">
           <div className={styles.label_wrapper}>
-            <label className={styles.col_form_label}>{label}</label>
+            <label className={styles.col_form_label} htmlFor={name}>
+              {label}
+            </label>
             <div
               title=""
               data-toggle="tooltip"
@@ -41,6 +43,7 @@ const TextareaField: FC<Props> = (props) => {
             }}
             value={value}
             rows={rows}
+            id={name}
           ></textarea>
         </div>
       </div>

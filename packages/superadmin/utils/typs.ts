@@ -26,3 +26,20 @@ export interface crateValues {
   };
 
   export interface orders {id:string ,total:number, status:string,pstatus:string,shipStatus:string,store:string,createdOn:string }
+
+export interface DDL {
+  value:number,label:string
+}
+
+export type searchValue = {
+  email: string;
+  company: string;
+  fName: string;
+  ipAddress: string;
+  lastName: string;
+  role: DDL | string | [];
+  month: DDL | string | [];
+  day: DDL | string | [];
+};
+
+

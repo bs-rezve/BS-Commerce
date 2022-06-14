@@ -4,6 +4,7 @@ import Search from "../../../components/customer/search";
 import AddButton from "../../../components/global/AddButton";
 import TableInfo from "../../../components/global/table";
 import { useRouter } from "next/router";
+import ExportButton from "../../../components/global/exportButton";
 
 const thead = [
   "checkbox",
@@ -23,7 +24,7 @@ const Customer: NextPage = () => {
       name: "Name",
       roles: "Customer roles",
       cName: "Company name",
-      active: "Active",
+      active: true,
     },
   ]);
   const router = useRouter();
@@ -38,11 +39,12 @@ const Customer: NextPage = () => {
             link={"/users/customer/create"}
             icon="bi bi-file-plus"
           />
+          <ExportButton />
         </div>
       </div>
       <Search />
       <div className="card mt-2 p-3">
-        <div className="m-2 fs-5">
+        <div className="m-2 fs-5" data-testid="customers">
           Learn more about <span style={{ color: "#007bff" }}>customers</span>
         </div>
         <TableInfo tHead={thead} list={customers}>
@@ -56,10 +58,17 @@ const Customer: NextPage = () => {
               <td>{data.roles}</td>
               <td>{data.cName}</td>
               <td className="text-center">
-                <i
-                  className="bi bi-check-lg"
-                  style={{ fontSize: "30px", color: "#007fcc" }}
-                ></i>
+                {data?.active ? (
+                  <i
+                    className="bi bi-check-lg"
+                    style={{ fontSize: "30px", color: "#007fcc" }}
+                  ></i>
+                ) : (
+                  <i
+                    className="bi bi-x-lg"
+                    style={{ fontSize: "30px", color: "red" }}
+                  ></i>
+                )}
               </td>
               <td className="text-center">
                 <button

@@ -21,7 +21,9 @@ const InputField: FC<Props> = (props) => {
       <div className="form-group row mb-2">
         <div className="col-md-3">
           <div className={styles.label_wrapper}>
-            <label className={styles.col_form_label}>{label}</label>
+            <label className={styles.col_form_label} htmlFor={name}>
+              {label}
+            </label>
             <div
               title=""
               data-toggle="tooltip"
@@ -40,6 +42,7 @@ const InputField: FC<Props> = (props) => {
             className="form-control text-box single-line input-validation-error"
             placeholder={placeholder}
             type={type}
+            id={name}
           />
         </div>
       </div>

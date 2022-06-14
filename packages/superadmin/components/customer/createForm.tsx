@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import CustomerInfo from "./customerInfo";
+// import { sleep } from "../../utils/utils";
 
 // Validation schema
 const validationSchema = Yup.object().shape({});
@@ -25,10 +26,9 @@ const CreateForm: FC<Props> = ({
         enableReinitialize={true}
         initialValues={initData}
         validationSchema={validationSchema}
-        onSubmit={(values, { resetForm }) => {
-          saveHandler(values, () => {
-            resetForm(initData);
-          });
+        onSubmit={async (values) => {
+          // await sleep(500);
+          saveHandler(values);
         }}
       >
         {({
@@ -55,7 +55,9 @@ const CreateForm: FC<Props> = ({
                 style={{ display: "none" }}
                 ref={saveBtnRef}
                 onSubmit={() => handleSubmit()}
-              ></button>
+              >
+                submit
+              </button>
 
               <button
                 type="reset"

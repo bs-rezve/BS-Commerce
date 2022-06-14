@@ -5,26 +5,30 @@ import Accordion from "../../../components/global/accordion";
 import SubmitForm from "../../../components/global/submitForm";
 import { crateValues } from "../../../utils/typs";
 
+export const initData: crateValues = {
+  email: "",
+  password: "",
+  firstname: "",
+  lastname: "",
+  gender: "",
+  dob: "",
+  companyname: "",
+  ite: false,
+  newsletter: "",
+  customerRoles: "",
+  mofVendor: "",
+  active: false,
+  adminCommit: "",
+};
+
 const CreateCustomer: NextPage = () => {
   const [objProps, setObjprops] = useState({});
-  const initData: crateValues = {
-    email: "",
-    password: "",
-    firstname: "",
-    lastname: "",
-    gender: "",
-    dob: "",
-    companyname: "",
-    ite: false,
-    newsletter: [],
-    customerRoles: [],
-    mofVendor: "",
-    active: false,
-    adminCommit: "",
-  };
 
   return (
-    <div className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <div
+      className="col-md-9 ms-sm-auto col-lg-10 px-md-4"
+      data-testid="heading"
+    >
       <SubmitForm
         isDisabled={false}
         title="Add a new customer"

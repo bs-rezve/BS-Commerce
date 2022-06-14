@@ -3,11 +3,12 @@ import React, { FC } from "react";
 import Select from "react-select";
 import FormikError from "./formikError";
 import styles from "../../styles/Input.module.css";
+import { DDL } from "../../utils/typs";
 
 interface Props {
   name: string;
   options: any;
-  value: string;
+  value: string | DDL | [];
   label: string;
   placeholder?: string;
   errors?: any;
@@ -33,10 +34,8 @@ const SelectDropdown: FC<Props> = (props) => {
       <div className="row mb-2">
         <div className="col-md-3">
           <div className={styles.label_wrapper}>
-            <label className={styles.col_form_label}>
-              {(label || placeholder) && (
-                <label> {label || placeholder} </label>
-              )}
+            <label className={styles.col_form_label} htmlFor={name}>
+              <label> {label || placeholder} </label>
             </label>
             <div
               title=""
@@ -59,6 +58,7 @@ const SelectDropdown: FC<Props> = (props) => {
             isMulti={isMulti}
             placeholder={placeholder}
             isClearable={true}
+            inputId={name}
           />
         </div>
       </div>
