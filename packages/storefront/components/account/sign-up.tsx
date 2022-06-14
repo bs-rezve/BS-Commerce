@@ -4,21 +4,14 @@ import Link from "next/link";
 
 import { registerSchema } from "../global/schemas/loginSchema";
 import Breadcrumb from "../global/breadcrumbs/breadcrumb";
-
-interface Values {
-  firstname: string;
-  lastname: string;
-  email: string;
-  password: string;
-  confirm_password: string;
-}
+import {userAPI}  from "../../APIs";
 
 const Signup = () => {
-  const router = useRouter();
-  const baseUrl = "http://localhost:3000";
 
-  async function handleSignin(data: Values) {
-    console.log(data);
+  function handleSignUp(data: any) {
+    console.log(data)
+    const res = userAPI?.signUp(data);
+    console.log(res);
   }
 
   return (
@@ -42,23 +35,21 @@ const Signup = () => {
           <div className="m-5 sm:m-5 my-3 md:mx-10 lg:mx-10 xl:mx-10">
             <Formik
               initialValues={{
-                firstname: "",
-                lastname: "",
+                firstName: "",
+                lastName: "",
                 email: "",
                 password: "",
-                confirm_password: "",
               }}
               onSubmit={(values, actions) => {
                 const data = {
-                  firstName: values.firstname,
-                  lastName: values.lastname,
+                  firstName: values.firstName,
+                  lastName: values.lastName,
                   email: values.email,
                   password: values.password,
                 };
-                handleSignin(data);
+                handleSignUp(data);
                 actions.setSubmitting(false);
               }}
-              validationSchema={registerSchema}
             >
               {(formikprops) => {
                 return (
@@ -67,26 +58,20 @@ const Signup = () => {
                       <Field
                         type="text"
                         className="w-full p-2 outline-0 placeholder-gray-600"
-                        id="firstname"
-                        name="firstname"
+                        id="firstName"
+                        name="firstName"
                         placeholder="First Name"
                       />
-                      <div className="errMsg text-red-600">
-                        <ErrorMessage name="name" />
-                      </div>
                     </div>
 
                     <div className="mb-4">
                       <Field
                         type="text"
                         className="w-full p-2 outline-0 placeholder-gray-600"
-                        id="lastname"
-                        name="lastname"
+                        id="lastName"
+                        name="lastName"
                         placeholder="Last Name"
                       />
-                      <div className="errMsg text-red-600">
-                        <ErrorMessage name="name" />
-                      </div>
                     </div>
 
                     <div className="mb-4">
@@ -97,9 +82,7 @@ const Signup = () => {
                         name="email"
                         placeholder="Email"
                       />
-                      <div className="errMsg text-red-600">
-                        <ErrorMessage name="email" />
-                      </div>
+                     
                     </div>
 
                     <div className="mb-4">
@@ -110,22 +93,7 @@ const Signup = () => {
                         name="password"
                         placeholder="Password"
                       />
-                      <div className="errMsg text-red-600">
-                        <ErrorMessage name="password" />
-                      </div>
-                    </div>
-
-                    <div className="mb-4">
-                      <Field
-                        type="password"
-                        className="w-full p-2 outline-0 placeholder-gray-600"
-                        id="confirm_password"
-                        name="confirm_password"
-                        placeholder="Confirm Password"
-                      />
-                      <div className="errMsg text-red-600">
-                        <ErrorMessage name="confirm_password" />
-                      </div>
+                      
                     </div>
 
                     <button

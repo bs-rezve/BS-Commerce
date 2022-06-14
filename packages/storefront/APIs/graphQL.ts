@@ -1,6 +1,7 @@
 import { gql } from "@apollo/client";
 import { User } from "utils/types";
 import client from "./apollo-client";
+import { CreateUserRequest, CreateUserSuccessResponse } from "models";
 
 export async function getUserGraphQl():Promise<User[] | undefined>{
     const { data } = await client.query({
@@ -15,4 +16,7 @@ export async function getUserGraphQl():Promise<User[] | undefined>{
         `,
       });
  return data
+}
+
+export async function signUpGraphQL(data: CreateUserRequest){
 }
