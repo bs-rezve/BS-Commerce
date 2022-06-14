@@ -42,11 +42,6 @@ function isEmailLengthValid(email: any) {
   return local.length <= 64;
 }
 
-export const loginSchema = object().shape({
-  phone: string().matches(/^[0-9\+]*$/, "This field only contains digits"),
-  password: string().required("This field must not be empty"),
-});
-
 const userSchema = {
   firstname: string()
     .matches(
@@ -75,10 +70,17 @@ const userSchema = {
     ),
 };
 
+
+export const loginSchema = object().shape({
+  email: userSchema.email,
+  password: string().required("This field must not be empty"),
+});
+
+
 export const registerSchema = object().shape({
-  firstname: userSchema.firstname,
-  lastname: userSchema.lastname,
-  phone: string().matches(/^[0-9\+]*$/, "This field only contains digits"),
+  firstName: userSchema.firstname,
+  lastName: userSchema.lastname,
+  email: userSchema.email,
   password: string()
     .min(3, "This field must be at least 8 characters long")
     .max(50, "This field must be at most 50 characters long")
@@ -93,9 +95,6 @@ export const registerSchema = object().shape({
       "Password has one or more invalid character. Click info icon for hints",
       (password) => hasValidCharacters(password)
     ),
-  confirm_password: string()
-    .required("This field must not be empty")
-    .oneOf([ref("password"), null], "Passwords must match"),
 });
 
 export const changePasswordSchema = object().shape({

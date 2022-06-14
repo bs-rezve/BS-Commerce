@@ -9,9 +9,9 @@ import {userAPI}  from "../../APIs";
 const Signup = () => {
 
   function handleSignUp(data: any) {
-    console.log(data)
+    //console.log(data)
     const res = userAPI?.signUp(data);
-    console.log(res);
+    //console.log(res);
   }
 
   return (
@@ -50,6 +50,7 @@ const Signup = () => {
                 handleSignUp(data);
                 actions.setSubmitting(false);
               }}
+              validationSchema={registerSchema}
             >
               {(formikprops) => {
                 return (
@@ -62,6 +63,9 @@ const Signup = () => {
                         name="firstName"
                         placeholder="First Name"
                       />
+                      <div className="errMsg text-red-600 outline-0">
+                        <ErrorMessage name="firstName" />
+                      </div>
                     </div>
 
                     <div className="mb-4">
@@ -72,6 +76,9 @@ const Signup = () => {
                         name="lastName"
                         placeholder="Last Name"
                       />
+                      <div className="errMsg text-red-600 outline-0">
+                        <ErrorMessage name="lastName" />
+                      </div>
                     </div>
 
                     <div className="mb-4">
@@ -82,7 +89,9 @@ const Signup = () => {
                         name="email"
                         placeholder="Email"
                       />
-                     
+                     <div className="errMsg text-red-600 outline-0">
+                        <ErrorMessage name="email" />
+                      </div>
                     </div>
 
                     <div className="mb-4">
@@ -93,7 +102,9 @@ const Signup = () => {
                         name="password"
                         placeholder="Password"
                       />
-                      
+                      <div className="errMsg text-red-600 outline-0">
+                        <ErrorMessage name="password" />
+                      </div>
                     </div>
 
                     <button

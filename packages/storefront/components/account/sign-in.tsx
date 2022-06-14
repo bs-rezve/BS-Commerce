@@ -1,4 +1,6 @@
+import { userAPI } from "APIs";
 import { ErrorMessage, Field, Form, Formik, FormikValues } from "formik";
+import { SignInRequest } from "models";
 import type { NextComponentType } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -6,14 +8,10 @@ import Breadcrumb from "../global/breadcrumbs/breadcrumb";
 
 import { loginSchema } from "../global/schemas/loginSchema";
 
-interface Values {
-  email: string;
-  password: string;
-}
-
 const Signin = () => {
-  function handleSignin(data: Values) {
-    console.log(data);
+  function handleSignin(data: SignInRequest) {
+   const res = userAPI.signIn(data);
+   console.log(res);
   }
 
   return (
@@ -40,7 +38,7 @@ const Signin = () => {
               }}
               onSubmit={(values, actions) => {
                 const data = {
-                  email: values.email,
+                  username: values.email,
                   password: values.password,
                 };
                 handleSignin(data);

@@ -1,14 +1,10 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import { ForgotPasswordRequest } from "models";
 import Link from "next/link";
 import Breadcrumb from "../global/breadcrumbs/breadcrumb";
-import { loginSchema } from "../global/schemas/loginSchema";
-
-interface Values {
-  email: string;
-}
 
 const ForgotPassword = () => {
-  const handleForgotPassword = (values: Values) => {
+  const handleForgotPassword = (values: ForgotPasswordRequest) => {
     console.log(values);
   };
 
@@ -37,12 +33,11 @@ const ForgotPassword = () => {
               }}
               onSubmit={(values, actions) => {
                 const data = {
-                  email: values.email,
+                  username: values.email,
                 };
                 handleForgotPassword(data);
                 actions.setSubmitting(false);
               }}
-              validationSchema={loginSchema}
             >
               {(formikprops) => {
                 return (
@@ -55,9 +50,6 @@ const ForgotPassword = () => {
                         name="email"
                         placeholder="Email"
                       />
-                      <div className="errMsg text-red-600">
-                        <ErrorMessage name="email" />
-                      </div>
                     </div>
 
                     <div className="flex flex-wrap justify-end sm:justify-end md:justify-between lg:justify-between xl:justify-between">

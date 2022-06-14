@@ -1,7 +1,7 @@
 import axios from "axios"
 import { config } from "config";
 import { User } from "utils/types";
-import { CreateUserRequest, CreateUserSuccessResponse } from "models";
+import { CreateUserRequest, CreateUserSuccessResponse, SignInRequest, SignInSuccessResponse } from "models";
 
 export async function getUserRest():Promise<User[] | undefined> {
     try {
@@ -15,7 +15,15 @@ export async function getUserRest():Promise<User[] | undefined> {
 export async function signUpRest(data: CreateUserRequest) {
   try {
     const response = await axios.post(`${config.restPrefix}/api/auth/signup`, data);
-    console.log(response);
+    return response.data;
+  } catch(error) {
+    console.log(error);
+  }
+}
+
+export async function signInRest(data: SignInRequest): Promise<SignInSuccessResponse | undefined> {
+  try {
+    const response = await axios.post(`${config.restPrefix}/api/auth/signin`, data);
     return response.data;
   } catch(error) {
     console.log(error);
