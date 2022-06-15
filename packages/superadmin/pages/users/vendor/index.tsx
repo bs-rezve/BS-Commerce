@@ -22,6 +22,48 @@ const Customer: NextPage = () => {
       name: "Name",
       active: true,
     },
+    {
+      id: "1",
+      email: "email",
+      name: "Name",
+      active: true,
+    },
+    {
+      id: "1",
+      email: "email",
+      name: "Name",
+      active: true,
+    },
+    {
+      id: "1",
+      email: "email",
+      name: "Name",
+      active: true,
+    },
+    {
+      id: "1",
+      email: "email",
+      name: "Name",
+      active: true,
+    },
+    {
+      id: "1",
+      email: "email",
+      name: "Name",
+      active: true,
+    },
+    {
+      id: "1",
+      email: "email",
+      name: "Name",
+      active: true,
+    },
+    {
+      id: "1",
+      email: "email",
+      name: "Name",
+      active: true,
+    },
   ]);
   const router = useRouter();
 

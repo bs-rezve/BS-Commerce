@@ -37,11 +37,11 @@ const TableInfo: FC<Props> = ({ tHead, list, children }) => {
               <td colSpan={tHead.length}>No data available in table</td>
             </tr>
           ) : (
-            children
+            <>{children}</>
           )}
         </tbody>
       </table>
-      <Pagination list={list} />
+      {list.length > 1 ? <Pagination list={list} /> : null}
     </div>
   );
 };
