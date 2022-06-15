@@ -9,8 +9,9 @@ import { loginSchema } from "../global/schemas/loginSchema";
 
 const Signin = () => {
   function handleSignin(data: SignInRequest) {
-   const res = userAPI.signIn(data);
-   console.log(res);
+    console.log(data);
+  //  const res = userAPI.signIn(data);
+  //  console.log(res);
   }
 
   return (
