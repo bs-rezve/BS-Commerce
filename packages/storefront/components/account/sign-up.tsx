@@ -9,8 +9,8 @@ import {userAPI}  from "../../APIs";
 const Signup = () => {
 
   function handleSignUp(data: any) {
-    //console.log(data)
-    const res = userAPI?.signUp(data);
+    console.log(data)
+    //const res = userAPI?.signUp(data);
     //console.log(res);
   }
 
@@ -35,16 +35,14 @@ const Signup = () => {
           <div className="m-5 sm:m-5 my-3 md:mx-10 lg:mx-10 xl:mx-10">
             <Formik
               initialValues={{
-                firstName: "",
-                lastName: "",
-                email: "",
+                name: "",
+                username: "",
                 password: "",
               }}
               onSubmit={(values, actions) => {
                 const data = {
-                  firstName: values.firstName,
-                  lastName: values.lastName,
-                  email: values.email,
+                  name: values.name,
+                  username: values.username,
                   password: values.password,
                 };
                 handleSignUp(data);
@@ -59,12 +57,12 @@ const Signup = () => {
                       <Field
                         type="text"
                         className="w-full p-2 outline-0 placeholder-gray-600"
-                        id="firstName"
-                        name="firstName"
-                        placeholder="First Name"
+                        id="name"
+                        name="name"
+                        placeholder="Name"
                       />
                       <div className="errMsg text-red-600 outline-0">
-                        <ErrorMessage name="firstName" />
+                        <ErrorMessage name="name" />
                       </div>
                     </div>
 
@@ -72,25 +70,12 @@ const Signup = () => {
                       <Field
                         type="text"
                         className="w-full p-2 outline-0 placeholder-gray-600"
-                        id="lastName"
-                        name="lastName"
-                        placeholder="Last Name"
-                      />
-                      <div className="errMsg text-red-600 outline-0">
-                        <ErrorMessage name="lastName" />
-                      </div>
-                    </div>
-
-                    <div className="mb-4">
-                      <Field
-                        type="email"
-                        className="w-full p-2 outline-0 placeholder-gray-600"
-                        id="email"
-                        name="email"
-                        placeholder="Email"
+                        id="username"
+                        name="username"
+                        placeholder="Email or phone number"
                       />
                      <div className="errMsg text-red-600 outline-0">
-                        <ErrorMessage name="email" />
+                        <ErrorMessage name="username" />
                       </div>
                     </div>
 

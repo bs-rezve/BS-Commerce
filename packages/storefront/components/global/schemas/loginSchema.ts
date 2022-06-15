@@ -72,15 +72,14 @@ const userSchema = {
 
 
 export const loginSchema = object().shape({
-  email: userSchema.email,
+  username: string().required("This field must not be empty"),
   password: string().required("This field must not be empty"),
 });
 
 
 export const registerSchema = object().shape({
-  firstName: userSchema.firstname,
-  lastName: userSchema.lastname,
-  email: userSchema.email,
+  name: userSchema.firstname,
+  username: string().required("This field must not be empty"),
   password: string()
     .min(3, "This field must be at least 8 characters long")
     .max(50, "This field must be at most 50 characters long")

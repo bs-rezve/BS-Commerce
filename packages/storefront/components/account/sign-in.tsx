@@ -1,7 +1,6 @@
 import { userAPI } from "APIs";
-import { ErrorMessage, Field, Form, Formik, FormikValues } from "formik";
+import { ErrorMessage, Field, Form, Formik } from "formik";
 import { SignInRequest } from "models";
-import type { NextComponentType } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Breadcrumb from "../global/breadcrumbs/breadcrumb";
@@ -33,12 +32,12 @@ const Signin = () => {
           <div className="m-5 sm:m-5 my-3 md:mx-10 lg:mx-10 xl:mx-10">
             <Formik
               initialValues={{
-                email: "",
+                username: "",
                 password: "",
               }}
               onSubmit={(values, actions) => {
                 const data = {
-                  username: values.email,
+                  username: values.username,
                   password: values.password,
                 };
                 handleSignin(data);
@@ -53,12 +52,12 @@ const Signin = () => {
                       <Field
                         type="text"
                         className="w-full p-2 placeholder-gray-600 outline-0"
-                        id="email"
-                        name="email"
-                        placeholder="Email"
+                        id="username"
+                        name="username"
+                        placeholder="Email or phone number"
                       />
                       <div className="errMsg text-red-600 outline-0">
-                        <ErrorMessage name="email" />
+                        <ErrorMessage name="username" />
                       </div>
                     </div>
 
