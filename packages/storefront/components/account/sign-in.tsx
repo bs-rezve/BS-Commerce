@@ -58,7 +58,7 @@ const Signin = () => {
                         placeholder="Email or phone number"
                       />
                       <div className="errMsg text-red-600 outline-0">
-                        <ErrorMessage name="username" />
+                        <ErrorMessage name='username'/>
                       </div>
                     </div>
 
