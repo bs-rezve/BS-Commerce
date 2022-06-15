@@ -27,10 +27,7 @@ const SearchDiscount = () => {
             SearchDiscountStartDate: values.SearchDiscountStartDate,
             SearchDiscountEndtDate: values.SearchDiscountEndtDate,
           };
-          console.log(data);
-          console.log("h");
 
-          // handleSearchSubmit(data);
           actions.setSubmitting(false);
         }}
         validationSchema={searchDiscountSchema}
@@ -94,7 +91,6 @@ const SearchDiscount = () => {
                               name="SearchDiscountEndtDate"
                             />
                             <div className="errMsg text-red-600 text-danger">
-                              {/* <ErrorMessage name="SearchDiscountEndtDate" /> */}
                             </div>
                           </div>
                         </div>
@@ -156,7 +152,6 @@ const SearchDiscount = () => {
                               name="goToDiscountByCode"
                             />
                             <div className="errMsg text-red-600 text-danger">
-                              {/* <ErrorMessage name="goToDiscountByCode" /> */}
                             </div>
                           </div>
                         </div>
@@ -180,7 +175,6 @@ const SearchDiscount = () => {
                               type="text"
                             />
                             <div className="errMsg text-red-600 text-danger">
-                              {/* <ErrorMessage name="SearchDiscountName" /> */}
                             </div>
                           </div>
                         </div>
