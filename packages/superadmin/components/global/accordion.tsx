@@ -36,7 +36,9 @@ const Accordion: FC<Props> = ({ title, children, id, icon, show = false }) => {
           aria-labelledby={`heading${id}`}
           data-bs-parent="#accordionExample"
         >
-          <div className="accordion-body">{children}</div>
+          <div className="accordion-body">
+            <>{children}</>
+          </div>
         </div>
       </div>
     </div>

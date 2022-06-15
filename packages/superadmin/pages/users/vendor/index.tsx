@@ -4,29 +4,14 @@ import AddButton from "../../../components/global/AddButton";
 import TableInfo from "../../../components/global/table";
 import { useRouter } from "next/router";
 import ExportButton from "../../../components/global/exportButton";
-import SearchForm from "../../../components/customer/searchForm";
-import { searchValue } from "../../../utils/typs";
 import Search from "../../../components/global/search";
+import { searchvendor } from "../../../utils/typs";
+import SearchFormVendor from "../../../components/vendor/searchForm";
 
-const thead = [
-  "checkbox",
-  "Email",
-  "Name",
-  "Customer roles",
-  "Company name",
-  "Active",
-  "Edit",
-];
-
-const initData: searchValue = {
+const thead = ["Name", "Email", "Active", "Edit"];
+const initData: searchvendor = {
+  name: "",
   email: "",
-  company: "",
-  fName: "",
-  ipAddress: "",
-  lastName: "",
-  role: "",
-  month: "",
-  day: "",
 };
 
 const Customer: NextPage = () => {
@@ -35,8 +20,6 @@ const Customer: NextPage = () => {
       id: "1",
       email: "email",
       name: "Name",
-      roles: "Customer roles",
-      cName: "Company name",
       active: true,
     },
   ]);
@@ -45,33 +28,28 @@ const Customer: NextPage = () => {
   return (
     <div className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div className="px-2 py-3 d-flex justify-content-between">
-        <div className="fs-3">Customes</div>
+        <div className="fs-3">Vendors</div>
         <div className="">
           <AddButton
             title="Add New"
-            link={"/users/customer/create"}
+            link={"/users/vendor/create"}
             icon="bi bi-file-plus"
           />
-          <ExportButton />
         </div>
       </div>
       <Search>
-        <SearchForm saveHandler={() => {}} initData={initData} />
+        <SearchFormVendor saveHandler={() => {}} initData={initData} />
       </Search>
       <div className="card mt-2 p-3">
         <div className="m-2 fs-5" data-testid="customers">
-          Learn more about <span style={{ color: "#007bff" }}>customers</span>
+          Learn more about{" "}
+          <span style={{ color: "#007bff" }}>vendor management</span>
         </div>
         <TableInfo tHead={thead} list={customers}>
           {customers?.map((data, index) => (
             <tr key={index}>
-              <td className="text-center">
-                <input type="checkbox" name="veh" value="bike" />
-              </td>
               <td>{data.email}</td>
               <td>{data.name}</td>
-              <td>{data.roles}</td>
-              <td>{data.cName}</td>
               <td className="text-center">
                 {data?.active ? (
                   <i
