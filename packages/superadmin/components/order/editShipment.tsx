@@ -14,11 +14,21 @@ const EditShipment = () => {
     const [notes, setNotes] = useState(false);
 
     const [modal, setModal] = useState({
+        editShipped: false,
+        editDelivered: false,
         delete: false,
     });
 
     const handleDelete = () => {
         setModal({ ...modal, delete: true });
+    };
+
+    const handleEditShipped = () => {
+        setModal({ ...modal, editShipped: true });
+    };
+
+    const handleEditDelivered = () => {
+        setModal({ ...modal, editDelivered: true });
     };
 
     return (
@@ -52,6 +62,104 @@ const EditShipment = () => {
                             >
                                 <i className="bi bi-trash"> </i>Delete
                             </button>
+                            {modal.delete ? (
+                                <div
+                                    className="modal"
+                                    style={{
+                                        display: modal.delete
+                                            ? "block"
+                                            : "none",
+                                    }}
+                                >
+                                    <div
+                                        className="modal-backdrop"
+                                        style={{
+                                            backgroundColor:
+                                                "rgba(0, 0, 0, 0.1)",
+                                        }}
+                                        onClick={() => {
+                                            // close modal when outside of modal is clicked
+                                            setModal({
+                                                ...modal,
+                                                delete: false,
+                                            });
+                                        }}
+                                    >
+                                        <div
+                                            className="modal-content"
+                                            onClick={(e) => {
+                                                // do not close modal if anything inside modal content is clicked
+                                                e.stopPropagation();
+                                            }}
+                                            style={{
+                                                textAlign: "left",
+                                                width: "30%",
+                                                marginLeft: "40%",
+                                                marginTop: "5%",
+                                                border: "1px solid gray",
+                                                boxShadow: "1px 1px 10px gray",
+                                                borderRadius: "10px",
+                                                padding: "20px",
+                                            }}
+                                        >
+                                            <div className="container">
+                                                <button
+                                                    type="button"
+                                                    className="btn-close"
+                                                    style={{
+                                                        marginLeft: "100%",
+                                                    }}
+                                                    onClick={() =>
+                                                        setModal({
+                                                            ...modal,
+                                                            delete: false,
+                                                        })
+                                                    }
+                                                    aria-label="Close"
+                                                ></button>
+                                                <h1>Are you sure?</h1>
+                                                <hr />
+                                                <p>
+                                                    Are you sure you want to
+                                                    delete this item?
+                                                </p>
+                                                <br />
+
+                                                <div className="clearfix">
+                                                    <button
+                                                        type="button"
+                                                        className="btn btn-light"
+                                                        style={{
+                                                            border: "1px solid gray",
+                                                            backgroundColor:
+                                                                "gray",
+                                                            color: "white",
+                                                            marginRight: "10px",
+                                                        }}
+                                                        onClick={() =>
+                                                            setModal({
+                                                                ...modal,
+                                                                delete: false,
+                                                            })
+                                                        }
+                                                    >
+                                                        Cancel
+                                                    </button>
+                                                    <button
+                                                        type="button"
+                                                        className="btn btn-danger"
+                                                        // onClick={deleteProfileList}
+                                                    >
+                                                        Delete
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            ) : (
+                                <div />
+                            )}
                         </div>
                     </div>
                 </div>
@@ -86,10 +194,64 @@ const EditShipment = () => {
                         data={"2.00 [lb(s)]"}
                     />
                     <Tooltip
-                        label={"Date ready for pickup"}
+                        label={"Date shipped"}
                         tooltipText={"The unique number of this order"}
                         data={"6/14/2022 2:04:12 AM"}
                     />
+                    <div style={{ textAlign: "center" }}>
+                        <button
+                            type="button"
+                            className="btn btn-secondary"
+                            onClick={() => handleEditShipped()}
+                        >
+                            Edit
+                        </button>
+                    </div>
+                    {modal.editShipped ? (
+                        <>
+                            <div style={{ textAlign: "center" }}>
+                                <div
+                                    style={{
+                                        padding: "5px",
+                                        marginRight: "100px",
+                                    }}
+                                    className="col"
+                                >
+                                    <input
+                                        type="datetime-local"
+                                        className="form-control"
+                                        style={{
+                                            width: "40%",
+                                            marginLeft: "40%",
+                                        }}
+                                        placeholder=""
+                                    />
+                                    <span>
+                                        <button
+                                            type="button"
+                                            className="btn btn-primary"
+                                            // onClick={() => handleEditShipped()}
+                                        >
+                                            Save
+                                        </button>
+                                        <button
+                                            type="button"
+                                            className="btn btn-secondary"
+                                            onClick={() =>
+                                                setModal({
+                                                    ...modal,
+                                                    editShipped: false,
+                                                })
+                                            }
+                                        >
+                                            Cancel
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                        </>
+                    ) : null}
+
                     <Tooltip
                         label={"Date delivered"}
                         tooltipText={"The unique number of this order"}
@@ -98,20 +260,62 @@ const EditShipment = () => {
                     <div style={{ textAlign: "center" }}>
                         <button
                             type="button"
-                            className="btn btn-danger"
-                            style={{
-                                backgroundColor: "#dd4b39",
-                                marginRight: "10px",
-                            }}
-                            // onClick={() => handleCancel()}
+                            className="btn btn-secondary"
+                            onClick={() => handleEditDelivered()}
                         >
-                            Cancel order
+                            Edit
                         </button>
+                        {modal.editDelivered ? (
+                            <>
+                                <div style={{ textAlign: "center" }}>
+                                    <div
+                                        style={{
+                                            padding: "5px",
+                                            marginRight: "100px",
+                                        }}
+                                        className="col"
+                                    >
+                                        <input
+                                            type="datetime-local"
+                                            className="form-control"
+                                            style={{
+                                                width: "40%",
+                                                marginLeft: "40%",
+                                            }}
+                                            placeholder=""
+                                        />
+                                        <span>
+                                            <button
+                                                type="button"
+                                                className="btn btn-primary"
+                                                // onClick={() => handleEditShipped()}
+                                            >
+                                                Save
+                                            </button>
+                                            <button
+                                                type="button"
+                                                className="btn btn-secondary"
+                                                onClick={() =>
+                                                    setModal({
+                                                        ...modal,
+                                                        editDelivered: false,
+                                                    })
+                                                }
+                                            >
+                                                Cancel
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </>
+                        ) : null}
                     </div>
                 </div>
 
                 <div style={{ border: "1px solid #dddddd" }}>
-                    <div style={{ margin: "20px", fontSize: "20px" }}>Products shipped</div>
+                    <div style={{ margin: "20px", fontSize: "20px" }}>
+                        Products shipped
+                    </div>
                     <hr />
                     <div style={{ margin: "20px" }}>
                         <table
