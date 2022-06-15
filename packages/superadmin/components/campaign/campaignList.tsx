@@ -2,10 +2,10 @@ import { useState } from "react";
 import Link from "next/link";
 
 import Table from "../global/table/table";
-import discountData from "../../data/discounts.json";
+import campaignData from "../../data/discounts.json";
 import Pagination from "../global/pagination";
 
-const DiscountsList = () => {
+const CampaignsList = () => {
   const [activePage, setActivePage] = useState(1);
   const [pageCount, setPageCount] = useState(5);
   const columns = [
@@ -15,28 +15,13 @@ const DiscountsList = () => {
       content: (data: any, key: any, index: any) => <td>{data[key]}</td>,
     },
     {
-      label: "Discount type",
-      path: "type",
+      label: "Created on",
+      path: "creationDate",
       content: (data: any, key: any, index: any) => <td>{data[key]}</td>,
     },
     {
-      label: "Discount",
-      path: "discountPercentage",
-      content: (data: any, key: any, index: any) => <td>{data[key]}%</td>,
-    },
-    {
-      label: "Start date",
-      path: "startDate",
-      content: (data: any, key: any, index: any) => <td>{data[key]}</td>,
-    },
-    {
-      label: "End date",
-      path: "endDate",
-      content: (data: any, key: any, index: any) => <td>{data[key]}</td>,
-    },
-    {
-      label: "Times Used",
-      path: "used",
+      label: "Planned date of sending",
+      path: "sendingDate",
       content: (data: any, key: any, index: any) => <td>{data[key]}</td>,
     },
     {
@@ -45,7 +30,7 @@ const DiscountsList = () => {
       content: (data: any, key: any, index: any) => (
         <td className="text-center">
           <Link
-            href={{ pathname: `/discount/edit/[id]`, query: { id: data[key] } }}
+            href={{ pathname: `/campaign/edit/[id]`, query: { id: data[key] } }}
             passHref
           >
             <button className="btn btn-default">
@@ -70,16 +55,16 @@ const DiscountsList = () => {
     setActivePage(activePage);
   };
 
-  const paginatedData = paginateData(discountData["discountData"]);
+  const paginatedData = paginateData(campaignData["campaignData"]);
 
   return (
     <>
-      <div className="card rounded border-1 px-2 mt-3">
+      <div className="card rounded border-1 px-2 mt-5">
         <div className="card-body">
           <p>
             Learn more about{" "}
             <a href="#" style={{ textDecoration: "none" }}>
-              Discounts
+            Email campaigns
             </a>
           </p>
           <Table items={paginatedData} columns={columns} />
@@ -173,4 +158,4 @@ const DiscountsList = () => {
   );
 };
 
-export default DiscountsList;
+export default CampaignsList;

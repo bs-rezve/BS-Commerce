@@ -1,7 +1,6 @@
 import type { NextPage } from "next";
 import DiscountsList from "../../components/discount/discountList";
 import SearchDiscount from "../../components/discount/searchDiscount";
-// import ProductIndex from "../../components/products/productsList";
 
 const Discounts: NextPage = () => {
   return (

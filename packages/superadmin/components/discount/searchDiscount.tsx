@@ -94,7 +94,7 @@ const SearchDiscount = () => {
                               name="SearchDiscountEndtDate"
                             />
                             <div className="errMsg text-red-600 text-danger">
-                              <ErrorMessage name="SearchDiscountEndtDate" />
+                              {/* <ErrorMessage name="SearchDiscountEndtDate" /> */}
                             </div>
                           </div>
                         </div>
@@ -156,7 +156,7 @@ const SearchDiscount = () => {
                               name="goToDiscountByCode"
                             />
                             <div className="errMsg text-red-600 text-danger">
-                              <ErrorMessage name="goToDiscountByCode" />
+                              {/* <ErrorMessage name="goToDiscountByCode" /> */}
                             </div>
                           </div>
                         </div>
@@ -180,7 +180,7 @@ const SearchDiscount = () => {
                               type="text"
                             />
                             <div className="errMsg text-red-600 text-danger">
-                              <ErrorMessage name="SearchDiscountName" />
+                              {/* <ErrorMessage name="SearchDiscountName" /> */}
                             </div>
                           </div>
                         </div>
