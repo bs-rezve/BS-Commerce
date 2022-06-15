@@ -5,6 +5,7 @@ import getData from "./service/get-shipping-data.service";
 import SingleShipment from "./singleShipment";
 
 const ShipmentList = ({setAllPath}: any) => {
+    const [search, setSearch] = useState(false);
     const [data, setData] = useState([]);
     const [activePage, setActivePage] = useState(1);
     const [pageCount, setPageCount] = useState(5);
@@ -65,74 +66,108 @@ const ShipmentList = ({setAllPath}: any) => {
                     </div>
                 </div>
 
-                <div>
-                    <form style={{ padding: "5px", margin: "5px" }}>
-                        <div
-                            style={{
-                                display: "flex",
-                                padding: "5px",
-                                margin: "5px",
-                            }}
-                            className="form-col"
-                        >
+                <button
+                    onClick={() => setSearch(!search)}
+                    aria-controls="example-collapse-text"
+                    aria-expanded={search}
+                    style={{
+                        width: "100%",
+                        border: "1px solid #dddddd",
+                        textAlign: "left",
+                        fontSize: "20px",
+                        padding: "20px",
+                        marginBottom: "20px",
+                        marginLeft: "10px",
+                        // transition: '10s'
+                    }}
+                >
+                    <i className="bi bi-search"></i> Search
+                </button>
+
+                {search ? (
+                    <div>
+                        <form style={{ padding: "5px", margin: "5px" }}>
                             <div
-                                style={{ padding: "5px", marginRight: "100px" }}
-                                className="col"
-                            >
-                                Start Date
-                                <input
-                                    type="date"
-                                    className="form-control"
-                                    placeholder=""
-                                />
-                            </div>
-                            <div
-                                style={{ padding: "5px", marginRight: "100px" }}
-                                className="col"
-                            >
-                                Start Time
-                                <input
-                                    type="time"
-                                    className="form-control"
-                                    placeholder=""
-                                />
-                            </div>
-                            <div
-                                style={{ padding: "5px", marginRight: "100px" }}
-                                className="col"
-                            >
-                                End Date
-                                <input
-                                    type="date"
-                                    className="form-control"
-                                    placeholder=""
-                                />
-                            </div>
-                            <div
-                                style={{ padding: "5px", marginRight: "100px" }}
-                                className="col"
-                            >
-                                End Time
-                                <input
-                                    type="time"
-                                    className="form-control"
-                                    placeholder=""
-                                />
-                            </div>
-                            <button
-                                type="submit"
                                 style={{
-                                    height: "50px",
-                                    width: "100px",
-                                    margin: "15px",
+                                    display: "flex",
+                                    padding: "5px",
+                                    margin: "5px",
                                 }}
-                                className="btn btn-primary"
+                                className="form-col"
                             >
-                                <i className="bi bi-search"></i>{" "}Search
-                            </button>
-                        </div>
-                    </form>
-                </div>
+                                <div
+                                    style={{
+                                        padding: "5px",
+                                        marginRight: "100px",
+                                    }}
+                                    className="col"
+                                >
+                                    Start Date
+                                    <input
+                                        type="date"
+                                        className="form-control"
+                                        placeholder=""
+                                    />
+                                </div>
+                                <div
+                                    style={{
+                                        padding: "5px",
+                                        marginRight: "100px",
+                                    }}
+                                    className="col"
+                                >
+                                    Start Time
+                                    <input
+                                        type="time"
+                                        className="form-control"
+                                        placeholder=""
+                                    />
+                                </div>
+                                <div
+                                    style={{
+                                        padding: "5px",
+                                        marginRight: "100px",
+                                    }}
+                                    className="col"
+                                >
+                                    End Date
+                                    <input
+                                        type="date"
+                                        className="form-control"
+                                        placeholder=""
+                                    />
+                                </div>
+                                <div
+                                    style={{
+                                        padding: "5px",
+                                        marginRight: "100px",
+                                    }}
+                                    className="col"
+                                >
+                                    End Time
+                                    <input
+                                        type="time"
+                                        className="form-control"
+                                        placeholder=""
+                                    />
+                                </div>
+                                <button
+                                    type="submit"
+                                    style={{
+                                        height: "50px",
+                                        width: "100px",
+                                        margin: "15px",
+                                    }}
+                                    className="btn btn-primary"
+                                >
+                                    <i className="bi bi-search"></i> Search
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                ) : (
+                    <></>
+                )}
 
                 <table
                     className="table"

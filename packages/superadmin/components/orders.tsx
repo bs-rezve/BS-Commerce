@@ -4,7 +4,7 @@ import EditAddress from './sales/editAddress';
 import EditOrder from './sales/editOrder';
 import OrderList from './sales/orderList';
 
-const Orders: NextComponentType = () => {
+const Orders = () => {
     const [allPath, setAllPath] = useState({
         list: true,
         view: false,
@@ -14,10 +14,10 @@ const Orders: NextComponentType = () => {
 
     return (
         <>
-            {allPath.list ? <OrderList setAllPath={setAllPath}/>: null}
+            {/* {allPath.list ? <OrderList setAllPath={setAllPath}/>: null}
             {allPath.view ? <EditOrder setAllPath={setAllPath}/>: null}
             {allPath.billingEdit ? <EditAddress setAllPath={setAllPath}/>: null}
-            {allPath.shippingEdit ? <EditAddress setAllPath={setAllPath}/>: null}
+            {allPath.shippingEdit ? <EditAddress setAllPath={setAllPath}/>: null} */}
         </>
     );
 };

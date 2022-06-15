@@ -2,22 +2,22 @@ import Link from "next/link";
 import React, { useState } from "react";
 import EditAddress from "../editAddress";
 
-const Billing = (props: any) => {
-    const {setAllPath} = props;
-    
-    const obj1 = {
-        list: false,
-        view: false,
-        billingEdit: true,
-        shippingEdit: false
-    };
+const Billing = () => {
+    // const {setAllPath} = props;
 
-    const obj2 = {
-        list: false,
-        view: false,
-        billingEdit: false,
-        shippingEdit: true
-    };
+    // const obj1 = {
+    //     list: false,
+    //     view: false,
+    //     billingEdit: true,
+    //     shippingEdit: false
+    // };
+
+    // const obj2 = {
+    //     list: false,
+    //     view: false,
+    //     billingEdit: false,
+    //     shippingEdit: true
+    // };
 
     return (
         <>
@@ -187,19 +187,21 @@ const Billing = (props: any) => {
                             </tr>
                         </table>
                         <div style={{ textAlign: "left", marginTop: "20px" }}>
-                            <button
-                                type="button"
-                                className="btn btn-danger btn-lg"
-                                style={{
-                                    backgroundColor: "#3c8dbc",
-                                    border: "1px solid #3c8dbc",
-                                }}
-                                onClick={() =>
-                                    setAllPath(obj1)
-                                }
-                            >
-                                Edit
-                            </button>
+                            <Link href="/Order/address" passHref>
+                                <button
+                                    type="button"
+                                    className="btn btn-danger btn-lg"
+                                    style={{
+                                        backgroundColor: "#3c8dbc",
+                                        border: "1px solid #3c8dbc",
+                                    }}
+                                    // onClick={() =>
+                                    //     setAllPath(obj1)
+                                    // }
+                                >
+                                    Edit
+                                </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -357,19 +359,21 @@ const Billing = (props: any) => {
                             </tr>
                         </table>
                         <div style={{ textAlign: "left", marginTop: "20px" }}>
-                            <button
-                                type="button"
-                                className="btn btn-danger btn-lg"
-                                onClick={() =>
-                                    setAllPath(obj2)
-                                }
-                                style={{
-                                    backgroundColor: "#3c8dbc",
-                                    border: "1px solid #3c8dbc",
-                                }}
-                            >
-                                Edit
-                            </button>
+                            <Link href="/Order/address" passHref>
+                                <button
+                                    type="button"
+                                    className="btn btn-danger btn-lg"
+                                    // onClick={() =>
+                                    //     setAllPath(obj2)
+                                    // }
+                                    style={{
+                                        backgroundColor: "#3c8dbc",
+                                        border: "1px solid #3c8dbc",
+                                    }}
+                                >
+                                    Edit
+                                </button>
+                            </Link>
                         </div>
                     </div>
                 </div>

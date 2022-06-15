@@ -3,7 +3,7 @@ import type { NextComponentType } from "next";
 import EditShipment from "./sales/editShipment";
 import ShipmentList from "./sales/shipmentList";
 
-const Shipments: NextComponentType = () => {
+const Shipments = () => {
     const [allPath, setAllPath] = useState({
         list: true,
         view: false,

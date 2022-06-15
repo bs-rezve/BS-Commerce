@@ -67,15 +67,20 @@ const Info = () => {
                     tooltipText={"The unique number of this order"}
                     data={"victoria_victoria@nopCommerce.com"}
                 />
-                <div className="row" style={{marginLeft: "10%"}}>
-                    <div className="col-4">
+                <Tooltip
+                    label={"Order status"}
+                    tooltipText={"The unique number of this order"}
+                    data={"Complete"}
+                />
+                {/* <div className="row" style={{ marginLeft: "15%" }}>
+                    <div className="col">
                         <Tooltip
                             label={"Order status"}
                             tooltipText={"The unique number of this order"}
                             data={"Complete"}
                         />
                     </div>
-                    <div className="col-2" style={{marginLeft:"10px"}}>
+                    <div className="col" style={{ marginLeft: "0px" }}>
                         <button
                             type="button"
                             className="btn btn-danger"
@@ -99,7 +104,7 @@ const Info = () => {
                             Change status
                         </button>
                     </div>
-                </div>
+                </div> */}
 
                 <div style={{ textAlign: "center" }}>
                     <button
@@ -160,7 +165,7 @@ const Info = () => {
                             >
                                 <button
                                     type="button"
-                                    className="btn btn-danger btn-lg"
+                                    className="btn btn-danger"
                                     style={{
                                         marginRight: "10px",
                                         backgroundColor: "#3c8dbc",
@@ -172,7 +177,7 @@ const Info = () => {
                                 </button>
                                 <button
                                     type="button"
-                                    className="btn btn-secondary btn-lg"
+                                    className="btn btn-secondary"
                                     onClick={() =>
                                         setModal({
                                             ...modal,
@@ -716,7 +721,7 @@ const Info = () => {
                                             <br />
                                             <button
                                                 type="submit"
-                                                className="btn btn-primary btn-lg"
+                                                className="btn btn-secondary"
                                                 onClick={() =>
                                                     handleSaveOrderTotal()
                                                 }
@@ -834,7 +839,7 @@ const Info = () => {
                     ) : (
                         <button
                             type="button"
-                            className="btn btn-danger btn-lg"
+                            className="btn btn-danger"
                             style={{
                                 backgroundColor: "#3c8dbc",
                                 border: "1px solid #3c8dbc",
@@ -858,7 +863,7 @@ const Info = () => {
                 <div style={{ textAlign: "center" }}>
                     <button
                         type="button"
-                        className="btn btn-danger btn-lg"
+                        className="btn btn-danger"
                         style={{
                             backgroundColor: "#3c8dbc",
                             border: "1px solid #3c8dbc",
@@ -870,7 +875,7 @@ const Info = () => {
                     </button>
                     <button
                         type="button"
-                        className="btn btn-danger btn-lg"
+                        className="btn btn-danger"
                         style={{
                             backgroundColor: "#3c8dbc",
                             border: "1px solid #3c8dbc",

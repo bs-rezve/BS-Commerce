@@ -1,31 +1,32 @@
 import Link from "next/link";
-import { Field, Form, Formik } from "formik";
+import { ErrorMessage, Field, Form, Formik } from "formik";
 import React from "react";
+import { addressEditSchema } from "../sales/service/schema/address.schema";
 
-interface PATH { 
-    list: boolean,
-    view: boolean,
-    billingEdit: boolean,
-    shippingEdit: boolean
-}
+// interface PATH {
+//     list: boolean;
+//     view: boolean;
+//     billingEdit: boolean;
+//     shippingEdit: boolean;
+// }
 
-const EditAddress = ({setAllPath} : any) => {
-    const obj = {
-        list: false,
-        view: true,
-        billingEdit: false,
-        shippingEdit: false,
-    };
+const EditAddress = () => {
+    // const obj = {
+    //     list: false,
+    //     view: true,
+    //     billingEdit: false,
+    //     shippingEdit: false,
+    // };
     function handleSearchSubmit(data: any) {
         console.log(data);
     }
     return (
         <div style={{ marginLeft: "20%", marginTop: "2%" }}>
             <div>
-                <span>
-                    <h1>Edit address</h1>{" "}
-                    <button onClick={() => setAllPath(obj)}>back to order details</button>
-                </span>
+                <h1>Edit address</h1>{" "}
+                <Link href="/Order/list" passHref>
+                    <a> back to order details</a>
+                </Link>
             </div>
 
             <div style={{ border: "1px solid #dddddd", marginRight: "40px" }}>
@@ -45,6 +46,7 @@ const EditAddress = ({setAllPath} : any) => {
                         phone: "",
                         fax: "",
                     }}
+                    validationSchema={addressEditSchema}
                     onSubmit={(values, actions) => {
                         const data = {
                             firstName: values.firstName,
@@ -95,6 +97,9 @@ const EditAddress = ({setAllPath} : any) => {
                                             id="firstName"
                                             name="firstName"
                                         />
+                                        <div className="invalid-feedback d-block">
+                                            <ErrorMessage name="firstName" />
+                                        </div>
                                     </div>
                                     <div>
                                         <label
@@ -115,6 +120,9 @@ const EditAddress = ({setAllPath} : any) => {
                                             id="lastName"
                                             name="lastName"
                                         />
+                                        <div className="invalid-feedback d-block">
+                                            <ErrorMessage name="lastName" />
+                                        </div>
                                     </div>
                                     <div>
                                         <label

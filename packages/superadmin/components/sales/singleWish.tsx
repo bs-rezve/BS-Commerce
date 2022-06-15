@@ -1,7 +1,7 @@
 import type { NextComponentType } from "next";
 import Link from "next/link";
 
-const SingleShopping = ({ shopping }: any) => {
+const SingleWish = ({ shopping }: any) => {
     return (
         <>
             <tr style={{ fontSize: "20px", paddingTop: "20px" }}>
@@ -26,4 +26,4 @@ const SingleShopping = ({ shopping }: any) => {
     );
 };
 
-export default SingleShopping;
+export default SingleWish;

@@ -20,7 +20,7 @@ const Navbar: NextComponentType = () => {
                             </a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/orders">
+                            <a className="nav-link" href="/Order">
                                 <i className="bi bi-file-earmark"></i>
                                 Orders
                             </a>
@@ -32,15 +32,15 @@ const Navbar: NextComponentType = () => {
                             </a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/shopping">
+                            <a className="nav-link" href="/carts">
                                 <i className="bi bi-people"></i>
-                                Shopping
+                                Carts
                             </a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">
+                            <a className="nav-link" href="/wishlists">
                                 <i className="bi bi-people"></i>
-                                Reports
+                                Wishlists
                             </a>
                         </li>
                         <li className="nav-item">

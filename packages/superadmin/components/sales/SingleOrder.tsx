@@ -80,15 +80,15 @@ const SingleOrder = (props: any) => {
                     {order.order_total}
                 </td>
                 <td style={{ border: "1px solid #dddddd" }}>
-                    {/* <Link href="/editOrder" passHref> */}
+                    <Link href="/Order/edit" passHref>
                     <button
-                        onClick={() => setAllPath(obj)}
+                        // onClick={() => setAllPath(obj)}
                         type="button"
                         className="btn btn-light btn-lg"
                     >
                         <i className="bi bi-eye"> {order.view}</i>
                     </button>
-                    {/* </Link> */}
+                    </Link>
                 </td>
             </tr>
         </>

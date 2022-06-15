@@ -1,11 +1,11 @@
 import _ from "lodash";
-import Pagination from "../components/sales/pagination";
+import Pagination from "./sales/pagination";
 import React, { useEffect, useState } from "react";
 import type { NextComponentType } from "next";
-import getData from "../components/sales/service/get-shopping-data.service";
-import SingleShopping from "../components/sales/singleShopping";
+import getData from "./sales/service/get-shopping-data.service";
+import SingleCart from "./sales/singleCart";
 
-const Shopping: NextComponentType = () => {
+const Carts = () => {
     const [data, setData] = useState([]);
     const [activePage, setActivePage] = useState(1);
     const [pageCount, setPageCount] = useState(5);
@@ -32,7 +32,7 @@ const Shopping: NextComponentType = () => {
         <>
             <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 className="h2">Shopping carts and wishlists</h1>
+                    <h1 className="h2">Shopping carts</h1>
                 </div>
 
                 <button
@@ -167,10 +167,10 @@ const Shopping: NextComponentType = () => {
                     <tbody>
                         {paginateData.length > 0 &&
                             paginateData.map((shopping: any) => (
-                                <SingleShopping
+                                <SingleCart
                                     key={shopping.id}
                                     shopping={shopping}
-                                ></SingleShopping>
+                                ></SingleCart>
                             ))}
                     </tbody>
                 </table>
@@ -252,4 +252,4 @@ const Shopping: NextComponentType = () => {
     );
 };
 
-export default Shopping;
+export default Carts;

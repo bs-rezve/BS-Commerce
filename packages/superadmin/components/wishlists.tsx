@@ -1,15 +1,15 @@
 import _ from "lodash";
-import Pagination from "./pagination";
+import Pagination from "./sales/pagination";
 import React, { useEffect, useState } from "react";
-import getData from "./service/get-data.service";
-import SingleOrder from "./SingleOrder";
+import type { NextComponentType } from "next";
+import getData from "./sales/service/get-shopping-data.service";
+import SingleWish from "./sales/singleWish";
 
-const OrderList = (props: any) => {
-    const {setAllPath} = props;
-    const [search, setSearch] = useState(false);
+const Wishlists = () => {
     const [data, setData] = useState([]);
     const [activePage, setActivePage] = useState(1);
     const [pageCount, setPageCount] = useState(5);
+    const [search, setSearch] = useState(false);
 
     useEffect(() => {
         const data: any = getData();
@@ -27,39 +27,14 @@ const OrderList = (props: any) => {
     const handleClickPage = (activePage: any) => {
         setActivePage(activePage);
     };
+
     return (
         <>
             <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 className="h2">Orders</h1>
-                    <div className="btn-toolbar mb-2 mb-md-0">
-                        <div className="btn-group me-2">
-                            <button
-                                type="button"
-                                className="btn btn-success btn-lg"
-                                style={{
-                                    marginRight: "10px",
-                                    backgroundColor: "#28a745",
-                                    border: "1px solid #28a745",
-                                }}
-                            >
-                                <i className="bi bi-download"> </i>Export
-                            </button>
-                            <button
-                                type="button"
-                                style={{
-                                    backgroundColor: "#00c0ef",
-                                    border: "1px solid #00c0ef",
-                                    color: "white",
-                                }}
-                                className="btn btn-info btn-lg"
-                            >
-                                <i className="bi bi-file-earmark-pdf"> </i>Print
-                                PDF invoices
-                            </button>
-                        </div>
-                    </div>
+                    <h1 className="h2">Shopping carts</h1>
                 </div>
+
                 <button
                     onClick={() => setSearch(!search)}
                     aria-controls="example-collapse-text"
@@ -182,67 +157,21 @@ const OrderList = (props: any) => {
                                 />
                             </th>
                             <th>
-                                <span>Order #</span>
-                            </th>
-                            <th>
-                                <span>Order status</span>
-                            </th>
-                            <th>
-                                <span>Payment status</span>
-                            </th>
-                            <th>
-                                <span>Shipping status</span>
-                            </th>
-                            <th>
                                 <span>Customer</span>
                             </th>
                             <th>
-                                <span>Store</span>
-                            </th>
-                            <th>
-                                <span>Created on</span>
-                            </th>
-                            <th>
-                                <span>Order total</span>
-                            </th>
-                            <th>
-                                <span>View</span>
+                                <span>Total items</span>
                             </th>
                         </tr>
                     </thead>
                     <tbody>
                         {paginateData.length > 0 &&
-                            paginateData.map((order: any) => (
-                                <SingleOrder
-                                    key={order.id}
-                                    order={order}
-                                    setAllPath={setAllPath}
-                                ></SingleOrder>
+                            paginateData.map((shopping: any) => (
+                                <SingleWish
+                                    key={shopping.id}
+                                    shopping={shopping}
+                                ></SingleWish>
                             ))}
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td
-                            style={{
-                                textAlign: "left",
-                                border: "1px solid #dddddd",
-                            }}
-                        >
-                            <h5>
-                                <b>Summary</b>
-                            </h5>
-                            <h5 style={{ margin: "0px" }}>Profit</h5>
-                            <h5 style={{ margin: "0px" }}>$4,469.30</h5>
-                            <h5 style={{ margin: "0px" }}>Shipping $0.00</h5>
-                            <h5 style={{ margin: "0px" }}>Tax $0.00</h5>
-                            <h5 style={{ margin: "0px" }}>Total $4,469.30</h5>
-                        </td>
-                        <td></td>
                     </tbody>
                 </table>
                 <div
@@ -323,4 +252,4 @@ const OrderList = (props: any) => {
     );
 };
 
-export default OrderList;
+export default Wishlists;

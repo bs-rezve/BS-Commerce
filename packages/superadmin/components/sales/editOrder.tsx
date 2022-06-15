@@ -6,13 +6,13 @@ import Notes from "./service/notes";
 import { useState } from "react";
 import Link from "next/link";
 
-const EditOrder = ({setAllPath}: any) => {
-    const obj = {
-        list: true,
-        view: false,
-        billingEdit: false,
-        shippingEdit: false
-    };
+const EditOrder = () => {
+    // const obj = {
+    //     list: true,
+    //     view: false,
+    //     billingEdit: false,
+    //     shippingEdit: false,
+    // };
     const [info, setInfo] = useState(false);
     const [billing, setBilling] = useState(false);
     const [products, setProducts] = useState(false);
@@ -31,12 +31,12 @@ const EditOrder = ({setAllPath}: any) => {
             <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <div>
-                    <h1 className="h2">Edit order details</h1>
-                    <span>
-                            <button onClick={() => setAllPath(obj)}>back to order list</button>
-                    </span>
+                        <h1 className="h2">Edit order details</h1>
+                        <Link href="/Order/list" passHref>
+                            <a>back to order list</a>
+                        </Link>
                     </div>
-            
+
                     <div className="btn-toolbar mb-2 mb-md-0">
                         <div className="btn-group me-2">
                             <button
@@ -179,8 +179,8 @@ const EditOrder = ({setAllPath}: any) => {
                 </button>
                 {billing ? (
                     <div>
-                        <Biling setAllPath={setAllPath}/>
-                        <Shipping/>
+                        <Biling />
+                        <Shipping />
                     </div>
                 ) : null}
 
