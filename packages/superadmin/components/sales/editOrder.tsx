@@ -6,7 +6,13 @@ import Notes from "./service/notes";
 import { useState } from "react";
 import Link from "next/link";
 
-const EditOrder = () => {
+const EditOrder = ({setAllPath}: any) => {
+    const obj = {
+        list: true,
+        view: false,
+        billingEdit: false,
+        shippingEdit: false
+    };
     const [info, setInfo] = useState(false);
     const [billing, setBilling] = useState(false);
     const [products, setProducts] = useState(false);
@@ -27,9 +33,7 @@ const EditOrder = () => {
                     <div>
                     <h1 className="h2">Edit order details</h1>
                     <span>
-                        <Link href="/orders" passHref>
-                            <a>back to order list</a>
-                        </Link>
+                            <button onClick={() => setAllPath(obj)}>back to order list</button>
                     </span>
                     </div>
             
@@ -175,8 +179,8 @@ const EditOrder = () => {
                 </button>
                 {billing ? (
                     <div>
-                        <Biling />
-                        <Shipping />
+                        <Biling setAllPath={setAllPath}/>
+                        <Shipping/>
                     </div>
                 ) : null}
 

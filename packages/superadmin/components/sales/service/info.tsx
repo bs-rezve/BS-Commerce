@@ -67,11 +67,40 @@ const Info = () => {
                     tooltipText={"The unique number of this order"}
                     data={"victoria_victoria@nopCommerce.com"}
                 />
-                <Tooltip
-                    label={"Order status"}
-                    tooltipText={"The unique number of this order"}
-                    data={"Complete"}
-                />
+                <div className="row" style={{marginLeft: "10%"}}>
+                    <div className="col-4">
+                        <Tooltip
+                            label={"Order status"}
+                            tooltipText={"The unique number of this order"}
+                            data={"Complete"}
+                        />
+                    </div>
+                    <div className="col-2" style={{marginLeft:"10px"}}>
+                        <button
+                            type="button"
+                            className="btn btn-danger"
+                            style={{
+                                backgroundColor: "#dd4b39",
+                                marginRight: "10px",
+                            }}
+                            onClick={() => handleCancel()}
+                        >
+                            Cancel order
+                        </button>
+                        <button
+                            type="button"
+                            className="btn btn-danger"
+                            style={{
+                                backgroundColor: "#3c8dbc",
+                                border: "1px solid #3c8dbc",
+                            }}
+                            onClick={() => handleChange()}
+                        >
+                            Change status
+                        </button>
+                    </div>
+                </div>
+
                 <div style={{ textAlign: "center" }}>
                     <button
                         type="button"

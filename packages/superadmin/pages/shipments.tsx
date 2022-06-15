@@ -1,11 +1,12 @@
-import React from 'react';
-import Shipments from '../components/shipments'
+import React from "react";
+import type { NextPage } from "next";
+import Shipments from "../components/shipments";
 
-const shipments = () => {
+const shipments: NextPage = () => {
     return (
-        <div>
-            <Shipments/>
-        </div>
+        <>
+            <Shipments />
+        </>
     );
 };
 

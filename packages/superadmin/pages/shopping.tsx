@@ -1,11 +1,12 @@
-import React from 'react';
-import Shopping from "../components/shopping"
+import React from "react";
+import type { NextPage } from "next";
+import Shopping from "../components/shopping";
 
-const shopping = () => {
+const shopping: NextPage = () => {
     return (
-        <div>
-            <Shopping/>
-        </div>
+        <>
+            <Shopping />
+        </>
     );
 };
 

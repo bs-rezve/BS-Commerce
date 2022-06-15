@@ -1,7 +1,14 @@
 import type { NextComponentType } from "next";
 import Link from "next/link";
 
-const SingleOrder = ({ order }: any) => {
+const SingleOrder = (props: any) => {
+    const {order, setAllPath} = props;
+    const obj = {
+        list: false,
+        view: true,
+        billingEdit: false,
+        shippingEdit: false,
+    };
     return (
         <>
             <tr style={{ fontSize: "20px", paddingTop: "20px" }}>
@@ -73,11 +80,15 @@ const SingleOrder = ({ order }: any) => {
                     {order.order_total}
                 </td>
                 <td style={{ border: "1px solid #dddddd" }}>
-                    <Link href="/editOrder" passHref>
-                        <button type="button" className="btn btn-light btn-lg">
-                            <i className="bi bi-eye"> {order.view}</i>
-                        </button>
-                    </Link>
+                    {/* <Link href="/editOrder" passHref> */}
+                    <button
+                        onClick={() => setAllPath(obj)}
+                        type="button"
+                        className="btn btn-light btn-lg"
+                    >
+                        <i className="bi bi-eye"> {order.view}</i>
+                    </button>
+                    {/* </Link> */}
                 </td>
             </tr>
         </>

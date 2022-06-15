@@ -1,7 +1,24 @@
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
+import EditAddress from "../editAddress";
 
-const billing = () => {
+const Billing = (props: any) => {
+    const {setAllPath} = props;
+    
+    const obj1 = {
+        list: false,
+        view: false,
+        billingEdit: true,
+        shippingEdit: false
+    };
+
+    const obj2 = {
+        list: false,
+        view: false,
+        billingEdit: false,
+        shippingEdit: true
+    };
+
     return (
         <>
             <div
@@ -170,18 +187,19 @@ const billing = () => {
                             </tr>
                         </table>
                         <div style={{ textAlign: "left", marginTop: "20px" }}>
-                            <Link href="/editAddress" passHref>
-                                <button
-                                    type="button"
-                                    className="btn btn-danger btn-lg"
-                                    style={{
-                                        backgroundColor: "#3c8dbc",
-                                        border: "1px solid #3c8dbc",
-                                    }}
-                                >
-                                    Edit
-                                </button>
-                            </Link>
+                            <button
+                                type="button"
+                                className="btn btn-danger btn-lg"
+                                style={{
+                                    backgroundColor: "#3c8dbc",
+                                    border: "1px solid #3c8dbc",
+                                }}
+                                onClick={() =>
+                                    setAllPath(obj1)
+                                }
+                            >
+                                Edit
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -339,18 +357,19 @@ const billing = () => {
                             </tr>
                         </table>
                         <div style={{ textAlign: "left", marginTop: "20px" }}>
-                            <Link href="/editAddress" passHref>
-                                <button
-                                    type="button"
-                                    className="btn btn-danger btn-lg"
-                                    style={{
-                                        backgroundColor: "#3c8dbc",
-                                        border: "1px solid #3c8dbc",
-                                    }}
-                                >
-                                    Edit
-                                </button>
-                            </Link>
+                            <button
+                                type="button"
+                                className="btn btn-danger btn-lg"
+                                onClick={() =>
+                                    setAllPath(obj2)
+                                }
+                                style={{
+                                    backgroundColor: "#3c8dbc",
+                                    border: "1px solid #3c8dbc",
+                                }}
+                            >
+                                Edit
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -359,4 +378,4 @@ const billing = () => {
     );
 };
 
-export default billing;
+export default Billing;

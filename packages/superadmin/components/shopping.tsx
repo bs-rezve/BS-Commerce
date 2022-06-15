@@ -1,10 +1,11 @@
 import _ from "lodash";
-import Pagination from "../components/order/pagination";
+import Pagination from "../components/sales/pagination";
 import React, { useEffect, useState } from "react";
-import getData from "../components/order/service/get-shopping-data.service";
-import SingleShopping from "../components/order/singleShopping";
+import type { NextComponentType } from "next";
+import getData from "../components/sales/service/get-shopping-data.service";
+import SingleShopping from "../components/sales/singleShopping";
 
-const Shopping = () => {
+const Shopping: NextComponentType = () => {
     const [data, setData] = useState([]);
     const [activePage, setActivePage] = useState(1);
     const [pageCount, setPageCount] = useState(5);
@@ -25,10 +26,6 @@ const Shopping = () => {
 
     const handleClickPage = (activePage: any) => {
         setActivePage(activePage);
-    };
-
-    const handleSearch = () => {
-        setSearch(true);
     };
 
     return (

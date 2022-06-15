@@ -29,7 +29,7 @@ const Tooltip:FC<TOOL>= ({label, data, tooltipText}) => {
                     </div>
 
                     <div className="col">
-                        <p className="ms-lg-3 ms-xl-3 fs-6">{data}</p>
+                        <p>{data}</p>
                     </div>
                 </div>
             </>

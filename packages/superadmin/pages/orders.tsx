@@ -1,11 +1,11 @@
-import React from 'react';
-import Order from '../components/orders';
+import type { NextPage } from "next";
+import Order from "../components/orders";
 
-const Orders = () => {
+const Orders: NextPage = () => {
     return (
-        <div>
-            <Order/>
-        </div>
+        <>
+            <Order />
+        </>
     );
 };
 

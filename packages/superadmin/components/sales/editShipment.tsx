@@ -7,7 +7,11 @@ import { useState } from "react";
 import Link from "next/link";
 import Tooltip from "./service/tooltip";
 
-const EditShipment = () => {
+const EditShipment = ({ setAllPath }: any) => {
+    const obj = {
+        list: true,
+        view: false,
+    };
     const [info, setInfo] = useState(false);
     const [billing, setBilling] = useState(false);
     const [products, setProducts] = useState(false);
@@ -38,9 +42,9 @@ const EditShipment = () => {
                     <div>
                         <h1 className="h2">View shipment details</h1>
                         <span>
-                            <Link href="/editOrder" passHref>
-                                <a>back to order details</a>
-                            </Link>
+                            <button onClick={() => setAllPath(obj)}>
+                                back to shipment list
+                            </button>
                         </span>
                     </div>
 
