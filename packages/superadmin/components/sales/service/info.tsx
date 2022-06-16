@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import Tooltip from "./tooltip";
 import { Field, Form, Formik } from "formik";
+import Modal from "./modal";
 
 const Info = () => {
     function handleSearchSubmit(data: any) {
@@ -21,6 +22,10 @@ const Info = () => {
         setModal({ ...modal, cancel_order: true });
     };
 
+    const handleCancelOff = () => {
+        setModal({ ...modal, cancel_order: false });
+    };
+
     const handleChange = () => {
         setModal({ ...modal, change_status: true });
     };
@@ -33,12 +38,24 @@ const Info = () => {
         setModal({ ...modal, save_order_totals: true });
     };
 
+    const handleSaveOrderTotalOff = () => {
+        setModal({ ...modal, save_order_totals: false });
+    };
+
     const handleSaveStatus = () => {
         setModal({ ...modal, change_status_save: true });
     };
 
+    const handleSaveStatusOff = () => {
+        setModal({ ...modal, change_status_save: false });
+    };
+
     const handleRefund = () => {
         setModal({ ...modal, refund: true });
+    };
+
+    const handleRefundOff = () => {
+        setModal({ ...modal, refund: false });
     };
 
     return (
@@ -72,40 +89,6 @@ const Info = () => {
                     tooltipText={"The unique number of this order"}
                     data={"Complete"}
                 />
-
-                {/* <div className="row">
-                    <div className="col-5">
-                        <Tooltip
-                            label={"Order status"}
-                            tooltipText={"The unique number of this order"}
-                            data={"Complete"}
-                        />
-                    </div>
-                    <div className="col-2">
-                        <button
-                            type="button"
-                            className="btn btn-danger"
-                            style={{
-                                backgroundColor: "#dd4b39",
-                                marginRight: "10px",
-                            }}
-                            onClick={() => handleCancel()}
-                        >
-                            Cancel order
-                        </button>
-                        <button
-                            type="button"
-                            className="btn btn-danger"
-                            style={{
-                                backgroundColor: "#3c8dbc",
-                                border: "1px solid #3c8dbc",
-                            }}
-                            onClick={() => handleChange()}
-                        >
-                            Change status
-                        </button>
-                    </div>
-                </div> */}
 
                 <div style={{ textAlign: "center" }}>
                     <button
@@ -198,89 +181,7 @@ const Info = () => {
                                     manually in this case.
                                 </p>
                                 {modal.change_status_save ? (
-                                    <div
-                                        className="modal"
-                                        style={{
-                                            display: modal.change_status_save
-                                                ? "block"
-                                                : "none",
-                                        }}
-                                    >
-                                        <div
-                                            className="modal-backdrop"
-                                            style={{
-                                                backgroundColor:
-                                                    "rgba(0, 0, 0, 0.1)",
-                                            }}
-                                            onClick={() => {
-                                                // close modal when outside of modal is clicked
-                                                setModal({
-                                                    ...modal,
-                                                    change_status_save: false,
-                                                });
-                                            }}
-                                        >
-                                            <div
-                                                className="modal-content"
-                                                onClick={(e) => {
-                                                    // do not close modal if anything inside modal content is clicked
-                                                    e.stopPropagation();
-                                                }}
-                                                style={{
-                                                    textAlign: "left",
-                                                    width: "30%",
-                                                    marginLeft: "40%",
-                                                    marginTop: "5%",
-                                                    border: "1px solid gray",
-                                                    boxShadow:
-                                                        "1px 1px 10px gray",
-                                                    borderRadius: "10px",
-                                                    padding: "20px",
-                                                }}
-                                            >
-                                                <div className="container">
-                                                    <h1>Are you sure?</h1>
-                                                    <hr />
-                                                    <p>
-                                                        Are you sure you want to
-                                                        perform this action?
-                                                    </p>
-                                                    <br />
-
-                                                    <div className="clearfix">
-                                                        <button
-                                                            type="button"
-                                                            className="btn btn-light"
-                                                            style={{
-                                                                border: "1px solid gray",
-                                                                backgroundColor:
-                                                                    "gray",
-                                                                color: "white",
-                                                                marginRight:
-                                                                    "10px",
-                                                            }}
-                                                            onClick={() =>
-                                                                setModal({
-                                                                    ...modal,
-                                                                    change_status_save:
-                                                                        false,
-                                                                })
-                                                            }
-                                                        >
-                                                            Cancel
-                                                        </button>
-                                                        <button
-                                                            type="button"
-                                                            className="btn btn-secondary"
-                                                            // onClick={deleteProfileList}
-                                                        >
-                                                            Yes
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <Modal state={"change_status_save"} handleStatus={handleSaveStatusOff}/>
                                 ) : (
                                     <></>
                                 )}
@@ -303,77 +204,10 @@ const Info = () => {
             </div>
 
             {modal.cancel_order ? (
-                <div
-                    className="modal"
-                    style={{ display: modal.cancel_order ? "block" : "none" }}
-                >
-                    <div
-                        className="modal-backdrop"
-                        style={{
-                            backgroundColor: "rgba(0, 0, 0, 0.1)",
-                        }}
-                        onClick={() => {
-                            // close modal when outside of modal is clicked
-                            setModal({ ...modal, cancel_order: false });
-                        }}
-                    >
-                        <div
-                            className="modal-content"
-                            onClick={(e) => {
-                                // do not close modal if anything inside modal content is clicked
-                                e.stopPropagation();
-                            }}
-                            style={{
-                                textAlign: "left",
-                                width: "30%",
-                                marginLeft: "40%",
-                                marginTop: "5%",
-                                border: "1px solid gray",
-                                boxShadow: "1px 1px 10px gray",
-                                borderRadius: "10px",
-                                padding: "20px",
-                            }}
-                        >
-                            <div className="container">
-                                <h1>Are you sure?</h1>
-                                <hr />
-                                <p>
-                                    Are you sure you want to perform this
-                                    action?
-                                </p>
-                                <br />
-
-                                <div className="clearfix">
-                                    <button
-                                        type="button"
-                                        className="btn btn-light"
-                                        style={{
-                                            border: "1px solid gray",
-                                            backgroundColor: "gray",
-                                            color: "white",
-                                            marginRight: "10px",
-                                        }}
-                                        onClick={() =>
-                                            setModal({
-                                                ...modal,
-                                                cancel_order: false,
-                                            })
-                                        }
-                                    >
-                                        Cancel
-                                    </button>
-                                    <button
-                                        type="button"
-                                        className="btn btn-secondary"
-                                        // onClick={deleteProfileList}
-                                    >
-                                        Yes
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <Modal
+                    state={"cancel_order"}
+                    handleStatus={handleCancelOff}
+                />
             ) : (
                 <div />
             )}
@@ -750,87 +584,7 @@ const Info = () => {
                             </Formik>
 
                             {modal.save_order_totals ? (
-                                <div
-                                    className="modal"
-                                    style={{
-                                        display: modal.save_order_totals
-                                            ? "block"
-                                            : "none",
-                                    }}
-                                >
-                                    <div
-                                        className="modal-backdrop"
-                                        style={{
-                                            backgroundColor:
-                                                "rgba(0, 0, 0, 0.1)",
-                                        }}
-                                        onClick={() => {
-                                            // close modal when outside of modal is clicked
-                                            setModal({
-                                                ...modal,
-                                                save_order_totals: false,
-                                            });
-                                        }}
-                                    >
-                                        <div
-                                            className="modal-content"
-                                            onClick={(e) => {
-                                                // do not close modal if anything inside modal content is clicked
-                                                e.stopPropagation();
-                                            }}
-                                            style={{
-                                                textAlign: "left",
-                                                width: "30%",
-                                                marginLeft: "40%",
-                                                marginTop: "5%",
-                                                border: "1px solid gray",
-                                                boxShadow: "1px 1px 10px gray",
-                                                borderRadius: "10px",
-                                                padding: "20px",
-                                            }}
-                                        >
-                                            <div className="container">
-                                                <h1>Are you sure?</h1>
-                                                <hr />
-                                                <p>
-                                                    Are you sure you want to
-                                                    perform this action?
-                                                </p>
-                                                <br />
-
-                                                <div className="clearfix">
-                                                    <button
-                                                        type="button"
-                                                        className="btn btn-light"
-                                                        style={{
-                                                            border: "1px solid gray",
-                                                            backgroundColor:
-                                                                "gray",
-                                                            color: "white",
-                                                            marginRight: "10px",
-                                                        }}
-                                                        onClick={() =>
-                                                            setModal({
-                                                                ...modal,
-                                                                save_order_totals:
-                                                                    false,
-                                                            })
-                                                        }
-                                                    >
-                                                        Cancel
-                                                    </button>
-                                                    <button
-                                                        type="button"
-                                                        className="btn btn-secondary"
-                                                        // onClick={deleteProfileList}
-                                                    >
-                                                        Yes
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <Modal state={"save_order_totals"} handleStatus={handleSaveOrderTotalOff} />
                             ) : (
                                 <></>
                             )}
@@ -889,77 +643,7 @@ const Info = () => {
                 </div>
             </div>
             {modal.refund ? (
-                <div
-                    className="modal"
-                    style={{ display: modal.refund ? "block" : "none" }}
-                >
-                    <div
-                        className="modal-backdrop"
-                        style={{
-                            backgroundColor: "rgba(0, 0, 0, 0.1)",
-                        }}
-                        onClick={() => {
-                            // close modal when outside of modal is clicked
-                            setModal({ ...modal, refund: false });
-                        }}
-                    >
-                        <div
-                            className="modal-content"
-                            onClick={(e) => {
-                                // do not close modal if anything inside modal content is clicked
-                                e.stopPropagation();
-                            }}
-                            style={{
-                                textAlign: "left",
-                                width: "30%",
-                                marginLeft: "40%",
-                                marginTop: "5%",
-                                border: "1px solid gray",
-                                boxShadow: "1px 1px 10px gray",
-                                borderRadius: "10px",
-                                padding: "20px",
-                            }}
-                        >
-                            <div className="container">
-                                <h1>Are you sure?</h1>
-                                <hr />
-                                <p>
-                                    Are you sure you want to perform this
-                                    action?
-                                </p>
-                                <br />
-
-                                <div className="clearfix">
-                                    <button
-                                        type="button"
-                                        className="btn btn-light"
-                                        style={{
-                                            border: "1px solid gray",
-                                            backgroundColor: "gray",
-                                            color: "white",
-                                            marginRight: "10px",
-                                        }}
-                                        onClick={() =>
-                                            setModal({
-                                                ...modal,
-                                                refund: false,
-                                            })
-                                        }
-                                    >
-                                        Cancel
-                                    </button>
-                                    <button
-                                        type="button"
-                                        className="btn btn-secondary"
-                                        // onClick={deleteProfileList}
-                                    >
-                                        Yes
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <Modal state={"refund"} handleStatus={handleRefundOff}/>
             ) : (
                 <div />
             )}
