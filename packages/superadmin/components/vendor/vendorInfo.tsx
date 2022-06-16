@@ -3,15 +3,24 @@ import InputField from "../global/inputField";
 import Checkbox from "../global/checkbox";
 import TextareaField from "../global/textarea";
 import { vendorInfo } from "../../utils/typs";
+import TinyEditor from "../global/tinyEditor";
+import FileField from "../global/fileField";
 
 interface Props {
   values: vendorInfo;
   setFieldValue: (name: string, valueOption: {} | string | number) => void;
   errors: any;
   touched: any;
+  isOpen: boolean;
 }
 
-const VendorInfo: FC<Props> = ({ values, setFieldValue, errors, touched }) => {
+const VendorInfo: FC<Props> = ({
+  values,
+  setFieldValue,
+  errors,
+  touched,
+  isOpen,
+}) => {
   return (
     <>
       <div className="col-lg-12">
@@ -25,12 +34,10 @@ const VendorInfo: FC<Props> = ({ values, setFieldValue, errors, touched }) => {
         />
       </div>
       <div className="col-lg-12">
-        <InputField
-          value={values?.description}
+        <TinyEditor
           label={"Description"}
-          placeholder={"Description"}
-          type="text"
-          name="description"
+          name={"description"}
+          value={values?.description}
         />
       </div>
       <div className="col-lg-12">
@@ -46,26 +53,28 @@ const VendorInfo: FC<Props> = ({ values, setFieldValue, errors, touched }) => {
       <div className="col-lg-12">
         <Checkbox label="Active" name="active" />
       </div>
-      <div className="col-lg-12">
-        <InputField
-          value={values?.picture}
-          label="Picture"
-          placeholder="Picture"
-          type="text"
-          name="picture"
-        />
-      </div>
-      <div className="col-lg-12">
-        <TextareaField
-          value={values?.adminComment}
-          label="Admin comment"
-          placeholder="Admin comment"
-          type="textarea"
-          name="adminComment"
-          rows={3}
-          setFieldValue={setFieldValue}
-        />
-      </div>
+      {isOpen && (
+        <>
+          <div className="col-lg-12">
+            <FileField
+              label="Picture"
+              name="picture"
+              setFieldValue={setFieldValue}
+            />
+          </div>
+          <div className="col-lg-12">
+            <TextareaField
+              value={values?.adminComment}
+              label="Admin comment"
+              placeholder="Admin comment"
+              type="textarea"
+              name="adminComment"
+              rows={3}
+              setFieldValue={setFieldValue}
+            />
+          </div>{" "}
+        </>
+      )}
     </>
   );
 };

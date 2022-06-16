@@ -58,6 +58,7 @@ const VendorCreateForm: FC<Props> = ({
                     setFieldValue={setFieldValue}
                     errors={errors}
                     touched={touched}
+                    isOpen={isOpen}
                   />
                 </Accordion>
               </div>
