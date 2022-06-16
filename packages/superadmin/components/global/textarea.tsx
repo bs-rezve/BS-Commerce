@@ -16,7 +16,16 @@ interface Props {
 }
 
 const TextareaField: FC<Props> = (props) => {
-  const { value, name, errors, touched, label, rows, setFieldValue } = props;
+  const {
+    value,
+    name,
+    errors,
+    touched,
+    label,
+    rows,
+    setFieldValue,
+    placeholder,
+  } = props;
   return (
     <>
       <div className="form-group row mb-2">
@@ -44,6 +53,7 @@ const TextareaField: FC<Props> = (props) => {
             value={value}
             rows={rows}
             id={name}
+            placeholder={placeholder}
           ></textarea>
         </div>
       </div>

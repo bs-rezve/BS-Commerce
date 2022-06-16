@@ -3,7 +3,6 @@ import { useState } from "react";
 import AddButton from "../../../components/global/AddButton";
 import TableInfo from "../../../components/global/table";
 import { useRouter } from "next/router";
-import ExportButton from "../../../components/global/exportButton";
 import Search from "../../../components/global/search";
 import { searchvendor } from "../../../utils/typs";
 import SearchFormVendor from "../../../components/vendor/searchForm";
@@ -44,7 +43,7 @@ const Customer: NextPage = () => {
       id: "1",
       email: "email",
       name: "Name",
-      active: true,
+      active: false,
     },
     {
       id: "1",
@@ -101,7 +100,7 @@ const Customer: NextPage = () => {
                 ) : (
                   <i
                     className="bi bi-x-lg"
-                    style={{ fontSize: "30px", color: "red" }}
+                    style={{ fontSize: "25px", color: "red" }}
                   ></i>
                 )}
               </td>

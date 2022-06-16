@@ -5,7 +5,7 @@ import styles from "../../styles/Input.module.css";
 
 interface Props {
   placeholder: string;
-  value: string;
+  value: string | number;
   name: string;
   type: string;
   errors?: any;

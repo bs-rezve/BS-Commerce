@@ -26,12 +26,14 @@ const CreateCustomer: NextPage = () => {
     <div className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <SubmitForm
         isDisabled={false}
-        title="Add a new address"
+        title="address"
         isHiddenSaveWithContinue={true}
         getProps={setObjprops}
         isHiddenSave={false}
         submitBtnText="Save"
         continueBtnText="Save and Continue Edit"
+        isDelete={false}
+        link={"/users/customer"}
       >
         <AddressCreateForm
           {...objProps}

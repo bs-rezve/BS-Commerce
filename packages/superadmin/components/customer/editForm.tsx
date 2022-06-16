@@ -16,10 +16,11 @@ import { editValues } from "../../utils/typs";
 const validationSchema = Yup.object().shape({});
 
 interface Props {
-  initData: editValues;
+  initData: any;
   saveBtnRef?: string;
-  saveHandler: (values: editValues) => void;
+  saveHandler: (values: any) => void;
   saveWithContinueBtnRef?: string;
+  deleteBtnRef?: string;
 }
 
 const EditForm: FC<Props> = ({
@@ -27,6 +28,7 @@ const EditForm: FC<Props> = ({
   saveBtnRef,
   saveHandler,
   saveWithContinueBtnRef,
+  deleteBtnRef,
 }) => {
   return (
     <>
@@ -131,10 +133,16 @@ const EditForm: FC<Props> = ({
               ></button>
 
               <button
-                type="reset"
+                type="button"
                 style={{ display: "none" }}
                 ref={saveWithContinueBtnRef}
-                onSubmit={() => handleSubmit()}
+                onSubmit={() => {}}
+              ></button>
+              <button
+                type="button"
+                style={{ display: "none" }}
+                ref={deleteBtnRef}
+                onSubmit={() => {}}
               ></button>
             </Form>
           </>

@@ -33,12 +33,14 @@ const CreateCustomer: NextPage = () => {
     >
       <SubmitForm
         isDisabled={false}
-        title="Add a new customer"
+        title="customer"
         isHiddenSaveWithContinue={false}
         getProps={setObjprops}
         isHiddenSave={false}
         submitBtnText="Save"
         continueBtnText="Save and Continue Edit"
+        isDelete={false}
+        link={"/users/customer"}
       >
         <Accordion
           title="Customer info"

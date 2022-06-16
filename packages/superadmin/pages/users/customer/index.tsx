@@ -39,6 +39,14 @@ const Customer: NextPage = () => {
       cName: "Company name",
       active: true,
     },
+    {
+      id: "1",
+      email: "email",
+      name: "Name",
+      roles: "Customer roles",
+      cName: "Company name",
+      active: false,
+    },
   ]);
   const router = useRouter();
 
@@ -81,7 +89,7 @@ const Customer: NextPage = () => {
                 ) : (
                   <i
                     className="bi bi-x-lg"
-                    style={{ fontSize: "30px", color: "red" }}
+                    style={{ fontSize: "25px", color: "red" }}
                   ></i>
                 )}
               </td>

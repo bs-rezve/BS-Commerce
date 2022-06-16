@@ -1,5 +1,6 @@
 import { FC, useState } from "react";
 import { usePagination } from "./usePagination";
+
 interface Props {
   list: any;
 }
@@ -7,13 +8,11 @@ interface Props {
 const Pagination: FC<Props> = ({ list }) => {
   const [pageSize, setPageSize] = useState(7);
   const [currentPage, onPageChange] = useState(1);
-  const [siblingCount, setSiblingCount] = useState(1);
   const totalCount = list?.length;
 
   const paginationRange = usePagination({
     currentPage,
     totalCount,
-    siblingCount,
     pageSize,
   });
 
@@ -25,24 +24,38 @@ const Pagination: FC<Props> = ({ list }) => {
     onPageChange(currentPage - 1);
   };
 
-  //let lastPage = paginationRange[paginationRange.length - 1];
+  let lastPage = paginationRange?.[paginationRange.length - 1];
+
   return (
     <div className="d-flex justify-content-between flex-wrap mt-2">
       <nav>
         <ul className="pagination">
-          <li className="page-item disabled">
+          <li
+            className={`page-item ${currentPage === 1 ? "disabled" : null} `}
+            onClick={onPrevious}
+          >
             <span className="page-link">
               <i className="bi bi-caret-left-fill align-middle"></i>
             </span>
           </li>
           {paginationRange?.map((pageNumber) => (
-            <li className="page-item">
+            <li
+              className={`page-item ${
+                currentPage === pageNumber ? "active" : null
+              } `}
+              key={pageNumber}
+            >
               <a className="page-link" href="#">
                 {pageNumber}
               </a>
             </li>
           ))}
-          <li className="page-item">
+          <li
+            className={`page-item ${
+              lastPage === currentPage ? "disabled" : null
+            }`}
+            onClick={onNext}
+          >
             <span className="page-link">
               <i className="bi bi-caret-right-fill align-middle"></i>
             </span>

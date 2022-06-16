@@ -80,6 +80,8 @@ const EditCustomer: NextPage = () => {
         isHiddenSave={false}
         submitBtnText="Save"
         continueBtnText="Save and Continue Edit"
+        isDelete={true}
+        link={"/users/customer"}
       >
         <EditForm {...objProps} initData={initData} saveHandler={() => {}} />
       </SubmitForm>
