@@ -1,17 +1,18 @@
 import { getUserRest, signInRest, signUpRest } from "./restApi";
 import { getUserGraphQl, signInGraphQL, signUpGraphQL } from "./graphQL";
 import { config } from "config";
+import { apiFunction } from "utils/types";
 
-const graphqlApi = {
+const graphqlApi:apiFunction = {
     getUser: getUserGraphQl,
     signUp: signUpGraphQL,
     signIn: signInGraphQL,
 }
 
-const restApi = {
+const restApi:apiFunction = {
     getUser: getUserRest,
     signUp: signUpRest,
     signIn: signInRest,
 }
 
-export const userAPI = config?.apiService === 'GRAPHQL' ? graphqlApi : restApi
+export const userAPI:apiFunction = config?.apiService === 'GRAPHQL' ? graphqlApi : restApi
