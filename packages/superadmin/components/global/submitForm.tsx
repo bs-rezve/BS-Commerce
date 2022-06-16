@@ -12,6 +12,7 @@ interface Props {
   getProps: (propsObj: {}) => void;
   isDelete: boolean;
   link?: string;
+  isEdit?: boolean;
 }
 
 const SubmitForm: FC<Props> = ({
@@ -25,6 +26,7 @@ const SubmitForm: FC<Props> = ({
   getProps,
   isDelete = false,
   link = "",
+  isEdit = false,
 }) => {
   const saveBtnRef = useRef<HTMLButtonElement>(null);
   const saveBtnClicker = () => {
@@ -60,7 +62,9 @@ const SubmitForm: FC<Props> = ({
     <div className="">
       <div className="my-3 d-flex justify-content-between flex-wrap">
         <div className="d-flex flex-grow-1">
-          <div className="fs-2 me-2">Add a new {title}</div>
+          <div className="fs-2 me-2">
+            {isEdit ? `Edit ${title} details` : `Add a new ${title}`}
+          </div>
           <div className="d-flex align-items-center">
             <i className="bi bi-arrow-left-circle-fill"></i>
             <Link href={link}>

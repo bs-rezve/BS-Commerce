@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import { useState } from "react";
 import SubmitForm from "../../../components/global/submitForm";
+import ToggleButton from "../../../components/global/toggleButton";
 import VendorCreateForm from "../../../components/vendor/createForm";
 import { vendorTypes } from "../../../utils/typs";
 

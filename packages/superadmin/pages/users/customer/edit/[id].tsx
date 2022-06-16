@@ -74,7 +74,7 @@ const EditCustomer: NextPage = () => {
     <div className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <SubmitForm
         isDisabled={false}
-        title="Edit customer details"
+        title="customer"
         isHiddenSaveWithContinue={false}
         getProps={setObjprops}
         isHiddenSave={false}
@@ -82,6 +82,7 @@ const EditCustomer: NextPage = () => {
         continueBtnText="Save and Continue Edit"
         isDelete={true}
         link={"/users/customer"}
+        isEdit={true}
       >
         <EditForm {...objProps} initData={initData} saveHandler={() => {}} />
       </SubmitForm>

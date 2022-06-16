@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import Accordion from "../global/accordion";
@@ -6,6 +6,7 @@ import { vendorTypes } from "../../utils/typs";
 import VendorInfo from "./vendorInfo";
 import Display from "./display";
 import Seo from "./seo";
+import ToggleButton from "../global/toggleButton";
 
 // Validation schema
 const validationSchema = Yup.object().shape({});
@@ -25,8 +26,12 @@ const VendorCreateForm: FC<Props> = ({
   saveWithContinueBtnRef,
   deleteBtnRef,
 }) => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <>
+      <div className="mb-3">
+        <ToggleButton setIsOpen={setIsOpen} />
+      </div>
       <Formik
         enableReinitialize={true}
         initialValues={initData}
@@ -70,26 +75,30 @@ const VendorCreateForm: FC<Props> = ({
                   />
                 </Accordion>
               </div> */}
-              <div className="col-lg-12 mb-2">
-                <Accordion title="Display" id={3} icon="bi bi-display">
-                  <Display
-                    values={values.display}
-                    setFieldValue={setFieldValue}
-                    errors={errors}
-                    touched={touched}
-                  />
-                </Accordion>
-              </div>
-              <div className="col-lg-12 mb-2">
-                <Accordion title="SEO" id={4} icon="bi bi-search">
-                  <Seo
-                    values={values.seo}
-                    setFieldValue={setFieldValue}
-                    errors={errors}
-                    touched={touched}
-                  />
-                </Accordion>
-              </div>
+              {isOpen && (
+                <>
+                  <div className="col-lg-12 mb-2">
+                    <Accordion title="Display" id={3} icon="bi bi-display">
+                      <Display
+                        values={values.display}
+                        setFieldValue={setFieldValue}
+                        errors={errors}
+                        touched={touched}
+                      />
+                    </Accordion>
+                  </div>
+                  <div className="col-lg-12 mb-2">
+                    <Accordion title="SEO" id={4} icon="bi bi-search">
+                      <Seo
+                        values={values.seo}
+                        setFieldValue={setFieldValue}
+                        errors={errors}
+                        touched={touched}
+                      />
+                    </Accordion>
+                  </div>{" "}
+                </>
+              )}
               <button
                 type="submit"
                 style={{ display: "none" }}
