@@ -5,15 +5,15 @@ import EditOrder from './edit';
 import OrderList from './list';
 
 const Index = () => {
-    const [allPath, setAllPath] = useState({
-        list: true,
-        view: false,
-        billingEdit: false,
-        shippingEdit: false,
-    });
+    // const [allPath, setAllPath] = useState({
+    //     list: true,
+    //     view: false,
+    //     billingEdit: false,
+    //     shippingEdit: false,
+    // });
     return (
         <div>
-            <OrderList setAllPath={setAllPath}/>
+            <OrderList/>
         </div>
     );
 };

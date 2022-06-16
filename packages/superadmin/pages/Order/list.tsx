@@ -1,11 +1,11 @@
 import React from 'react';
 import OrderList from '../../components/sales/orderList';
 
-const List = ({setAllPath}: any) => {
+const List = () => {
 
     return (
         <div>
-            <OrderList setAllPath={setAllPath}/>
+            <OrderList />
         </div>
     );
 };

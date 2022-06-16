@@ -72,15 +72,16 @@ const Info = () => {
                     tooltipText={"The unique number of this order"}
                     data={"Complete"}
                 />
-                {/* <div className="row" style={{ marginLeft: "15%" }}>
-                    <div className="col">
+
+                {/* <div className="row">
+                    <div className="col-5">
                         <Tooltip
                             label={"Order status"}
                             tooltipText={"The unique number of this order"}
                             data={"Complete"}
                         />
                     </div>
-                    <div className="col" style={{ marginLeft: "0px" }}>
+                    <div className="col-2">
                         <button
                             type="button"
                             className="btn btn-danger"
@@ -731,8 +732,6 @@ const Info = () => {
                                             <button
                                                 type="button"
                                                 style={{
-                                                    height: "50px",
-                                                    width: "100px",
                                                     margin: "15px",
                                                 }}
                                                 className="btn btn-secondary"
@@ -837,17 +836,21 @@ const Info = () => {
                             )}
                         </div>
                     ) : (
-                        <button
-                            type="button"
-                            className="btn btn-danger"
-                            style={{
-                                backgroundColor: "#3c8dbc",
-                                border: "1px solid #3c8dbc",
-                            }}
-                            onClick={() => handleTotal()}
+                        <div
+                            style={{ textAlign: "center", marginRight: "42%" }}
                         >
-                            Edit order totals
-                        </button>
+                            <button
+                                type="button"
+                                className="btn btn-danger"
+                                style={{
+                                    backgroundColor: "#3c8dbc",
+                                    border: "1px solid #3c8dbc",
+                                }}
+                                onClick={() => handleTotal()}
+                            >
+                                Edit order totals
+                            </button>
+                        </div>
                     )}
                 </div>
                 <Tooltip

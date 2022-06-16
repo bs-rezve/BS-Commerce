@@ -24,8 +24,11 @@ const EditAddress = () => {
         <div style={{ marginLeft: "20%", marginTop: "2%" }}>
             <div>
                 <h1>Edit address</h1>{" "}
-                <Link href="/Order/list" passHref>
-                    <a> back to order details</a>
+                <Link href="/Order/edit" passHref>
+                    <p style={{ cursor: "pointer", color: "#3c8dbc" }}>
+                        <i className="bi bi-arrow-left-circle-fill"></i> back to
+                        order details
+                    </p>
                 </Link>
             </div>
 

@@ -1,10 +1,10 @@
 import React from 'react';
 import EditAddress from '../../components/sales/editAddress';
 
-const Address = ({setAllPath}: any) => {
+const Address = () => {
     return (
         <div>
-            <EditAddress setAllPath={setAllPath}/>
+            <EditAddress/>
         </div>
     );
 };

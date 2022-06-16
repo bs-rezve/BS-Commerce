@@ -30,11 +30,13 @@ const EditOrder = () => {
         <>
             <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <div>
-                        <h1 className="h2">Edit order details</h1>
-                        <Link href="/Order/list" passHref>
-                            <a>back to order list</a>
-                        </Link>
+                    <div className="d-flex justify-content-between ">
+                        <h1 className="h2">Edit order details{" "}</h1>
+                        <div style={{ marginLeft: "10px", fontSize: "20px" }} className="pt-1 pb-2 mb-2">
+                            <Link  href="/Order/list" passHref>
+                            <p style={{cursor: "pointer", color: "#3c8dbc"}}><i className="bi bi-arrow-left-circle-fill"></i>{" "}back to order list</p>
+                            </Link>
+                        </div>
                     </div>
 
                     <div className="btn-toolbar mb-2 mb-md-0">
@@ -157,7 +159,7 @@ const EditOrder = () => {
                         fontSize: "20px",
                         padding: "20px",
                         marginBottom: "20px",
-                        // transition: '10s'
+                        transition: "all 0.3s ease 0s ",
                     }}
                 >
                     <i className="bi bi-info-lg"></i> Info

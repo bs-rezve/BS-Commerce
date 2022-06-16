@@ -1,14 +1,13 @@
-import React from 'react';
-import  { FC } from "react";
+import React from "react";
+import { FC } from "react";
 
-interface TOOL  {
-    label: string,
-    data: string,
-    tooltipText: string
+interface TOOL {
+    label: string;
+    data: string;
+    tooltipText: string;
 }
 
-const Tooltip:FC<TOOL>= ({label, data, tooltipText}) => {
-
+const Tooltip: FC<TOOL> = ({ label, data, tooltipText }) => {
     return (
         <div>
             <>
@@ -28,9 +27,11 @@ const Tooltip:FC<TOOL>= ({label, data, tooltipText}) => {
                         </p>
                     </div>
 
-                    <div className="col">
-                        <p>{data}</p>
-                    </div>
+                    {
+                        <div className="col">
+                            <p>{data}</p>
+                        </div>
+                    }
                 </div>
             </>
         </div>
