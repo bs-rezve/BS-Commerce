@@ -22,6 +22,7 @@ export const initData: vendorTypes = {
   metaTitle: "",
   metaKey: "",
   metaDes: "",
+  note: "",
 };
 
 const CreateCustomer: NextPage = () => {

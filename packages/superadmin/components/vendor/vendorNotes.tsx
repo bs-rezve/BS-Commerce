@@ -1,12 +1,11 @@
 import React, { FC } from "react";
-import { noteList } from "../../utils/typs";
+import { noteList, vendorTypes } from "../../utils/typs";
 import InputField from "../global/inputField";
 import TableInfo from "../global/table";
-// import RewardsCreateForm from "./rewardForm";
 
 interface Props {
   noteList: noteList[] | [];
-  values: any;
+  values: vendorTypes;
 }
 
 const VendorNotes: FC<Props> = ({ noteList, values }) => {

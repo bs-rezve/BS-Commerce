@@ -62,20 +62,6 @@ const VendorCreateForm: FC<Props> = ({
                   />
                 </Accordion>
               </div>
-              {/* <div className="col-lg-12 mb-2">
-                <Accordion
-                  title="Address (optional)"
-                  id={2}
-                  icon="bi bi-info-lg"
-                >
-                  <VendorInfo
-                    values={values.customerInfo}
-                    setFieldValue={setFieldValue}
-                    errors={errors}
-                    touched={touched}
-                  />
-                </Accordion>
-              </div> */}
               {isOpen && (
                 <>
                   <div className="col-lg-12 mb-2">
@@ -113,6 +99,7 @@ const VendorCreateForm: FC<Props> = ({
                 ref={saveWithContinueBtnRef}
                 onSubmit={() => {}}
               ></button>
+
               <button
                 type="button"
                 style={{ display: "none" }}
