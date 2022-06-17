@@ -6,7 +6,7 @@ const Shipping = () => {
         <div className="flex flex-wrap w-11/12">
             <div className="w-full">
                 <div className="mt-20 ml-28">
-                    <p className="font-medium text-5xl text-[#333333]">
+                    <p className="font-medium text-5xl text-[#333333]" data-testid="id">
                         Safira
                     </p>
                     <br />

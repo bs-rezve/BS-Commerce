@@ -1,6 +1,6 @@
-import type { NextPage } from "next";
+import React from "react";
 
-const Home: NextPage = () => {
+const Home = () => {
   return (
     <>
       <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
@@ -31,7 +31,7 @@ const Home: NextPage = () => {
           </div>
         </div>
 
-        <h2>Section title</h2>
+        <h2 data-testid="section">Section title</h2>
         <div className="table-responsive">
           <table className="table table-striped table-sm">
             <thead>
