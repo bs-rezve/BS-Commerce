@@ -9,14 +9,14 @@ import { config } from "config";
 
 Axios.defaults.baseURL = config?.restPrefix;
 
-function MyApp({ Component, pageProps: { session, ...pageProps} }: AppProps) {
+function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   return (
     <SessionProvider session={session}>
-        <Provider store={store}>
+      <Provider store={store}>
         <Layout>
-            <Component {...pageProps} />
+          <Component {...pageProps} />
         </Layout>
-        </Provider>
+      </Provider>
     </SessionProvider>
   );
 }
