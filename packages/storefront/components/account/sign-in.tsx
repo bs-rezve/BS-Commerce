@@ -2,17 +2,24 @@ import { userAPI } from "APIs";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { SignInRequest } from "models";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { signIn } from "next-auth/react";
 import Breadcrumb from "../global/breadcrumbs/breadcrumb";
 
 import { loginSchema } from "../global/schemas/loginSchema";
 
 const Signin = () => {
+
+  const providers = ["google", "facebook"]
+
   function handleSignin(data: SignInRequest) {
     console.log(data);
-  //  const res = userAPI.signIn(data);
-  //  console.log(res);
+    //  const res = userAPI.signIn(data);
+    //  console.log(res);
   }
+  
+  const handleGoogleSignIn = (provider: any) => () => {
+    signIn(provider, { callbackUrl: 'http://localhost:3002/home' });
+  };
 
   return (
     <>
@@ -58,7 +65,7 @@ const Signin = () => {
                         placeholder="Email or phone number"
                       />
                       <div className="errMsg text-red-600 outline-0">
-                        <ErrorMessage name='username'/>
+                        <ErrorMessage name="username" />
                       </div>
                     </div>
 
@@ -94,15 +101,22 @@ const Signin = () => {
                 );
               }}
             </Formik>
-            <div className="text-decoration-none mt-3">
-              <Link data-testid="create-account-link" href="/account/sign-up">
-                <a
-                  data-testid="create-account-page"
-                  className="text-decoration-none text-gray-600 hover:text-gray-500 font-weight-light"
-                >
-                  Create account
-                </a>
-              </Link>
+            <div className="flex flex-wrap justify-end sm:justify-end md:justify-between lg:justify-between xl:justify-between">
+              <div className="text-decoration-none mt-3">
+                <Link href="/account/sign-up">
+                  <a
+                    className="text-decoration-none text-gray-600 hover:text-gray-500 font-weight-light"
+                  >
+                    Create account
+                  </a>
+                </Link>
+              </div>
+              <div>
+                <span className="mr-2 text-xs">Sign in with</span>
+                <button onClick={handleGoogleSignIn(providers[0])} className="text-xs p-1 rounded bg-green-600/100 hover:bg-black text-white">
+                  Google
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -112,4 +126,3 @@ const Signin = () => {
 };
 
 export default Signin;
-
