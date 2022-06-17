@@ -1,5 +1,6 @@
 import type { AppProps } from "next/app";
 import Layout from "../components/layout";
+import { SessionProvider } from "next-auth/react";
 import "@/styles/globals.css";
 import { Provider } from "react-redux";
 import { store } from "../store";
@@ -9,14 +10,14 @@ import { SessionProvider } from "next-auth/react";
 
 Axios.defaults.baseURL = config?.restPrefix;
 
-function MyApp({ Component, pageProps: {session, ...pageProps} }: AppProps) {
+function MyApp({ Component, pageProps: { session, ...pageProps} }: AppProps) {
   return (
     <SessionProvider session={session}>
-      <Provider store={store}>
+        <Provider store={store}>
         <Layout>
-          <Component {...pageProps} />
+            <Component {...pageProps} />
         </Layout>
-      </Provider>
+        </Provider>
     </SessionProvider>
   );
 }
