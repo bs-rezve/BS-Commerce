@@ -90,4 +90,11 @@ export interface vendorTypes {
   metaTitle: string;
   metaKey: string;
   metaDes: string;
+  note?: string;
+}
+
+export interface noteList {
+  id: string;
+  created: string;
+  note: string;
 }

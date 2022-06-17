@@ -22,7 +22,13 @@ const Customer: NextPage = () => {
       active: true,
     },
     {
-      id: "1",
+      id: "2",
+      email: "email",
+      name: "Name",
+      active: true,
+    },
+    {
+      id: "3",
       email: "email",
       name: "Name",
       active: true,
@@ -34,31 +40,25 @@ const Customer: NextPage = () => {
       active: true,
     },
     {
-      id: "1",
-      email: "email",
-      name: "Name",
-      active: true,
-    },
-    {
-      id: "1",
+      id: "4",
       email: "email",
       name: "Name",
       active: false,
     },
     {
-      id: "1",
+      id: "5",
       email: "email",
       name: "Name",
       active: true,
     },
     {
-      id: "1",
+      id: "6",
       email: "email",
       name: "Name",
       active: true,
     },
     {
-      id: "1",
+      id: "7",
       email: "email",
       name: "Name",
       active: true,
@@ -107,7 +107,7 @@ const Customer: NextPage = () => {
               <td className="text-center">
                 <button
                   className="btn btn-light"
-                  onClick={() => router.push(`/users/customer/edit/${data.id}`)}
+                  onClick={() => router.push(`/users/vendor/edit/${data.id}`)}
                 >
                   <i className="bi bi-pen-fill pe-1 align-middle"></i>Edit
                 </button>
