@@ -14,6 +14,9 @@ module.exports = {
     },
     transformIgnorePatterns: ["/node_modules/"],
     moduleNameMapper: {
-        ".+\\.(css|styl|less|sass|scss|png|jpg|jpeg|ttf|woff|woff2)$": "<rootDir>/__mocks__/fileMock.js"
-    },
+      ".+\\.(css|styl|less|sass|scss|png|jpg|jpeg|ttf|woff|woff2)$": "<rootDir>/__mocks__/fileMock.js",
+      '^@/components/(.*)$': '<rootDir>/components/$1',
+      '^@/functions/(.*)$': '<rootDir>/functions/$1',
+      '^@/styles/(.*)$': '<rootDir>/styles/$1',
+      '^@/pages/(.*)$': '<rootDir>/pages/$1'    },
   };
