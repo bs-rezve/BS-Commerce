@@ -123,7 +123,7 @@ const Signin = () => {
                             <div>
                                 <span className="mr-1">Sign in with</span>
                                 <button
-                                    onClick={handleGoogleSignIn("google")}
+                                    onClick={handleGoogleSignIn(providers[0])}
                                     className="rounded p-2 my-2 bg-green-600/100 hover:bg-black text-white"
                                 >
                                     Google
