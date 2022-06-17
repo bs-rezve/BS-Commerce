@@ -72,16 +72,13 @@ export interface addressData {
   fax: string;
 }
 
-export interface vendorInfo {
+export interface vendorTypes {
   name: string;
   description: string;
   email: string;
   active: boolean;
   picture: string;
   adminComment: string;
-}
-
-export interface display {
   pageSize: boolean;
   pageOption: string | number;
   pricerangeFilter: boolean;
@@ -89,17 +86,8 @@ export interface display {
   pricefrom: string | number;
   priceto: string | number;
   displayorder: string | number;
-}
-
-export interface seoType {
   pageName: string;
   metaTitle: string;
   metaKey: string;
   metaDes: string;
-}
-
-export interface vendorTypes {
-  vendorInfo: vendorInfo;
-  display: display;
-  seo: seoType;
 }

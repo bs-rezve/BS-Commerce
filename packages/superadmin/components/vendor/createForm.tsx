@@ -54,7 +54,7 @@ const VendorCreateForm: FC<Props> = ({
               <div className="col-lg-12 mb-2">
                 <Accordion title="Vendor Info" id={1} icon="bi bi-info-lg">
                   <VendorInfo
-                    values={values.vendorInfo}
+                    values={values}
                     setFieldValue={setFieldValue}
                     errors={errors}
                     touched={touched}
@@ -81,7 +81,7 @@ const VendorCreateForm: FC<Props> = ({
                   <div className="col-lg-12 mb-2">
                     <Accordion title="Display" id={3} icon="bi bi-display">
                       <Display
-                        values={values.display}
+                        values={values}
                         setFieldValue={setFieldValue}
                         errors={errors}
                         touched={touched}
@@ -91,7 +91,7 @@ const VendorCreateForm: FC<Props> = ({
                   <div className="col-lg-12 mb-2">
                     <Accordion title="SEO" id={4} icon="bi bi-search">
                       <Seo
-                        values={values.seo}
+                        values={values}
                         setFieldValue={setFieldValue}
                         errors={errors}
                         touched={touched}

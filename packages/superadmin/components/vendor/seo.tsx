@@ -1,10 +1,10 @@
 import React, { FC } from "react";
-import { seoType } from "../../utils/typs";
+import { vendorTypes } from "../../utils/typs";
 import InputField from "../global/inputField";
 import TextareaField from "../global/textarea";
 
 interface Props {
-  values: seoType;
+  values: vendorTypes;
   setFieldValue: (name: string, valueOption: {} | string | number) => void;
   errors: any;
   touched: any;

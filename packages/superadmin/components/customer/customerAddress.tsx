@@ -1,6 +1,6 @@
+import { useRouter } from "next/router";
 import React, { FC } from "react";
 import { orders } from "../../utils/typs";
-import AddButton from "../global/AddButton";
 import TableInfo from "../global/table";
 
 interface Props {
@@ -19,6 +19,8 @@ const CustomerAddress: FC<Props> = ({ addressList, setFieldValue }) => {
     "Edit",
     "Delete",
   ];
+
+  const router = useRouter();
   return (
     <div className="">
       <TableInfo tHead={thead} list={addressList}>
@@ -44,10 +46,13 @@ const CustomerAddress: FC<Props> = ({ addressList, setFieldValue }) => {
         ))}
       </TableInfo>
       <div>
-        <AddButton
-          title="Add new address"
-          link={"users/customer/addressCreate"}
-        />
+        <div
+          className="btn btn-primary"
+          onClick={() => router.push("/users/customer/addressCreate")}
+        >
+          <i className={`bi bi-file-plus me-2 align-middle`}></i>
+          Add new address
+        </div>
       </div>
     </div>
   );

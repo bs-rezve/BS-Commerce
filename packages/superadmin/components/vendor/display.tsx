@@ -2,16 +2,17 @@ import React, { FC } from "react";
 import InputField from "../global/inputField";
 import Checkbox from "../global/checkbox";
 import TextareaField from "../global/textarea";
-import { display } from "../../utils/typs";
+import { vendorTypes } from "../../utils/typs";
 
 interface Props {
-  values: display;
+  values: vendorTypes;
   setFieldValue: (name: string, valueOption: {} | string | number) => void;
   errors: any;
   touched: any;
 }
 
 const Display: FC<Props> = ({ values, setFieldValue, errors, touched }) => {
+  console.log(values, "values");
   return (
     <>
       <div className="col-lg-12">
@@ -22,34 +23,45 @@ const Display: FC<Props> = ({ values, setFieldValue, errors, touched }) => {
           value={values?.pageOption}
           label={"Page size options"}
           placeholder={"Page size options"}
-          type="number"
+          type={values?.pageSize ? "text" : "number"}
           name="pageOption"
         />
       </div>
       <div className="col-lg-12">
         <Checkbox label="Price range filtering" name="pricerangeFilter" />
       </div>
-      <div className="col-lg-12">
-        <Checkbox label="Enter price range manually" name="pricerangemanual" />
-      </div>
-      <div className="col-lg-12">
-        <InputField
-          value={values?.pricefrom}
-          label="Price 'from'"
-          placeholder="Price 'from'"
-          type="number"
-          name="pricefrom"
-        />
-      </div>
-      <div className="col-lg-12">
-        <InputField
-          value={values?.priceto}
-          label="Price 'to'"
-          placeholder="Price 'to'"
-          type="number"
-          name="priceto"
-        />
-      </div>
+      {values?.pricerangeFilter ? (
+        <>
+          <div className="col-lg-12">
+            <Checkbox
+              label="Enter price range manually"
+              name="pricerangemanual"
+            />
+          </div>
+          {values?.pricerangemanual ? (
+            <>
+              <div className="col-lg-12">
+                <InputField
+                  value={values?.pricefrom}
+                  label="Price 'from'"
+                  placeholder="Price 'from'"
+                  type="number"
+                  name="pricefrom"
+                />
+              </div>
+              <div className="col-lg-12">
+                <InputField
+                  value={values?.priceto}
+                  label="Price 'to'"
+                  placeholder="Price 'to'"
+                  type="number"
+                  name="priceto"
+                />
+              </div>
+            </>
+          ) : null}
+        </>
+      ) : null}
       <div className="col-lg-12">
         <InputField
           value={values?.displayorder}

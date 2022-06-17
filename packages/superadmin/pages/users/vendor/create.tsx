@@ -1,34 +1,27 @@
 import type { NextPage } from "next";
 import { useState } from "react";
 import SubmitForm from "../../../components/global/submitForm";
-import ToggleButton from "../../../components/global/toggleButton";
 import VendorCreateForm from "../../../components/vendor/createForm";
 import { vendorTypes } from "../../../utils/typs";
 
 export const initData: vendorTypes = {
-  vendorInfo: {
-    name: "",
-    description: "",
-    email: "",
-    active: false,
-    picture: "",
-    adminComment: "",
-  },
-  display: {
-    pageSize: false,
-    pageOption: "",
-    pricerangeFilter: false,
-    pricerangemanual: false,
-    pricefrom: "",
-    priceto: "",
-    displayorder: "",
-  },
-  seo: {
-    pageName: "",
-    metaTitle: "",
-    metaKey: "",
-    metaDes: "",
-  },
+  name: "",
+  description: "",
+  email: "",
+  active: false,
+  picture: "",
+  adminComment: "",
+  pageSize: true,
+  pageOption: "",
+  pricerangeFilter: true,
+  pricerangemanual: true,
+  pricefrom: "",
+  priceto: "",
+  displayorder: "",
+  pageName: "",
+  metaTitle: "",
+  metaKey: "",
+  metaDes: "",
 };
 
 const CreateCustomer: NextPage = () => {

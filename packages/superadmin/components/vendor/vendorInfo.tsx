@@ -2,12 +2,13 @@ import React, { FC } from "react";
 import InputField from "../global/inputField";
 import Checkbox from "../global/checkbox";
 import TextareaField from "../global/textarea";
-import { vendorInfo } from "../../utils/typs";
+import { vendorTypes } from "../../utils/typs";
 import TinyEditor from "../global/tinyEditor";
 import FileField from "../global/fileField";
+import AddressInput from "../global/addressInput";
 
 interface Props {
-  values: vendorInfo;
+  values: vendorTypes;
   setFieldValue: (name: string, valueOption: {} | string | number) => void;
   errors: any;
   touched: any;
@@ -72,7 +73,20 @@ const VendorInfo: FC<Props> = ({
               rows={3}
               setFieldValue={setFieldValue}
             />
-          </div>{" "}
+          </div>
+          <div>
+            <div className="card mt-5">
+              <div className="card-header fs-5">Address (Optional)</div>
+              <div className="card-body">
+                <AddressInput
+                  values={values}
+                  setFieldValue={setFieldValue}
+                  errors={errors}
+                  touched={touched}
+                />
+              </div>
+            </div>
+          </div>
         </>
       )}
     </>
