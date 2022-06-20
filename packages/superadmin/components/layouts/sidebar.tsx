@@ -1,10 +1,10 @@
-import type { NextComponentType } from "next";
+import type { FC } from "react";
 import Image from "next/image";
 import { useState } from "react";
 import HeaderBar from "./headerBar";
 import bsLogo from "../../assests/bs23.png";
 import sidebar from "./styles/sidebar.module.css";
-const Sidebar: NextComponentType = (props: any) => {
+const Sidebar: FC = (props: any) => {
   const menuItems = [
     { name: "Dashboard", to: "/", icon: <i className="bi bi-tv"></i> },
     {
