@@ -3,7 +3,7 @@ import XRegExp from "xregexp";
 import * as Yup from "yup";
 
 export const discountSchema = object().shape({
-  name:  string()
+  discountName:  string()
   .matches(
     XRegExp("^[\\pL.]+(?:\\s[\\pL]+)*$"),
     "This field should contain letters only"
@@ -22,7 +22,7 @@ export const discountSchema = object().shape({
   .required("This field must not be empty"),
   endDate: Yup.date()
   .required("This field must not be empty"),
-  timesUsed: number(),
+  // timesUsed: number(),
 
 
 });
