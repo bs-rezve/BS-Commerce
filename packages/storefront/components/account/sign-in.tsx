@@ -114,13 +114,14 @@ const Signin = () => {
                   </a>
                 </Link>
               </div>
-              <p className="mt-3">or</p>
+              <p className="mt-3 text-gray-600">or login using</p>
                 <button
                     onClick={handleGoogleSignIn(providers[0])}
                     className=" text-xs rounded p-2 my-2 w-full sm:w-full md:w-auto lg:w-auto xl:w-auto bg-green-600/100 hover:bg-black text-white"
                 >
                     Google
                 </button>
+                <p className="mt-3 text-gray-600">or</p>
                 <button
                     onClick={handleGoogleSignIn(providers[1])}
                     className="text-xs rounded p-2 my-2 w-full sm:w-full md:w-auto lg:w-auto bg-green-600/100 hover:bg-black text-white"
