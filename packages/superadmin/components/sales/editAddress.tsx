@@ -3,20 +3,7 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import React from "react";
 import { addressEditSchema } from "../sales/service/schema/address.schema";
 
-// interface PATH {
-//     list: boolean;
-//     view: boolean;
-//     billingEdit: boolean;
-//     shippingEdit: boolean;
-// }
-
 const EditAddress = () => {
-    // const obj = {
-    //     list: false,
-    //     view: true,
-    //     billingEdit: false,
-    //     shippingEdit: false,
-    // };
     function handleSearchSubmit(data: any) {
         console.log(data);
     }

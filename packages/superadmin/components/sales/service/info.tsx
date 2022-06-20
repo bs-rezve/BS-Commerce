@@ -84,130 +84,139 @@ const Info = () => {
                     tooltipText={"The unique number of this order"}
                     data={"victoria_victoria@nopCommerce.com"}
                 />
-                <Tooltip
+                {/* <Tooltip
                     label={"Order status"}
                     tooltipText={"The unique number of this order"}
                     data={"Complete"}
-                />
+                /> */}
 
-                <div style={{ textAlign: "center" }}>
-                    <button
-                        type="button"
-                        className="btn btn-danger"
-                        style={{
-                            backgroundColor: "#dd4b39",
-                            marginRight: "10px",
-                        }}
-                        onClick={() => handleCancel()}
-                    >
-                        Cancel order
-                    </button>
-
-                    {modal.change_status ? (
-                        <div>
-                            <button
-                                className="dropdown"
-                                style={{
-                                    marginTop: "10px",
-                                    width: "30%",
-                                    padding: "10px",
-                                    border: "1px solid gray",
-                                    textAlign: "left",
-                                }}
-                            >
-                                <a
-                                    href="#"
-                                    className="dropdown-toggle"
-                                    data-bs-toggle="dropdown"
-                                    style={{
-                                        textDecoration: "none",
-                                        color: "black",
-                                        padding: "10px",
-                                    }}
-                                >
-                                    Pending
-                                </a>
-                                <div className="dropdown-menu">
-                                    <a href="#" className="dropdown-item">
-                                        Processing
-                                    </a>
-                                    <a href="#" className="dropdown-item">
-                                        Complete
-                                    </a>
-                                    <a href="#" className="dropdown-item">
-                                        Cancelled
-                                    </a>
-                                </div>
-                            </button>
-                            <div
-                                style={{
-                                    textAlign: "left",
-                                    marginTop: "10px",
-                                    width: "25%",
-                                    marginLeft: "35%",
-                                }}
-                            >
-                                <button
-                                    type="button"
-                                    className="btn btn-danger"
-                                    style={{
-                                        marginRight: "10px",
-                                        backgroundColor: "#3c8dbc",
-                                        border: "1px solid #3c8dbc",
-                                    }}
-                                    onClick={() => handleSaveStatus()}
-                                >
-                                    Save
-                                </button>
-                                <button
-                                    type="button"
-                                    className="btn btn-secondary"
-                                    onClick={() =>
-                                        setModal({
-                                            ...modal,
-                                            change_status: false,
-                                        })
-                                    }
-                                >
-                                    Cancel
-                                </button>
-                                <p>
-                                    This option is only for advanced users (not
-                                    recommended to change manually). All
-                                    appropriate actions (such as inventory
-                                    adjustment, sending notification emails,
-                                    reward points, gift card
-                                    activation/deactivation, etc) should be done
-                                    manually in this case.
-                                </p>
-                                {modal.change_status_save ? (
-                                    <Modal state={"change_status_save"} handleStatus={handleSaveStatusOff}/>
-                                ) : (
-                                    <></>
-                                )}
-                            </div>
-                        </div>
-                    ) : (
+                <div className="row">
+                    <div className="col" style={{ marginLeft: "15%" }}>
+                        <Tooltip
+                            label={"Order status"}
+                            tooltipText={"The unique number of this order"}
+                            data={"Complete"}
+                        />
+                    </div>
+                    <div className="col" style={{}}>
                         <button
                             type="button"
                             className="btn btn-danger"
                             style={{
-                                backgroundColor: "#3c8dbc",
-                                border: "1px solid #3c8dbc",
+                                backgroundColor: "#dd4b39",
+                                marginRight: "10px",
                             }}
-                            onClick={() => handleChange()}
+                            onClick={() => handleCancel()}
                         >
-                            Change status
+                            Cancel order
                         </button>
-                    )}
+
+                        {modal.change_status ? (
+                            <div>
+                                <button
+                                    className="dropdown"
+                                    style={{
+                                        marginTop: "10px",
+                                        width: "30%",
+                                        padding: "10px",
+                                        border: "1px solid gray",
+                                        textAlign: "left",
+                                    }}
+                                >
+                                    <a
+                                        href="#"
+                                        className="dropdown-toggle"
+                                        data-bs-toggle="dropdown"
+                                        style={{
+                                            textDecoration: "none",
+                                            color: "black",
+                                            padding: "10px",
+                                        }}
+                                    >
+                                        Pending
+                                    </a>
+                                    <div className="dropdown-menu">
+                                        <a href="#" className="dropdown-item">
+                                            Processing
+                                        </a>
+                                        <a href="#" className="dropdown-item">
+                                            Complete
+                                        </a>
+                                        <a href="#" className="dropdown-item">
+                                            Cancelled
+                                        </a>
+                                    </div>
+                                </button>
+                                <div
+                                    style={{
+                                        textAlign: "left",
+                                        marginTop: "10px",
+                                        width: "25%",
+                                        marginLeft: "35%",
+                                    }}
+                                >
+                                    <button
+                                        type="button"
+                                        className="btn btn-danger"
+                                        style={{
+                                            marginRight: "10px",
+                                            backgroundColor: "#3c8dbc",
+                                            border: "1px solid #3c8dbc",
+                                        }}
+                                        onClick={() => handleSaveStatus()}
+                                    >
+                                        Save
+                                    </button>
+                                    <button
+                                        type="button"
+                                        className="btn btn-secondary"
+                                        onClick={() =>
+                                            setModal({
+                                                ...modal,
+                                                change_status: false,
+                                            })
+                                        }
+                                    >
+                                        Cancel
+                                    </button>
+                                    <p>
+                                        This option is only for advanced users
+                                        (not recommended to change manually).
+                                        All appropriate actions (such as
+                                        inventory adjustment, sending
+                                        notification emails, reward points, gift
+                                        card activation/deactivation, etc)
+                                        should be done manually in this case.
+                                    </p>
+                                    {modal.change_status_save ? (
+                                        <Modal
+                                            state={"change_status_save"}
+                                            handleStatus={handleSaveStatusOff}
+                                        />
+                                    ) : (
+                                        <></>
+                                    )}
+                                </div>
+                            </div>
+                        ) : (
+                            <button
+                                type="button"
+                                className="btn btn-danger"
+                                style={{
+                                    backgroundColor: "#3c8dbc",
+                                    border: "1px solid #3c8dbc",
+                                }}
+                                onClick={() => handleChange()}
+                            >
+                                Change status
+                            </button>
+                        )}
+                    </div>
                 </div>
             </div>
 
             {modal.cancel_order ? (
-                <Modal
-                    state={"cancel_order"}
-                    handleStatus={handleCancelOff}
-                />
+                <Modal state={"cancel_order"} handleStatus={handleCancelOff} />
             ) : (
                 <div />
             )}
@@ -584,7 +593,10 @@ const Info = () => {
                             </Formik>
 
                             {modal.save_order_totals ? (
-                                <Modal state={"save_order_totals"} handleStatus={handleSaveOrderTotalOff} />
+                                <Modal
+                                    state={"save_order_totals"}
+                                    handleStatus={handleSaveOrderTotalOff}
+                                />
                             ) : (
                                 <></>
                             )}
@@ -643,7 +655,7 @@ const Info = () => {
                 </div>
             </div>
             {modal.refund ? (
-                <Modal state={"refund"} handleStatus={handleRefundOff}/>
+                <Modal state={"refund"} handleStatus={handleRefundOff} />
             ) : (
                 <div />
             )}

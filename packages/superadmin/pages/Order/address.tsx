@@ -1,4 +1,3 @@
-import React from 'react';
 import EditAddress from '../../components/sales/editAddress';
 
 const Address = () => {
