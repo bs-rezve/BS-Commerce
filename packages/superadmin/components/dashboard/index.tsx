@@ -2,7 +2,8 @@ import { FC } from "react";
 import DateTimeFilter from "./filter/main";
 import StatWidgets from "./widgets/main";
 import StatChart from "./charts/index";
-import UserData from "./userData/main";
+import SalesData from "./userData/main";
+import BestSeller from "./userData/bestSeller/main";
 const Dashboard: FC = () => {
   return (
     <>
@@ -10,7 +11,8 @@ const Dashboard: FC = () => {
         <DateTimeFilter />
         <StatWidgets />
         <StatChart />
-        <UserData />
+        <SalesData />
+        <BestSeller />
       </div>
     </>
   );

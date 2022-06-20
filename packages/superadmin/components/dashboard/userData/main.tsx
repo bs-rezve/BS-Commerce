@@ -1,10 +1,13 @@
 import type { FC } from "react";
-const UserData: FC = () => {
+import OrderData from "./orderData/main";
+const SalesData: FC = () => {
   return (
     <>
-      <div>user Data Section goes here</div>
+      <div>
+        <OrderData />
+      </div>
     </>
   );
 };
 
-export default UserData;
+export default SalesData;
