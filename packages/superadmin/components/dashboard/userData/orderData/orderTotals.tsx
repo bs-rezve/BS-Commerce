@@ -116,6 +116,23 @@ const OrderTotalData: FC = () => {
               <tbody>{tableData()}</tbody>
             </table>
           </div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "end",
+              paddingRight: "10px",
+              marginBottom: "15px",
+            }}
+          >
+            <button
+              style={{
+                padding: "10px",
+                height: "40px",
+              }}
+            >
+              <i className="bi bi-arrow-clockwise"></i>
+            </button>
+          </div>
         </div>
       )}
     </>
