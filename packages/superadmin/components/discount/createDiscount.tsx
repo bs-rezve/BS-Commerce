@@ -1,6 +1,7 @@
 import { Formik, Form } from "formik";
 import { discountSchema } from "./schema/discountSchema";
 import DiscountInfoForm from "./forms/discountInfo";
+import RequirementsForm from "./forms/requirementsForm";
 
 
 
@@ -11,17 +12,29 @@ const CreateDiscount = () => {
         initialValues={{
           discountName: "",
           type: "",
+          usePercentage: false,
           discountPercentage: 0,
           startDate: "",
           endDate: "",
+          requireCuponCode: false,
+          cuponCode: "",
+          discountLimit: "",
+          nTimes: 0,
+          adminComment: "",
         }}
         onSubmit={(values, actions) => {
           const data = {
             discountName: values.discountName,
             type: values.type,
+            usePercentage: values.usePercentage,
             discountPercentage: values.discountPercentage,
             startDate: values.startDate,
             endDate: values.endDate,
+            requireCuponCode: values.requireCuponCode,
+            cuponCode: values.cuponCode,
+            discountLimit: values.discountLimit,
+            nTimes: values.nTimes,
+            adminComment: values.adminComment,
           };
           console.log(data);
           // handleSearchSubmit(data);
@@ -66,6 +79,7 @@ const CreateDiscount = () => {
 
               <div className="mt-4">
                 <DiscountInfoForm />
+                <RequirementsForm />
               </div>
             </Form>
           );
