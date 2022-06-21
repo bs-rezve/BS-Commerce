@@ -1,5 +1,5 @@
 export const apiEndPoints = {
   getUser: `/todos`,
   product: "/product",
-  manufacturer: "/manufacturer",
+  manufacturer: "/manufacturers/create",
 };
