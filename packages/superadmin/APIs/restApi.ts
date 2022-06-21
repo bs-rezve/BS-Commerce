@@ -5,6 +5,10 @@ import {
   CreateProductRequest,
   UpdateProductRequest,
 } from "../../models/src/product";
+import {
+  CreateManufacturerRequest,
+  UpdateManufacturerRequest,
+} from "../../models/src/manufacturer";
 import { User } from "../utils/types";
 import { Product } from "models";
 import { toast } from "react-toastify";
@@ -33,6 +37,24 @@ export async function createProductRest(
     console.log(error);
     toast.error(error?.response?.data?.error);
     toast.error(error?.response?.data?.message);
+  }
+}
+
+export async function createManufacturerRest(
+  data: CreateManufacturerRequest,
+  router
+): Promise<CreateManufacturerRequest | undefined> {
+  try {
+    const response = await axios.post<CreateManufacturerRequest>(
+      `${apiEndPoints.manufacturer}`,
+      data
+    );
+    router.push("/Product");
+    toast.success("Create Successful");
+    return response.data as CreateManufacturerRequest;
+  } catch (error) {
+    console.log(error);
+    toast.error(error?.response?.data?.error);
   }
 }
 
