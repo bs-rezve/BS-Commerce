@@ -3,6 +3,8 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import React from "react";
 import { addressEditSchema } from "../sales/service/schema/address.schema";
 
+const sleep = (ms: any) => new Promise((r) => setTimeout(r, ms));
+
 const EditAddress = () => {
     function handleSearchSubmit(data: any) {
         console.log(data);
@@ -86,7 +88,13 @@ const EditAddress = () => {
                                             className="p-2 w-100 mb-2"
                                             id="firstName"
                                             name="firstName"
+                                            // aria-errormessage="msg"
+                                            // aria-invalid="true"
                                         />
+                                        {/* <span id='msg' aria-live="assertive" style={{visibility: 'visible'}}>
+                                            Invalid first name
+
+                                        </span> */}
                                         <div className="invalid-feedback d-block">
                                             <ErrorMessage name="firstName" />
                                         </div>

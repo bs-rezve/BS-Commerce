@@ -2,13 +2,7 @@ import type { NextComponentType } from "next";
 import Link from "next/link";
 
 const SingleOrder = (props: any) => {
-    const {order, setAllPath} = props;
-    const obj = {
-        list: false,
-        view: true,
-        billingEdit: false,
-        shippingEdit: false,
-    };
+    const {order} = props;
     return (
         <>
             <tr style={{ fontSize: "20px", paddingTop: "20px" }}>
@@ -82,7 +76,6 @@ const SingleOrder = (props: any) => {
                 <td style={{ border: "1px solid #dddddd" }}>
                     <Link href="/Order/edit" passHref>
                     <button
-                        // onClick={() => setAllPath(obj)}
                         type="button"
                         className="btn btn-light btn-lg"
                     >

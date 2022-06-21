@@ -1,11 +1,7 @@
 import type { NextComponentType } from "next";
 import Link from "next/link";
 
-const SingleShipment = ({ setAllPath, shipment }: any) => {
-    const obj = {
-        list: false,
-        view: true,
-    };
+const SingleShipment = ({ shipment }: any) => {
     return (
         <>
             <tr style={{ fontSize: "20px", paddingTop: "20px" }}>
@@ -48,13 +44,11 @@ const SingleShipment = ({ setAllPath, shipment }: any) => {
                     {shipment.date_delivered}
                 </td>
                 <td style={{ border: "1px solid #dddddd" }}>
-                    <button
-                        type="button"
-                        className="btn btn-light btn-lg"
-                        onClick={() => setAllPath(obj)}
-                    >
-                        <i className="bi bi-eye"> {shipment.view}</i>
-                    </button>
+                    <Link href="/Shipment/edit" passHref>
+                        <button type="button" className="btn btn-light btn-lg">
+                            <i className="bi bi-eye"> {shipment.view}</i>
+                        </button>
+                    </Link>
                 </td>
             </tr>
         </>

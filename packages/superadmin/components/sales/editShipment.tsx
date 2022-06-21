@@ -7,16 +7,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Tooltip from "./service/tooltip";
 
-const EditShipment = ({ setAllPath }: any) => {
-    const obj = {
-        list: true,
-        view: false,
-    };
-    const [info, setInfo] = useState(false);
-    const [billing, setBilling] = useState(false);
-    const [products, setProducts] = useState(false);
-    const [notes, setNotes] = useState(false);
-
+const EditShipment = () => {
     const [modal, setModal] = useState({
         editShipped: false,
         editDelivered: false,
@@ -41,11 +32,11 @@ const EditShipment = ({ setAllPath }: any) => {
                 <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <div>
                         <h1 className="h2">View shipment details</h1>
-                        <span>
-                            <button onClick={() => setAllPath(obj)}>
-                                back to shipment list
-                            </button>
-                        </span>
+                        <Link href="/Shipment/list" passHref>
+                            <span>
+                                <button>back to shipment list</button>
+                            </span>
+                        </Link>
                     </div>
 
                     <div className="btn-toolbar mb-2 mb-md-0">

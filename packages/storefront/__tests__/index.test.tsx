@@ -1,10 +1,10 @@
 import { render } from "@testing-library/react";
-import Index from "../pages/shipping";
+import Index from "../pages/demo";
 
 describe("Shipping", () => {
     //it or test
     test("Show heading output", () => {
         const { getByTestId } = render(<Index />);
-        expect(getByTestId("id")).toHaveTextContent("Safira");
+        expect(getByTestId("test")).toHaveTextContent("Hello");
     });
 });

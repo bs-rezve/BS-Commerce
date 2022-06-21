@@ -4,8 +4,7 @@ import React, { useEffect, useState } from "react";
 import getData from "./service/get-data.service";
 import SingleOrder from "./SingleOrder";
 
-const OrderList = (props: any) => {
-    const {setAllPath} = props;
+const OrderList = () => {
     const [search, setSearch] = useState(false);
     const [data, setData] = useState([]);
     const [activePage, setActivePage] = useState(1);
@@ -216,7 +215,6 @@ const OrderList = (props: any) => {
                                 <SingleOrder
                                     key={order.id}
                                     order={order}
-                                    setAllPath={setAllPath}
                                 ></SingleOrder>
                             ))}
                         <td></td>

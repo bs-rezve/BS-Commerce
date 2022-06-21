@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import getData from "./service/get-shipping-data.service";
 import SingleShipment from "./singleShipment";
 
-const ShipmentList = ({setAllPath}: any) => {
+const ShipmentList = () => {
     const [search, setSearch] = useState(false);
     const [data, setData] = useState([]);
     const [activePage, setActivePage] = useState(1);
@@ -222,7 +222,6 @@ const ShipmentList = ({setAllPath}: any) => {
                                 <SingleShipment
                                     key={shipment.id}
                                     shipment={shipment}
-                                    setAllPath={setAllPath}
                                 ></SingleShipment>
                             ))}
                     </tbody>

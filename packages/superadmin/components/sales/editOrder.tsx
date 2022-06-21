@@ -7,12 +7,6 @@ import { useState } from "react";
 import Link from "next/link";
 
 const EditOrder = () => {
-    // const obj = {
-    //     list: true,
-    //     view: false,
-    //     billingEdit: false,
-    //     shippingEdit: false,
-    // };
     const [info, setInfo] = useState(false);
     const [billing, setBilling] = useState(false);
     const [products, setProducts] = useState(false);
