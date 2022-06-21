@@ -44,9 +44,9 @@ const Navbar: NextComponentType = () => {
                             </a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">
+                            <a className="nav-link" href="/Manufacturer/list">
                                 <i className="bi bi-people"></i>
-                                Integrations
+                                Manufacturers
                             </a>
                         </li>
                     </ul>

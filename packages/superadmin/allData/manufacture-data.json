@@ -1,0 +1,40 @@
+{
+    "manufactures": [
+      {
+        "id": 1,
+        "name": "Apple",
+        "published": true,
+        "display": 10,
+        "edit": "Edit"
+      },
+      {
+        "id": 2,
+        "name": "Apple",
+        "published": true,
+        "display": 10,
+        "edit": "Edit"
+      },
+      {
+        "id": 3,
+        "name": "Apple",
+        "published": true,
+        "display": 10,
+        "edit": "Edit"
+      },
+      {
+        "id": 4,
+        "name": "Apple",
+        "published": true,
+        "display": 10,
+        "edit": "Edit"
+      },
+      {
+        "id": 5,
+        "name": "Apple",
+        "published": true,
+        "display": 10,
+        "edit": "Edit"
+      }
+    ]
+  }
+  
