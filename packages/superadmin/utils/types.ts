@@ -54,4 +54,5 @@ export interface apiFunction {
         router: any
     ) => Promise<CreateManufacturerRequest | undefined>;
     getManufacturer: () => Promise<Manufacturer[] | undefined>;
+    deleteManufacturer: (id: any) => Promise<Manufacturer[] | undefined>
 }

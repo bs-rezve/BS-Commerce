@@ -130,3 +130,18 @@ export async function getManufacturerRest(
         toast.error(error?.response?.data?.message);
     }
 }
+
+export async function deleteManufacturerRest(
+  id: string
+): Promise<Manufacturer[] | undefined> {
+  try {
+      const { data } = await axios?.delete(`${apiEndPoints?.manufacturerList}/${id}`, {
+          headers: {
+              Authorization: `Bearer ${"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImM4ZDdjZWVhLTMwYjAtNGZhYi1hNzhkLTZkN2ZlMjYyYTBmOCIsInVzZXJuYW1lIjoiYWJjeHl6QGdtYWlsLmNvbSIsImxvZ0luVGltZSI6MTY1NTg5MDg4MzgxOCwiaWF0IjoxNjU1ODkwODgzLCJleHAiOjE2NTU5NzcyODN9.pKEg5uhpYN3GVXwbEZBzFRl1nCpytvqy2AunLigfBZo"}`,
+          },
+      });
+      return data?.data as Manufacturer[];
+  } catch (error) {
+      toast.error(error?.response?.data?.message);
+  }
+}

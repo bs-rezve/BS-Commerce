@@ -48,8 +48,8 @@ const ManufactureList = ({ manufactureData }: any) => {
     };
 
     const handleDeleteManufacture = () => {
-        checkbox.length === 1 ? <></> : setReq(true);
-        // console.log("******************************", checkbox[0]);
+        checkbox.length === 1 ? userAPI.deleteManufacturer(checkbox[0]) : setReq(true);
+        window.location.href = `http://localhost:3001/Admin/Manufacturer/list`;
     };
 
     const handleClickPage = (activePage: any) => {
@@ -66,41 +66,39 @@ const ManufactureList = ({ manufactureData }: any) => {
                             <button
                                 type="button"
                                 style={{
-                                    backgroundColor: "#00c0ef",
-                                    border: "1px solid #00c0ef",
+                                    backgroundColor: "#007bff",
+                                    border: "1px solid #007bff",
                                     color: "white",
                                     marginLeft: "10px",
                                 }}
                                 className="btn btn-info btn-lg"
                             >
-                                <i className="bi bi-file-earmark-pdf"> </i>Print
-                                packaging slips
+                                <i className="bi bi-file-earmark-pdf"> </i>Add new
+                                
                             </button>
                             <button
                                 type="button"
                                 style={{
-                                    backgroundColor: "#3c8dbc",
-                                    border: "1px solid #00c0ef",
+                                    backgroundColor: "#28a745",
+                                    border: "1px solid #28a745",
                                     color: "white",
                                     marginLeft: "10px",
                                 }}
                                 className="btn btn-info btn-lg"
                             >
-                                <i className="bi bi-file-earmark-pdf"> </i>Set
-                                as shipped (selected)
+                                <i className="bi bi-box-arrow-in-down">{" "}</i>Export
                             </button>
                             <button
                                 type="button"
                                 style={{
-                                    backgroundColor: "#3c8dbc",
-                                    border: "1px solid #00c0ef",
+                                    backgroundColor: "#3d9970",
+                                    border: "1px solid #3d9970",
                                     color: "white",
                                     marginLeft: "10px",
                                 }}
                                 className="btn btn-info btn-lg"
                             >
-                                <i className="bi bi-file-earmark-pdf"> </i>Set
-                                as ready for pickup (selected)
+                                <i className="bi bi-file-earmark-pdf"> </i>Import
                             </button>
                             <button
                                 type="button"
@@ -111,7 +109,7 @@ const ManufactureList = ({ manufactureData }: any) => {
                                 }}
                                 onClick={() => handleDelete()}
                             >
-                                <i className="bi bi-trash"> </i>Delete
+                                <i className="bi bi-trash"> </i>Delete (selected)
                             </button>
                         </div>
                     </div>
