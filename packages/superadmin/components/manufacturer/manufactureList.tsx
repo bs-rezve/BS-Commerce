@@ -6,6 +6,7 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import Modal from "../sales/service/modal";
 import axios from "axios";
 import { userAPI } from "../../APIs/index";
+import Link from "next/link";
 
 const ManufactureList = ({ manufactureData }: any) => {
     const [search, setSearch] = useState(false);
@@ -48,7 +49,9 @@ const ManufactureList = ({ manufactureData }: any) => {
     };
 
     const handleDeleteManufacture = () => {
-        checkbox.length === 1 ? userAPI.deleteManufacturer(checkbox[0]) : setReq(true);
+        checkbox.length === 1
+            ? userAPI.deleteManufacturer(checkbox[0])
+            : setReq(true);
         window.location.href = `http://localhost:3001/Admin/Manufacturer/list`;
     };
 
@@ -63,19 +66,21 @@ const ManufactureList = ({ manufactureData }: any) => {
                     <h1 className="h2">Manufacturers</h1>
                     <div className="btn-toolbar mb-2 mb-md-0">
                         <div className="btn-group me-2">
-                            <button
-                                type="button"
-                                style={{
-                                    backgroundColor: "#007bff",
-                                    border: "1px solid #007bff",
-                                    color: "white",
-                                    marginLeft: "10px",
-                                }}
-                                className="btn btn-info btn-lg"
-                            >
-                                <i className="bi bi-file-earmark-pdf"> </i>Add new
-                                
-                            </button>
+                            <Link href="/Admin/Manufacturer/add-new" passHref>
+                                <button
+                                    type="button"
+                                    style={{
+                                        backgroundColor: "#007bff",
+                                        border: "1px solid #007bff",
+                                        color: "white",
+                                        marginLeft: "10px",
+                                    }}
+                                    className="btn btn-info btn-lg"
+                                >
+                                    <i className="bi bi-file-earmark-pdf"> </i>
+                                    Add new
+                                </button>
+                            </Link>
                             <button
                                 type="button"
                                 style={{
@@ -86,7 +91,8 @@ const ManufactureList = ({ manufactureData }: any) => {
                                 }}
                                 className="btn btn-info btn-lg"
                             >
-                                <i className="bi bi-box-arrow-in-down">{" "}</i>Export
+                                <i className="bi bi-box-arrow-in-down"> </i>
+                                Export
                             </button>
                             <button
                                 type="button"
@@ -98,7 +104,8 @@ const ManufactureList = ({ manufactureData }: any) => {
                                 }}
                                 className="btn btn-info btn-lg"
                             >
-                                <i className="bi bi-file-earmark-pdf"> </i>Import
+                                <i className="bi bi-file-earmark-pdf"> </i>
+                                Import
                             </button>
                             <button
                                 type="button"
@@ -109,7 +116,8 @@ const ManufactureList = ({ manufactureData }: any) => {
                                 }}
                                 onClick={() => handleDelete()}
                             >
-                                <i className="bi bi-trash"> </i>Delete (selected)
+                                <i className="bi bi-trash"> </i>Delete
+                                (selected)
                             </button>
                         </div>
                     </div>
