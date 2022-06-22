@@ -1,11 +1,11 @@
 import { FC } from "react";
 import { useRouter } from "next/router";
 import { Formik, Form } from "formik";
-import { manufactureSchema } from "./schema/index";
+import { manufactureSchema } from "../schema/index";
 import CreateNewManufacturer from "./forms/manufacturerInfo";
 import DisplayOrders from "./forms/displayOrder";
 import SEO from "./forms/seo";
-import { userAPI } from "../../APIs";
+import { userAPI } from "../../../APIs";
 const CreateManufacturer: FC = () => {
   const router = useRouter();
   const handleSubmit = (data: any) => {

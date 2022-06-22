@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Field, ErrorMessage } from "formik";
 import { FC } from "react";
-import Tooltips from "../../global/tooltip";
+import Tooltips from "../../../global/tooltip";
 const CreateNewManufacturer: FC = () => {
   const [btnToggler, setBtnToggler] = useState("bi-plus-lg");
 
@@ -43,7 +43,7 @@ const CreateNewManufacturer: FC = () => {
           <div className="card-body">
             <div id="product-details-area">
               <div className="form-group row my-2">
-                <div className="col-md-3">
+                <div className="col-md-2">
                   <div className="label-wrapper row row-cols-auto float-md-end">
                     <label className="col-form-label col px-1" htmlFor="Name">
                       Manufacturer Name
@@ -59,7 +59,10 @@ const CreateNewManufacturer: FC = () => {
                       name="name"
                       type="text"
                     />
-                    <div className="pt-2" style={{ height: "10px" }}>
+                    <div
+                      className="pt-2"
+                      style={{ height: "4px", padding: "15px" }}
+                    >
                       <h2 className="required text-danger ">*</h2>
                     </div>
                   </div>
@@ -69,7 +72,7 @@ const CreateNewManufacturer: FC = () => {
                 </div>
               </div>
               <div className="form-group row my-2">
-                <div className="col-md-3">
+                <div className="col-md-2">
                   <div className="label-wrapper row row-cols-auto float-md-end">
                     <label
                       className="col-form-label col px-1"
@@ -96,7 +99,7 @@ const CreateNewManufacturer: FC = () => {
               </div>
             </div>
             <div className="form-group row my-2">
-              <div className="col-md-3">
+              <div className="col-md-2">
                 <div className="label-wrapper row row-cols-auto float-md-end">
                   <label className="col-form-label col px-1" htmlFor="Name">
                     Picture
@@ -112,7 +115,10 @@ const CreateNewManufacturer: FC = () => {
                     name="picture"
                     type="text"
                   />
-                  <div className="pt-2" style={{ height: "10px" }}>
+                  <div
+                    className="pt-2"
+                    style={{ height: "4px", padding: "15px" }}
+                  >
                     <h2 className="required text-danger ">*</h2>
                   </div>
                 </div>
@@ -122,7 +128,7 @@ const CreateNewManufacturer: FC = () => {
               </div>
             </div>
             <div className="form-group row">
-              <div className="col-md-3">
+              <div className="col-md-2">
                 <div className="label-wrapper row row-cols-auto float-md-end py-2">
                   <label
                     className="col-form-label col px-1"

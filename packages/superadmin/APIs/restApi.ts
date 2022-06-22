@@ -40,6 +40,7 @@ export async function createProductRest(
   }
 }
 
+//  Create Manufacturer Rest API Post
 export async function createManufacturerRest(
   data: CreateManufacturerRequest,
   router

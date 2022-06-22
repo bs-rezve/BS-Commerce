@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { ErrorMessage, Field } from "formik";
 import { useState } from "react";
-import Tooltips from "../../global/tooltip";
+import Tooltips from "../../../global/tooltip";
 import CustomSelect from "./customSelect";
 const SEO: FC = () => {
   const [btnToggler, setBtnToggler] = useState("bi-plus-lg");
@@ -70,7 +70,7 @@ const SEO: FC = () => {
         <div className="collapse " id="photosTab">
           <div className="card-body">
             <div className="form-group row my-2">
-              <div className="col-md-3">
+              <div className="col-md-2">
                 <div className="label-wrapper row row-cols-auto float-md-end">
                   <label className="col-form-label col px-1" htmlFor="keywords">
                     Keywords
@@ -86,7 +86,10 @@ const SEO: FC = () => {
                     name="metaKeyword"
                     type="text"
                   />
-                  <div className="pt-2" style={{ height: "10px" }}>
+                  <div
+                    className="pt-2"
+                    style={{ height: "4px", padding: "15px" }}
+                  >
                     <h2 className="required text-danger ">*</h2>
                   </div>
                 </div>
@@ -96,7 +99,7 @@ const SEO: FC = () => {
               </div>
             </div>
             <div className="form-group row my-2">
-              <div className="col-md-3">
+              <div className="col-md-2">
                 <div className="label-wrapper row row-cols-auto float-md-end">
                   <label
                     className="col-form-label col px-1"
@@ -115,7 +118,10 @@ const SEO: FC = () => {
                     id="metaDescription"
                     name="metaDescription"
                   />
-                  <div className="pt-2" style={{ height: "10px" }}>
+                  <div
+                    className="pt-2"
+                    style={{ height: "4px", padding: "15px" }}
+                  >
                     <h2 className="required text-danger ">*</h2>
                   </div>
                 </div>
@@ -125,7 +131,7 @@ const SEO: FC = () => {
               </div>
             </div>
             <div className="form-group row my-2">
-              <div className="col-md-3">
+              <div className="col-md-2">
                 <div className="label-wrapper row row-cols-auto float-md-end">
                   <label
                     className="col-form-label col px-1"
@@ -144,7 +150,10 @@ const SEO: FC = () => {
                     id="metaTitle"
                     name="metaTitle"
                   />
-                  <div className="pt-2" style={{ height: "10px" }}>
+                  <div
+                    className="pt-2"
+                    style={{ height: "4px", padding: "15px" }}
+                  >
                     <h2 className="required text-danger ">*</h2>
                   </div>
                 </div>
@@ -154,7 +163,7 @@ const SEO: FC = () => {
               </div>
             </div>
             <div className="form-group row my-2">
-              <div className="col-md-3">
+              <div className="col-md-2">
                 <div className="label-wrapper row row-cols-auto float-md-end">
                   <label
                     className="col-form-label col px-1"
@@ -173,7 +182,10 @@ const SEO: FC = () => {
                     id="seftn"
                     name="seftn"
                   />
-                  <div className="pt-2" style={{ height: "10px" }}>
+                  <div
+                    className="pt-2"
+                    style={{ height: "4px", padding: "15px" }}
+                  >
                     <h2 className="required text-danger ">*</h2>
                   </div>
                 </div>

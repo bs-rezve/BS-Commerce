@@ -1,5 +1,5 @@
 import { NextPage } from "next";
-import CreateManufacturer from "../../../../components/manufacturer/createManufacturer";
+import CreateManufacturer from "../../../../components/manufacturer/add-new/createManufacturer";
 const CreateManufacturerPage: NextPage = () => {
   return (
     <>

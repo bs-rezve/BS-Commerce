@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { ErrorMessage, Field } from "formik";
 import { useState } from "react";
-import Tooltips from "../../global/tooltip";
+import Tooltips from "../../../global/tooltip";
 const DisplayOrders: FC = () => {
   const [btnToggler, setBtnToggler] = useState("bi-plus-lg");
   const toggleButton = () => {
@@ -41,7 +41,7 @@ const DisplayOrders: FC = () => {
         <div className="collapse " id="categoryTab">
           <div className="card-body">
             <div className="form-group row">
-              <div className="col-md-3">
+              <div className="col-md-2">
                 <div className="label-wrapper row row-cols-auto float-md-end p-2">
                   <label
                     className="col-form-label col px-1"
@@ -52,7 +52,7 @@ const DisplayOrders: FC = () => {
                   <Tooltips title="Product cost is a prime product cost. This field is only for internal use, not visible for customers." />
                 </div>
               </div>
-              <div className="col-md-9 mt-md-3 mx-2 mx-md-0">
+              <div className="col-md-8 mt-md-3 mx-2 mx-md-0">
                 <div className="input-group ">
                   <Field
                     type="number"
@@ -62,9 +62,15 @@ const DisplayOrders: FC = () => {
                     className="form-control"
                   />
                 </div>
-                <div className="errMsg text-red-600 text-danger">
-                  <ErrorMessage name="displayOrder" />
+                <div
+                  className="pt-2 col-1"
+                  style={{ height: "4px", padding: "15px" }}
+                >
+                  <h2 className="required text-danger ">*</h2>
                 </div>
+              </div>
+              <div className="errMsg text-red-600 text-danger">
+                <ErrorMessage name="displayOrder" />
               </div>
             </div>
           </div>
