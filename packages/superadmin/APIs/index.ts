@@ -4,12 +4,15 @@ import {
   createProductRest,
   getProductRest,
   updateProductRest,
-  createManufacturerRest,
+  // createManufacturerRest,
+  getManufacturerRest,
 } from "./restApi";
 import {
   getProductsGraphQL,
   getProductSearchGraphQL,
   createProductGraphQl,
+  getManufacturerGraphQl,
+  // createManufacturerGraphQl,
 } from "./graphQL";
 import { config } from "../config/index";
 import { apiFunction } from "../utils/types";
@@ -20,6 +23,8 @@ const graphqlApi: apiFunction = {
   createProduct: createProductRest,
   updateProduct: updateProductRest,
   getProduct: getProductRest,
+  getManufacturer: getManufacturerGraphQl,
+  // createManufacturer: createManufacturerGraphQl
 };
 
 const restApi: apiFunction = {
@@ -28,7 +33,8 @@ const restApi: apiFunction = {
   createProduct: createProductRest,
   updateProduct: updateProductRest,
   getProduct: getProductRest,
-  createManufacturer: createManufacturerRest,
+  // createManufacturer: createManufacturerRest,
+  getManufacturer: getManufacturerRest,
 };
 
 export const userAPI: apiFunction =
