@@ -23,10 +23,11 @@ const EditManufacturer = (props: any) => {
         SEFN: data.seftn,
       },
     };
-    const id = manufacturer.id;
-    console.log(newData);
+    const id = manufacturer.manufacturer.id;
+    // console.log(id);
+    // console.log(newData);
     
-    const response = await userAPI.updateManufacturer(newData, id);
+    //const response = await userAPI.updateManufacturer(newData, id);
   };
   console.log(manufacturer);
   
@@ -35,17 +36,18 @@ const EditManufacturer = (props: any) => {
       {manufacturer ? (
         <Formik
             initialValues={{
-            name: manufacturer?.name,
-            description: manufacturer?.description,
-            picture: manufacturer?.picture,
-            isPublished: manufacturer?.isPublished,
-            displayOrder: manufacturer?.displayOrder,
-            metaKeyword: manufacturer?.seo?.metaKeyword,
-            metaDescription: manufacturer?.seo?.metaDescription,
-            metaTitle: manufacturer?.seo?.metaTitle,
-            seftn: manufacturer?.seo?.seftn,
+            name: manufacturer?.manufacturer?.name,
+            description: manufacturer?.manufacturer?.description,
+            picture: manufacturer?.manufacturer?.picture,
+            isPublished: manufacturer?.manufacturer?.isPublished,
+            displayOrder: manufacturer?.manufacturer?.displayOrder,
+            metaKeyword: manufacturer?.manufacturer?.seo?.metaKeyword,
+            metaDescription: manufacturer?.manufacturer?.seo?.metaDescription,
+            metaTitle: manufacturer?.manufacturer?.seo?.metaTitle,
+            seftn: manufacturer?.manufacturer?.seo?.seftn,
           }}
           onSubmit={(values, actions) => {
+            console.log(values,"**")
             const data = {
                 name: values.name,
                 description: values.description,
@@ -56,7 +58,9 @@ const EditManufacturer = (props: any) => {
                 metaDescription: values.metaDescription,
                 metaTitle: values.metaTitle,
                 seftn: values.seftn,
+                
               };
+              console.log(data,"##")
               handleSubmit(data);
               actions.setSubmitting(false);
             }}
@@ -69,9 +73,9 @@ const EditManufacturer = (props: any) => {
                   <h1 className="float-start">
                     Edit Manufacturer details
                     <span className="fs-5 p-3">
-                      <a href="/Product" className="text-decoration-none ">
+                      <a href="/Admin/Manufacturer/list" className="text-decoration-none ">
                         <i className="bi bi-arrow-left-circle-fill p-2" />
-                        Back to product list
+                        Back to Manufacturer list
                       </a>
                     </span>
                   </h1>
@@ -111,7 +115,7 @@ const EditManufacturer = (props: any) => {
         </Formik>
       ) : (
         ""
-      )}
+      )} 
     </>
   );
 };

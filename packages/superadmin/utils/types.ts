@@ -1,5 +1,6 @@
 import {
     CreateManufacturerRequest,
+    UpdateManufacturerRequest,
     Manufacturer,
     Product,
     UpdateProductRequest,
@@ -47,6 +48,13 @@ export interface apiFunction {
     getProduct: (
         data: GetProductParams
     ) => Promise<GetProductParams | undefined>;
+    getSingleManufacturer: (
+        data: any
+    ) => Promise<any | undefined>;
+    updateManufacturer: (
+        data: UpdateManufacturerRequest,
+        router: any
+    ) => Promise<UpdateManufacturerRequest | undefined>;
     getProducts: (pageSize: number) => Promise<Product[] | undefined>;
     searchProduct: (data: string) => Promise<Product | undefined>;
     createManufacturer: (
