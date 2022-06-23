@@ -52,7 +52,6 @@ const ManufactureList = ({ manufactureData }: any) => {
         checkbox.length === 1
             ? userAPI.deleteManufacturer(checkbox[0])
             : setReq(true);
-        window.location.href = `http://localhost:3001/Admin/Manufacturer/list`;
     };
 
     const handleClickPage = (activePage: any) => {
@@ -70,6 +69,7 @@ const ManufactureList = ({ manufactureData }: any) => {
                                 <button
                                     type="button"
                                     style={{
+                                        borderRadius: "5px",
                                         backgroundColor: "#007bff",
                                         border: "1px solid #007bff",
                                         color: "white",
@@ -77,13 +77,14 @@ const ManufactureList = ({ manufactureData }: any) => {
                                     }}
                                     className="btn btn-info btn-lg"
                                 >
-                                    <i className="bi bi-file-earmark-pdf"> </i>
-                                    Add new
+                                    <i className="bi bi-plus-square"></i> Add
+                                    new
                                 </button>
                             </Link>
                             <button
                                 type="button"
                                 style={{
+                                    borderRadius: "5px",
                                     backgroundColor: "#28a745",
                                     border: "1px solid #28a745",
                                     color: "white",
@@ -97,6 +98,7 @@ const ManufactureList = ({ manufactureData }: any) => {
                             <button
                                 type="button"
                                 style={{
+                                    borderRadius: "5px",
                                     backgroundColor: "#3d9970",
                                     border: "1px solid #3d9970",
                                     color: "white",
@@ -111,6 +113,7 @@ const ManufactureList = ({ manufactureData }: any) => {
                                 type="button"
                                 className="btn btn-danger btn-lg"
                                 style={{
+                                    borderRadius: "5px",
                                     backgroundColor: "#dd4b39",
                                     marginLeft: "10px",
                                 }}
@@ -126,8 +129,10 @@ const ManufactureList = ({ manufactureData }: any) => {
 
                 <button
                     onClick={() => setSearch(!search)}
-                    aria-controls="example-collapse-text"
-                    aria-expanded={search}
+                    aria-controls="prouctInfoTab"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#prouctInfoTab"
+                    aria-expanded="true"
                     style={{
                         width: "100%",
                         border: "1px solid #dddddd",
@@ -175,17 +180,6 @@ const ManufactureList = ({ manufactureData }: any) => {
                                 }}
                             >
                                 <div className="container">
-                                    {/* <button
-                                        type="button"
-                                        className="btn-close"
-                                        onClick={() =>
-                                            setModal({
-                                                ...modal,
-                                                delete: false,
-                                            })
-                                        }
-                                        aria-label="Close"
-                                    ></button> */}
                                     <h1>Are you sure?</h1>
                                     <hr />
                                     <p>
@@ -283,13 +277,6 @@ const ManufactureList = ({ manufactureData }: any) => {
                                         >
                                             Ok
                                         </button>
-                                        {/* <button
-                                            type="button"
-                                            className="btn btn-secondary"
-                                            // onClick={deleteProfileList}
-                                        >
-                                            Yes
-                                        </button> */}
                                     </div>
                                 </div>
                             </div>
@@ -418,123 +405,130 @@ const ManufactureList = ({ manufactureData }: any) => {
                     <></>
                 )}
 
-                <table
-                    className="table"
-                    style={{
-                        border: "1px solid #dddddd",
-                        textAlign: "left",
-                        margin: "10px",
-                    }}
-                >
-                    <thead style={{ backgroundColor: "#dddddd" }}>
-                        <tr style={{ fontSize: "20px" }}>
-                            <th style={{ textAlign: "center" }}>
-                                {/* <input
+                <div>
+                    <table
+                        className="table"
+                        style={{
+                            border: "1px solid #dddddd",
+                            textAlign: "left",
+                            margin: "10px",
+                        }}
+                    >
+                        <thead style={{ backgroundColor: "#dddddd" }}>
+                            <tr style={{ fontSize: "20px" }}>
+                                <th style={{ textAlign: "center" }}>
+                                    {/* <input
                                     type="checkbox"
                                     id="vehicle1"
                                     name="vehicle1"
                                     value="Bike"
                                 /> */}
-                            </th>
-                            <th>
-                                <span>Name</span>
-                            </th>
-                            <th>
-                                <span>Published</span>
-                            </th>
-                            <th>
-                                <span>Display order</span>
-                            </th>
-                            <th>
-                                <span>Edit</span>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {paginateData.length > 0 &&
-                            paginateData.map((manufacturer: any) => (
-                                <SingleManufacturer
-                                    key={manufacturer.id}
-                                    manufacturer={manufacturer}
-                                    setCheckbox={setCheckbox}
-                                    checkbox={checkbox}
-                                    handleCheckbox={handleCheckbox}
-                                ></SingleManufacturer>
-                            ))}
-                    </tbody>
-                </table>
-                <div
-                    className="d-flex justify-content-between"
-                    style={{ fontSize: "18px" }}
-                >
-                    <span>
-                        <Pagination
-                            totalItems={manufactureData.manufacturers.length}
-                            pageCount={pageCount}
-                            activePage={activePage}
-                            onClickPage={handleClickPage}
-                        ></Pagination>
-                    </span>
-                    <span>
-                        <span style={{ margin: "10px" }}>Show</span>
-                        <button
-                            className="dropdown"
-                            style={{
-                                padding: "10px",
-                                border: "1px solid gray",
-                            }}
-                        >
-                            <a
-                                href="#"
-                                className="dropdown-toggle"
-                                data-bs-toggle="dropdown"
+                                </th>
+                                <th>
+                                    <span>Name</span>
+                                </th>
+                                <th style={{ textAlign: "center" }}>
+                                    <span>Published</span>
+                                </th>
+                                <th style={{ textAlign: "center" }}>
+                                    <span>Display order</span>
+                                </th>
+                                <th style={{ textAlign: "center" }}>
+                                    <span>Edit</span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {paginateData.length > 0 &&
+                                paginateData.map((manufacturer: any) => (
+                                    <SingleManufacturer
+                                        key={manufacturer.id}
+                                        manufacturer={manufacturer}
+                                        setCheckbox={setCheckbox}
+                                        checkbox={checkbox}
+                                        handleCheckbox={handleCheckbox}
+                                    ></SingleManufacturer>
+                                ))}
+                        </tbody>
+                    </table>
+                    <div
+                        className="d-flex justify-content-between"
+                        style={{ fontSize: "18px" }}
+                    >
+                        <span>
+                            <Pagination
+                                totalItems={
+                                    manufactureData.manufacturers.length
+                                }
+                                pageCount={pageCount}
+                                activePage={activePage}
+                                onClickPage={handleClickPage}
+                            ></Pagination>
+                        </span>
+                        <span>
+                            <span style={{ margin: "10px" }}>Show</span>
+                            <button
+                                className="dropdown"
                                 style={{
-                                    textDecoration: "none",
-                                    color: "black",
                                     padding: "10px",
+                                    border: "1px solid gray",
                                 }}
                             >
-                                {pageCount}
-                            </a>
-                            <div className="dropdown-menu">
                                 <a
                                     href="#"
-                                    className="dropdown-item"
-                                    onClick={() => setPageCount(2)}
+                                    className="dropdown-toggle"
+                                    data-bs-toggle="dropdown"
+                                    style={{
+                                        textDecoration: "none",
+                                        color: "black",
+                                        padding: "10px",
+                                    }}
                                 >
-                                    2
+                                    {pageCount}
                                 </a>
-                                <a
-                                    href="#"
-                                    className="dropdown-item"
-                                    onClick={() => setPageCount(5)}
-                                >
-                                    5
-                                </a>
-                                <a
-                                    href="#"
-                                    className="dropdown-item"
-                                    onClick={() => setPageCount(10)}
-                                >
-                                    10
-                                </a>
-                            </div>
+                                <div className="dropdown-menu">
+                                    <a
+                                        href="#"
+                                        className="dropdown-item"
+                                        onClick={() => setPageCount(2)}
+                                    >
+                                        2
+                                    </a>
+                                    <a
+                                        href="#"
+                                        className="dropdown-item"
+                                        onClick={() => setPageCount(5)}
+                                    >
+                                        5
+                                    </a>
+                                    <a
+                                        href="#"
+                                        className="dropdown-item"
+                                        onClick={() => setPageCount(10)}
+                                    >
+                                        10
+                                    </a>
+                                </div>
+                            </button>
+                            <span style={{ margin: "10px" }}>items</span>
+                        </span>
+                        {(activePage - 1) * pageCount + 1}-
+                        {(activePage - 1) * pageCount + pageCount} of{" "}
+                        {pageCount} items
+                        <button
+                            style={{
+                                height: "100%",
+                                padding: "10px",
+                                width: "5%",
+                                border: "1px solid white",
+                            }}
+                            onClick={() =>
+                                (window.location.href = `http://localhost:3001/Admin/Manufacturer/list`)
+                            }
+                        >
+                            <i className="bi bi-arrow-repeat"></i>
                         </button>
-                        <span style={{ margin: "10px" }}>items</span>
-                    </span>
-                    {(activePage - 1) * pageCount + 1}-
-                    {(activePage - 1) * pageCount + pageCount} of {pageCount}{" "}
-                    items
-                    <button
-                        style={{
-                            height: "100%",
-                            padding: "10px",
-                            width: "5%",
-                            border: "1px solid white",
-                        }}
-                    >
-                        <i className="bi bi-arrow-repeat"></i>
-                    </button>
+                    </div>
                 </div>
             </main>
         </>

@@ -29,6 +29,6 @@ export async function deleteManufacturerGraphQl(): Promise<Manufacturer[] | unde
   return;
 }
 
-// export async function createManufacturerGraphQl():  Promise<CreateManufacturerRequest[] | undefined> {
-//   return;
-// }
+export async function createManufacturerGraphQl():  Promise<CreateManufacturerRequest[] | undefined> {
+  return;
+}

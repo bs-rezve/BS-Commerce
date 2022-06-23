@@ -41,23 +41,23 @@ export async function createProductRest(
 }
 
 //  Create Manufacturer Rest API Post
-// export async function createManufacturerRest(
-//   data: CreateManufacturerRequest,
-//   router
-// ): Promise<CreateManufacturerRequest | undefined> {
-//   try {
-//     const response = await axios.post<CreateManufacturerRequest>(
-//       `${apiEndPoints.manufacturer}`,
-//       data
-//     );
-//     router.push("/Product");
-//     toast.success("Create Successful");
-//     return response.data as CreateManufacturerRequest;
-//   } catch (error) {
-//     console.log(error);
-//     toast.error(error?.response?.data?.error);
-//   }
-// }
+export async function createManufacturerRest(
+  data: CreateManufacturerRequest,
+  router
+): Promise<CreateManufacturerRequest | undefined> {
+  try {
+    const response = await axios.post<CreateManufacturerRequest>(
+      `${apiEndPoints.manufacturer}`,
+      data
+    );
+    router.push("/Product");
+    toast.success("Create Successful");
+    return response.data as CreateManufacturerRequest;
+  } catch (error) {
+    console.log(error);
+    toast.error(error?.response?.data?.error);
+  }
+}
 
 export async function getProductsRest(
     pageSize: number
@@ -122,7 +122,7 @@ export async function getManufacturerRest(
     try {
         const { data } = await axios?.get(`${apiEndPoints?.manufacturerList}`, {
             headers: {
-                Authorization: `Bearer ${"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImM4ZDdjZWVhLTMwYjAtNGZhYi1hNzhkLTZkN2ZlMjYyYTBmOCIsInVzZXJuYW1lIjoiYWJjeHl6QGdtYWlsLmNvbSIsImxvZ0luVGltZSI6MTY1NTg5MDg4MzgxOCwiaWF0IjoxNjU1ODkwODgzLCJleHAiOjE2NTU5NzcyODN9.pKEg5uhpYN3GVXwbEZBzFRl1nCpytvqy2AunLigfBZo"}`,
+                Authorization: `Bearer ${"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImM4ZDdjZWVhLTMwYjAtNGZhYi1hNzhkLTZkN2ZlMjYyYTBmOCIsInVzZXJuYW1lIjoiYWJjeHl6QGdtYWlsLmNvbSIsImxvZ0luVGltZSI6MTY1NTk0NjgzNzEyMywiaWF0IjoxNjU1OTQ2ODM3LCJleHAiOjE2NTYwMzMyMzd9.KJnU_1IGBGus8Jrk5M25i5z08SoalCJOyVntGCB3vyk"}`,
             },
         });
         return data?.data as Manufacturer[];
@@ -137,9 +137,10 @@ export async function deleteManufacturerRest(
   try {
       const { data } = await axios?.delete(`${apiEndPoints?.manufacturerList}/${id}`, {
           headers: {
-              Authorization: `Bearer ${"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImM4ZDdjZWVhLTMwYjAtNGZhYi1hNzhkLTZkN2ZlMjYyYTBmOCIsInVzZXJuYW1lIjoiYWJjeHl6QGdtYWlsLmNvbSIsImxvZ0luVGltZSI6MTY1NTg5MDg4MzgxOCwiaWF0IjoxNjU1ODkwODgzLCJleHAiOjE2NTU5NzcyODN9.pKEg5uhpYN3GVXwbEZBzFRl1nCpytvqy2AunLigfBZo"}`,
+              Authorization: `Bearer ${"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImM4ZDdjZWVhLTMwYjAtNGZhYi1hNzhkLTZkN2ZlMjYyYTBmOCIsInVzZXJuYW1lIjoiYWJjeHl6QGdtYWlsLmNvbSIsImxvZ0luVGltZSI6MTY1NTk0NjgzNzEyMywiaWF0IjoxNjU1OTQ2ODM3LCJleHAiOjE2NTYwMzMyMzd9.KJnU_1IGBGus8Jrk5M25i5z08SoalCJOyVntGCB3vyk"}`,
           },
       });
+      window.location.href = `http://localhost:3001/Admin/Manufacturer/list`;
       return data?.data as Manufacturer[];
   } catch (error) {
       toast.error(error?.response?.data?.message);

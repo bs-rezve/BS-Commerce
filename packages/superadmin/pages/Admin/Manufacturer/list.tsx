@@ -1,9 +1,9 @@
 import axios from "axios";
-import React from "react";
+import React, { useState } from "react";
 import { userAPI } from "../../../APIs";
 import ManufactureList from "../../../components/manufacturer/manufactureList";
 
-const list = ({ manufactureData }: any) => {
+const List = ({ manufactureData }: any) => {
     return (
         <div>
             <ManufactureList manufactureData={manufactureData} />
@@ -21,4 +21,4 @@ export async function getServerSideProps(context: any) {
     };
 }
 
-export default list;
+export default List;
