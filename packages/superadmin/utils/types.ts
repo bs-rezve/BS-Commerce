@@ -1,6 +1,7 @@
 import { Product, UpdateProductRequest } from "models";
 import { GetProductParams } from "./../../models/src/product/getProduct";
 import { CreateProductRequest } from "./../../models/src/product/createProduct";
+import { UpdatedUserRequest } from "./../../models/src/user/updateUser";
 
 export interface User {
   id?: string;
@@ -44,6 +45,12 @@ export interface apiFunction {
   searchProduct: (data: string) => Promise<Product | undefined>;
   createAdmin: (data: User, cb: any) => Promise<User | undefined>;
   getAdmins: () => Promise<User[] | undefined>;
+  updateAdmin: (
+    data: any
+  ) => Promise<UpdatedUserRequest | undefined>;
+  changePassword: (
+    data: any,
+  ) => Promise<UpdatedUserRequest | undefined>;
 }
 
 export interface adminCreate {

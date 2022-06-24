@@ -6,6 +6,8 @@ import {
   updateProductRest,
   createAdminRest,
   getAdminsRest,
+  updateAdminRest,
+  changePasswordRest,
 } from "./restApi";
 import {
   getProductsGraphQL,
@@ -35,6 +37,8 @@ const restApi: apiFunction = {
   getProduct: getProductRest,
   createAdmin: createAdminRest,
   getAdmins: getAdminsRest,
+  updateAdmin: updateAdminRest,
+  changePassword: changePasswordRest
 };
 
 export const userAPI: apiFunction =
