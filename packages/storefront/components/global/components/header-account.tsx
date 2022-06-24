@@ -1,31 +1,31 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import CartDropdown from "../../cart/cartDropdown/dropdownCart";
-import signout from "@/components/account/sign-out";
-import Signout from "@/components/account/sign-out";
 import { removeUserToken } from "toolkit/userAuth/signinSlice";
 import { useDispatch } from "react-redux";
 
 interface Properties {}
 
 const HeaderAccount: React.FC<Properties> = (props) => {
-  const [isLoggedIn, setIsLoggedIn] = useState("null");
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    setIsLoggedIn(JSON.parse(localStorage.getItem("persist:root")).access_token);
-  }, []);
-  console.log(JSON.parse(localStorage.getItem("persist:root")).access_token);
+  const [isLoggedIn, setIsLoggedIn] = useState("null");
   const [showCartDropdown, setShowCartDropdown] = useState(false);
-  const showCartDropDown = () => {
-    setShowCartDropdown(!showCartDropdown);
-  };
   const links = [
     { name: "Register", link: "/account/sign-up" },
     { name: "Login", link: "/account/sign-in" },
     { name: "Wishlist", link: "/wishlist" },
     { name: "Logout", link: "/home" },
   ];
+
+  const showCartDropDown = () => {
+    setShowCartDropdown(!showCartDropdown);
+  };
+
+  useEffect(() => {
+    setIsLoggedIn(JSON.parse(localStorage.getItem("persist:root")).access_token);
+  }, []);
+  
   return (
     <div className="flex flex-row gap-x-3">
       <span className="uppercase my-0">

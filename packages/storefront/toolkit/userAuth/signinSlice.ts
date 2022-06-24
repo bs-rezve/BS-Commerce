@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Product, Token } from "models";
 
 export interface TokenState {
   access_token: string;
@@ -19,6 +18,7 @@ export const usertokenSlice = createSlice({
     ) => {
       state.access_token = action.payload;
     },
+    
     removeUserToken: (
         state: TokenState,
         action: PayloadAction<string>
