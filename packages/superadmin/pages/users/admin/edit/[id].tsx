@@ -23,16 +23,22 @@ const EditCustomer: NextPage<{ adminData: User; id: string }> = ({
   const router = useRouter();
   const q = router.query.name;
 
-  const saveHandler = async (values: adminCreate, isPass: boolean) => {
+  const saveHandlerAdmin = async (values: adminCreate, isPass: boolean) => {
     const adminUpdate: any = {
       firstName: values.firstName,
       lastName: values.lastName,
-      email: "",
-      password: "",
+     
     };
-    if(isPass===false)
     await userAPI.updateAdmin(adminUpdate);
-    else await userAPI.changePassword(adminUpdate);
+  };
+  const saveHandlerPassword = async (values: any, isPass: boolean) => {
+    const adminUpdate: any = {
+      password: values.newPassword,
+      newPassword: values.Password,
+     
+    };
+    ;
+    await userAPI.changePassword(adminUpdate);
   };
 
   return (
@@ -52,7 +58,8 @@ const EditCustomer: NextPage<{ adminData: User; id: string }> = ({
         <EditForm
           {...objProps}
           initData={id ? adminData : initData}
-          saveHandler={saveHandler}
+          saveHandlerAdmin={ saveHandlerAdmin }
+          saveHandlerPassword={ saveHandlerPassword }
           id={id}
           isPass={q === "pass"}
         />

@@ -8,7 +8,8 @@ import { adminValidationSchema } from "../../utils/validationSchema";
 interface Props {
   initData: adminCreate;
   saveBtnRef?: string;
-  saveHandler: (values: adminCreate, isPass: boolean) => void;
+  saveHandlerAdmin: (values: adminCreate, isPass: boolean) => void;
+  saveHandlerPassword: (values: adminCreate, isPass: boolean) => void;
   saveWithContinueBtnRef?: string;
   deleteBtnRef?: string;
   id: string;
@@ -18,7 +19,8 @@ interface Props {
 const EditForm: FC<Props> = ({
   initData,
   saveBtnRef,
-  saveHandler,
+  saveHandlerAdmin,
+  saveHandlerPassword,
   saveWithContinueBtnRef,
   deleteBtnRef,
   isPass,
@@ -31,7 +33,7 @@ const EditForm: FC<Props> = ({
         initialValues={initData}
         //validationSchema={adminValidationSchema}
         onSubmit={(values, { resetForm }) => {
-        saveHandler(values, isPass);
+        saveHandlerAdmin(values, isPass);
         }}
       >
         {({
@@ -121,7 +123,7 @@ const EditForm: FC<Props> = ({
           initialValues={initData}
           //validationSchema={adminValidationSchema}
           onSubmit={(values, { resetForm }) => {
-          saveHandler(values, isPass);
+          saveHandlerPassword(values, isPass);
           }}
         >
           {({
