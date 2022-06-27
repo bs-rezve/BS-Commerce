@@ -52,6 +52,32 @@ const Sidebar: NextComponentType = (props: any) => {
         },
       ],
     },
+
+    {
+      name: "Promotions",
+
+      to: "/home",
+
+      icon: <i className="bi bi-card-list"></i>,
+
+      subMenus: [
+        {
+          name: "Discounts",
+
+          to: "/promotion/discount",
+
+          icon: <i className="bi bi-bullseye"></i>,
+        },
+
+        {
+          name: "Campaigns",
+
+          to: "/promotion/discount",
+
+          icon: <i className="bi bi-bullseye"></i>,
+        },
+      ],
+    },
   ];
   const chevronUp = <i className="bi bi-chevron-up"></i>;
   const chevronDown = <i className="bi bi-chevron-down"></i>;
