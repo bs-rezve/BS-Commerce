@@ -28,16 +28,8 @@ import { User } from "utils/types";
 import { toast } from "react-toastify";
 var cookie = require("cookie");
 
-function getToken() {
-    console.log('Token ====>');
-    console.log(localStorage.getItem("persist:root"));
-    console.log('Hey In GetToken ====>');
-   
-}
-
 export async function getUserRest(): Promise<User[] | undefined> {
     try {
-      getToken();
         const response = await axios.get<User[]>(`${apiEndPoints.getUser}`);
         return response.data as User[];
     } catch (error: any) {
@@ -82,11 +74,11 @@ export async function forgotPasswordRest(
 }
 
 export async function getPublicProductsRest(
-    token: any
 ): Promise<GetCustomerAllProductsResponse | undefined> {
     try {
-        console.log("***********************", token);
-        const res = await axios.get(`${apiEndPoints.getPublicProducts}`);
+        console.log("***********************");
+        const res = await axios?.get(`${apiEndPoints.getPublicProducts}`);
+        console.log("888888888888888888888888")
         return res.data.data;
     } catch (error: any) {
         return error;
@@ -94,12 +86,11 @@ export async function getPublicProductsRest(
 }
 
 export async function getFeaturedProductsRest(
-    token: any
 ): Promise<GetCustomerAllProductsResponse | undefined> {
     try {
         const res = await axios.get(
-            `${apiEndPoints.getPublicProducts}?isFeatured=true`
-        );
+            `${apiEndPoints.getPublicProducts}?isFeatured=true`);
+        console.log("++++++++++++++++++++==========", res)
         return res.data.data;
     } catch (error: any) {
         return error;
@@ -121,13 +112,9 @@ export async function getPublicProductByIdRest(
 
 export async function getCartRest(token: string): Promise<Cart[] | undefined> {
     try {
-      console.log('token ======>', token);
-        const { data } = await axios?.get(`${apiEndPoints?.getCart}`, {
-            headers: {
-                Authorization: `Bearer ${"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQwZWRkODk2LTFkNmMtNGMyZC05ZDQwLTA3OWMzOGZlNjVhNSIsImVtYWlsIjoiYW5pa2JhcnVhQGdtYWlsLmNvbSIsInBob25lIjoiMDE3MTc1ODQ5MzkiLCJsb2dJblRpbWUiOjE2NTYzMjg3NTk1ODAsImlhdCI6MTY1NjMyODc1OSwiZXhwIjoxNjU3MTkyNzU5fQ.3tcyysMyygWKkGHk7DPbDohn1fuXwEsoGQIelsPjp3Q"}`,
-            },
-        });
-        console.log('data ======>', data )
+    //   console.log('token ======>', token);
+        const { data } = await axios?.get(`${apiEndPoints?.getCart}`);
+        // console.log('data ======>', data )
         // console.log("Cart from apis-------------------",data)
         return data?.data as Cart[];
     } catch (error: any) {
@@ -139,13 +126,9 @@ export async function addToCartRest(
     cartData: addToCartRequest
 ): Promise<AddToCartResponse | undefined> {
     try {
-        console.log("**************129*******************");
+        // console.log("**************129*******************");
 
-        const res = await axios?.post(`${apiEndPoints?.getCart}`, cartData, {
-            headers: {
-                Authorization: `Bearer ${"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIyMGQ5NGMzLWUwOGQtNDlkZS04ZDE4LTAwYmZiNzMwYTFiOCIsInVzZXJuYW1lIjoiYWFiYkBnbWFpbC5jb20iLCJsb2dJblRpbWUiOjE2NTYzMTM3NzY0MjQsImlhdCI6MTY1NjMxMzc3NiwiZXhwIjoxNjU2NDAwMTc2fQ.WEwOHyq2Z2TTepjuLusYUuiSTc0wOqueWHIcj909isQ"}`,
-            },
-        });
+        const res = await axios?.post(`${apiEndPoints?.getCart}`, cartData);
         console.log("cart data from ==================", res.data);
         // window.location.href ="http://localhost/home"
         //console.log("**************125*******************", data);
@@ -162,13 +145,7 @@ export async function deleteFromCartRest(
     try {
         // console.log("from delete apis", data)
         const res = await axios?.delete(
-            `${apiEndPoints?.deleteCartItem}?productId=${data.productId}`,
-            {
-                headers: {
-                    Authorization: `Bearer ${"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIyMGQ5NGMzLWUwOGQtNDlkZS04ZDE4LTAwYmZiNzMwYTFiOCIsInVzZXJuYW1lIjoiYWFiYkBnbWFpbC5jb20iLCJsb2dJblRpbWUiOjE2NTYzMTM3NzY0MjQsImlhdCI6MTY1NjMxMzc3NiwiZXhwIjoxNjU2NDAwMTc2fQ.WEwOHyq2Z2TTepjuLusYUuiSTc0wOqueWHIcj909isQ"}`,
-                },
-            }
-        );
+            `${apiEndPoints?.deleteCartItem}?productId=${data.productId}`);
         // console.log("**************125*******************", res);
         return res?.data as deleteCartItemResponse;
     } catch (error: any) {
@@ -181,13 +158,7 @@ export async function deleteAllFromCartRest(): Promise<
 > {
     try {
         const { data } = await axios?.delete(
-            `${apiEndPoints?.deleteAllCartItem}`,
-            {
-                headers: {
-                    Authorization: `Bearer ${"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIyMGQ5NGMzLWUwOGQtNDlkZS04ZDE4LTAwYmZiNzMwYTFiOCIsInVzZXJuYW1lIjoiYWFiYkBnbWFpbC5jb20iLCJsb2dJblRpbWUiOjE2NTYzMTM3NzY0MjQsImlhdCI6MTY1NjMxMzc3NiwiZXhwIjoxNjU2NDAwMTc2fQ.WEwOHyq2Z2TTepjuLusYUuiSTc0wOqueWHIcj909isQ"}`,
-                },
-            }
-        );
+            `${apiEndPoints?.deleteAllCartItem}`);
         // console.log("**************125*******************", data);
         return data?.data as deleteCartItemResponse;
     } catch (error: any) {
@@ -200,13 +171,7 @@ export async function updateCartRest(
 ): Promise<updateCartItemResponse | undefined> {
     try {
         const { data } = await axios?.patch(
-            `${apiEndPoints?.updateCartItem}/${productId}`,
-            {
-                headers: {
-                    Authorization: `Bearer ${"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIyMGQ5NGMzLWUwOGQtNDlkZS04ZDE4LTAwYmZiNzMwYTFiOCIsInVzZXJuYW1lIjoiYWFiYkBnbWFpbC5jb20iLCJsb2dJblRpbWUiOjE2NTYzMTM3NzY0MjQsImlhdCI6MTY1NjMxMzc3NiwiZXhwIjoxNjU2NDAwMTc2fQ.WEwOHyq2Z2TTepjuLusYUuiSTc0wOqueWHIcj909isQ"}`,
-                },
-            }
-        );
+            `${apiEndPoints?.updateCartItem}/${productId}`);
         //console.log("**************125*******************", data);
         return data?.data as updateCartItemResponse;
     } catch (error: any) {

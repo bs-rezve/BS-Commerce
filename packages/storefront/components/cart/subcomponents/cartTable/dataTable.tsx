@@ -7,6 +7,8 @@ import { useAppSelector } from "customHooks/hooks";
 import { userAPI } from "APIs";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import Axios from "axios";
+import { config } from "config";
 
 const DataTable = () => {
     const router = useRouter();
@@ -15,7 +17,7 @@ const DataTable = () => {
     );
     // console.log("From Data Table", cartData);
     const tableData = () => {
-        return cartData.items.map((cartData, index) => {
+        return cartData?.items?.map((cartData, index) => {
             // console.log("^^^^^^^^^^^^^^^^^^^^^^^^", cartData);
             return (
                 <tr key={cartData.productId}>

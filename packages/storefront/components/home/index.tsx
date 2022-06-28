@@ -18,6 +18,7 @@ const HomeComponent = ({products, featuredProducts}: any) => { //edited type. wa
   const dispatch = useDispatch();
   //const productsData = useSelector((state: any) => state.products)
   // console.log(JSON.parse(JSON.parse(localStorage.getItem("persist:root")).products));
+  console.log(products)
 
   useEffect(() => {
     dispatch(storeProducts(products));

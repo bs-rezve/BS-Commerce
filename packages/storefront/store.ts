@@ -26,7 +26,7 @@ export const store = configureStore({
     addToCartStore: persistedAddToCartReducer,
     getAllCartItemsStore: persistedgetAllCartItemsReducer,
   },
-  middleware: getDefaultMiddleware =>getDefaultMiddleware({
+  middleware: getDefaultMiddleware => getDefaultMiddleware({
     serializableCheck: false,
   }),
 });

@@ -8,6 +8,9 @@ import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import { storeUserToken } from "toolkit/userAuth/signinSlice";
 import axios from "axios";
+import Axios from "axios";
+import { config } from "config";
+
 
 var cookie = require("cookie");
 var escapeHtml = require("escape-html");
@@ -19,7 +22,8 @@ const Signin = () => {
     const dispatch = useDispatch();
 
     async function handleSignin(data: CustomerSignInRequest) {
-        const token = await fetch("http://localhost:3002/api/signin", {
+
+        const token = await fetch("http://localhost:3000/api/customer/auth/sign-in", {
             method: "POST", // or 'PUT'
             headers: {
                 "Content-Type": "application/json",
@@ -27,14 +31,19 @@ const Signin = () => {
             body: JSON.stringify(data),
         });
         const datass = await token.json();
-        console.log("999999999999999999999999999999", datass)
         dispatch(storeUserToken(datass?.data?.token));
-        // localStorage.setItem("token", datass?.data?.token);
+        localStorage.setItem('token', datass?.data?.token);
+        // let token = localStorage.getItem('token');
         setCookie("access_token", datass?.data?.token);
+        // Axios.defaults.baseURL = config?.restPrefix;
+        // Axios.defaults.headers.common = {
+        //     Authorization: `Bearer ${datass?.data?.token}`,
+        // };
+        
         // axios.defaults.headers.post['Authorization'] = `Bearer ${datass?.data?.token}`;
         // console.log('headers ======>', axios.defaults.headers.common['Authorization']);
 
-        window.location.href = "/home";
+        // window.location.href = "/home";
         // userAPI.signIn(data).then((response: any) => {
         //   if (response?.code != 200) {
         //     alert(response.response.data.error);
@@ -48,7 +57,7 @@ const Signin = () => {
         //     //   maxAge: 60 * 60 * 24 * 7 // 1 week
         //     // }));
 
-        //     window.location.href = "/home";
+            window.location.href = "/home";
         //   }
     }
 
