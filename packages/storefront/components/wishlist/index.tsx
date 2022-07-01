@@ -1,14 +1,15 @@
 import React from "react";
 import WishlistIcon from "./wishlist-icon";
-import productData from "../../allData/product-data.json";
 import Breadcrumb from "../global/breadcrumbs/breadcrumb";
 import Link from "next/link";
 import Picture from "../global/components/product/common/picture";
 import ProductInfo from "../global/components/product/productInfo";
+import { useAppSelector } from "customHooks/hooks";
 
 const WishlistComponent = () => {
+  const productData = useAppSelector(state => state.persistedReducer.product.publicProducts)
   function handleClick(data: any) {
-    console.log(data);
+    
   }
   return (
     <>
@@ -18,15 +19,15 @@ const WishlistComponent = () => {
         linkArray={["/home", "/wishlist"]}
       />
       <div className="flex flex-wrap gap-5 mt-10 mx-5 sm:mx-5 md:mx-7 lg:mx-10 xl:mx-10 justify-center">
-        {productData["products"].slice(0,8).map((product, index) => {
+        {productData.map((product, index) => {
           return (
             <React.Fragment key={index}>
               <div className="flex flex-wrap flex-col items-center">
-                <Link href="/product/1" passHref>
+                <Link href={`/product/${product.id}`} passHref>
                   <div className="cursor-pointer flex flex-col items-center justify-center w-28 sm:w-28 md:w-44 lg:w-56 xl:w-56">
                     <Picture
-                      src={product.images[0]}
-                      alt={product.title}
+                      src={product?.photos[0]?.url}
+                      alt={product?.tags[0]}
                       width={200}
                       height={200}
                     />
