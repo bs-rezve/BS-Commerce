@@ -1,18 +1,16 @@
-import type { NextComponentType } from "next";
-import React, { useState } from "react";
-import Buttons from "../../../global/components/buttons/button";
-import Image from "next/image";
-// import cartDatas from "../../../../allData/cart-data.json";
-import { useAppDispatch, useAppSelector } from "customHooks/hooks";
-import { userAPI } from "APIs";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import TableData from "./tableData";
-import { deleteCart } from "toolkit/cartSlice";
+import React from "react";
 
-const DataTable = () => {
-  const router = useRouter();
+import { useRouter } from "next/router";
+import type { NextComponentType } from "next";
+
+import { deleteCart } from "toolkit/cartSlice";
+import { useAppDispatch } from "customHooks/hooks";
+
+import TableData from "@/components/cart/subcomponents/cartTable/tableData";
+
+const DataTable: NextComponentType = () => {
   const dispatch = useAppDispatch();
+  const router = useRouter();
 
   return (
     <>
@@ -58,7 +56,7 @@ const DataTable = () => {
                   }}
                   className="text-xs"
                   onClick={() => {
-                    router.push('/home');
+                    router.push('/');
                   }}
                 >
                   CONTINUE SHOPPING

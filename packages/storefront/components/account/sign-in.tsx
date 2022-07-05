@@ -1,27 +1,33 @@
-import { userAPI } from "APIs";
-import { Field, Form, Formik } from "formik";
 import Link from "next/link";
-import Breadcrumb from "../global/breadcrumbs/breadcrumb";
 import { useCookies } from "react-cookie";
-import { CustomerSignInRequest } from "models";
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
-import { storeUserToken } from "toolkit/authSlice";
-import { useRouter } from "next/router";
 import { storeUserDetails } from "toolkit/userSlice";
 import { useState } from "react";
-import Loading from "../global/loader";
+
+import { ErrorMessage, Field, Form, Formik } from "formik";
+import { useRouter } from "next/router";
+import { NextComponentType } from "next";
+
+import { userAPI } from "APIs";
+import { loginSchema } from "@/components/global/schemas/loginSchema";
+import { storeUserToken } from "toolkit/authSlice";
+import { useAppDispatch } from "customHooks/hooks";
+import { CustomerSignInRequest } from "models";
+
+import Loading from "@/components/global/loader";
+import Breadcrumb from "@/components/global/breadcrumbs/breadcrumb";
+
 
 var cookie = require("cookie");
 var escapeHtml = require("escape-html");
 var http = require("http");
 var url = require("url");
 
-const Signin = () => {
-  const [cookies, setCookie] = useCookies(["access_token", "refresh_token"]);
+const Signin: NextComponentType = () => {
   const [loader, setLoader] = useState(false);
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const router = useRouter();
 
   let username = "";
@@ -97,7 +103,7 @@ const Signin = () => {
                 password: "",
               }}
               onSubmit={(values, actions) => {
-                let data = {};
+                let data;
                 let regex = new RegExp("[a-z0-9]+@[a-z]+.[a-z]{2,3}");
                 const isEmail = regex.test(values.username);
                 username = values.username;
@@ -116,12 +122,11 @@ const Signin = () => {
                 handleSignin(data);
                 actions.setSubmitting(false);
               }}
-              //validationSchema={loginSchema}
+              validationSchema={loginSchema}
             >
               {(formikprops) => {
                 return (
                   <Form onSubmit={formikprops.handleSubmit}>
-
                     <div className="mb-4">
                       <Field
                         type="text"
@@ -129,11 +134,10 @@ const Signin = () => {
                         id="username"
                         name="username"
                         placeholder="Enter email or phone number"
-                        required
                       />
-                      {/* <div className="errMsg text-red-600 outline-0">
+                      <div className="errMsg text-red-600">
                         <ErrorMessage name="username" />
-                      </div> */}
+                      </div>
                     </div>
 
                     <div className="mb-4">
@@ -143,11 +147,10 @@ const Signin = () => {
                         id="password"
                         name="password"
                         placeholder="Password"
-                        required
                       />
-                      {/* <div className="errMsg text-red-600">
+                      <div className="errMsg text-red-600">
                         <ErrorMessage name="password" />
-                      </div> */}
+                      </div>
                     </div>
                     <div className="flex flex-wrap justify-end sm:justify-end md:justify-between lg:justify-between xl:justify-between">
                       <button
@@ -214,7 +217,3 @@ const Signin = () => {
 };
 
 export default Signin;
-
-// phone no: 012345673139
-//email: sbs@gmail.com
-// Pass: 123456

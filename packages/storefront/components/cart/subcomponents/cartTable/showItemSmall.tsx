@@ -1,12 +1,22 @@
-import { useAppDispatch } from "customHooks/hooks";
 import { useState } from "react";
+
+import { ResponseItem } from "models";
+import { useAppDispatch } from "customHooks/hooks";
 import { deleteCartItem, updateCartItem } from "toolkit/cartSlice";
 
-const ShowItemSmall = ({ data, setTotal, total }: any) => {
+interface Props {
+  data: ResponseItem,
+  setTotal: Function,
+  total: number
+}
+
+const ShowItemSmall: React.FC<Props> = ({ data, setTotal, total }: Props) => {
+  
   const dispatch = useAppDispatch();
+  
   const [itemToUpdate, setItemToUpdate] = useState({
-    productId: data.productId,
-    quantity: data.quantity,
+    productId: data?.productId,
+    quantity: data?.quantity,
   });
 
   return (
@@ -15,14 +25,14 @@ const ShowItemSmall = ({ data, setTotal, total }: any) => {
         <div className="mr-4 relative">
           <img
             className="object-cover w-full h-48 rounded-t-lg w-30 rounded-none"
-            src={data?.product?.photos[0].url}
+            src={data?.product?.photos[0]?.url}
             alt="Product Image"
           />
           <span
             className="absolute -top-2 -right-3 p-0.5 text-center text-xs font-semibold text-white rounded-full"
             style={{ background: "#808080" }}
             onClick={() => {
-              setTotal(total - ((itemToUpdate.quantity) * data.product.info.price))
+              setTotal(total - ((itemToUpdate.quantity) * data?.product?.info?.price!))
               dispatch(deleteCartItem(data));
             }}
           >
@@ -60,7 +70,7 @@ const ShowItemSmall = ({ data, setTotal, total }: any) => {
                         quantity: itemToUpdate.quantity - 1,
                       })
                     );
-                    setTotal(total - data.product.info.price);
+                    setTotal(total - data?.product?.info?.price!);
                   }}
                 >
                   -
@@ -79,7 +89,7 @@ const ShowItemSmall = ({ data, setTotal, total }: any) => {
                         quantity: itemToUpdate.quantity + 1,
                       })
                     );
-                    setTotal(total + data.product.info.price);
+                    setTotal(total + data?.product?.info?.price!);
                   }}
                 >
                   +

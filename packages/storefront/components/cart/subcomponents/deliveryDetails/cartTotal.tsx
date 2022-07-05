@@ -1,7 +1,10 @@
-import { useAppSelector } from "customHooks/hooks";
+import React from "react";
+
 import type { NextComponentType } from "next";
-import React, { useState } from "react";
-import Buttons from "../../../global/components/buttons/button";
+
+import { useAppSelector } from "customHooks/hooks";
+import Buttons from "@/components/global/components/buttons/button";
+
 const CartTotal: NextComponentType = () => {
   const cartData = useAppSelector(
     (state) => state.persistedReducer.cart.allCartItems

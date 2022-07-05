@@ -1,20 +1,16 @@
 import type { NextComponentType } from "next";
 import React, { useState, useRef, useEffect } from "react";
-import Buttons from "../../global/components/buttons/button";
-// import cartDatas from "../../../allData/cart-data.json";
-import { useAppDispatch, useAppSelector } from "customHooks/hooks";
-import { userAPI } from "APIs";
-import { useRouter } from "next/router";
-import { deleteCartItem } from "toolkit/cartSlice";
-import { ResponseItem } from "models";
 
-const CartDropdown = () => {
+import { ResponseItem } from "models";
+import { deleteCartItem } from "toolkit/cartSlice";
+import { useAppDispatch, useAppSelector } from "customHooks/hooks";
+import Buttons from "@/components/global/components/buttons/button";
+
+const CartDropdown: NextComponentType = () => {
   const componentRef = useRef();
   const dispatch = useAppDispatch();
 
   const [cartTotal, setCartTotal] = useState(false);
-
-  let token = document.cookie.split("=")[1]
 
   const cartData = useAppSelector(
     (state) => state.persistedReducer.cart.allCartItems

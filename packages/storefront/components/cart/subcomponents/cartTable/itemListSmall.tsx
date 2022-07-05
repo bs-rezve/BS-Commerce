@@ -1,10 +1,10 @@
-import { useAppSelector } from "customHooks/hooks";
+import React, { useState } from "react";
 import type { NextComponentType } from "next";
-import React, { FC, useState } from "react";
-//import cartDatas from "../../../../allData/cart-data.json";
-import ShowItemSmall from "./showItemSmall";
+import { useAppSelector } from "customHooks/hooks";
 
-const ItemsLists: FC = (props) => {
+import ShowItemSmall from "@/components/cart/subcomponents/cartTable/showItemSmall";
+
+const ItemsLists: NextComponentType = () => {
   const cartData = useAppSelector(
     (state) => state.persistedReducer.cart.allCartItems
   );
