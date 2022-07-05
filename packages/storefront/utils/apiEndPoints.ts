@@ -7,5 +7,5 @@ export const apiEndPoints = {
     getCart: `/cart`,
     deleteCartItem: `/cart/item`,
     deleteAllCartItem: '/cart/allitems',
-    updateCartItem: `/cart/item`
-}
+    updateCartItem: `/cart/item`,
+};
