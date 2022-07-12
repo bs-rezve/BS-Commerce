@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { useState } from 'react';
+import { useState, FC } from 'react';
 import { useRouter } from 'next/router';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { toast } from 'react-toastify';
@@ -12,7 +12,7 @@ import { registerSchema } from '@/components/global/schemas/loginSchema';
 import Breadcrumb from '@/components/global/breadcrumbs/breadcrumb';
 import Loading from '@/components/global/loader';
 
-const Signup = () => {
+const Signup: FC = () => {
   const router = useRouter();
   const [isPhoneSignUp, setIsPhoneSignUP] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -60,7 +60,10 @@ const Signup = () => {
           className="my-20 mx-3 flex flex-col py-7"
           style={{ width: ' 35rem ', height: 'auto', background: '#f3f3f3' }}
         >
-          <h2 className="mx-3 text-center text-3xl text-gray-800">
+          <h2
+            className="mx-3 text-center text-3xl text-gray-800"
+            data-testid="create"
+          >
             Create Account
           </h2>
           <p className="mx-5 mt-2 mb-6 text-center text-gray-500">

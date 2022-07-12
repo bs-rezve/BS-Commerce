@@ -3,11 +3,11 @@ import Image from 'next/image';
 
 import type { NextPage } from 'next';
 
-import Breadcrumb from '@/components/global/breadcrumbs/breadcrumb';
+import Breadcrumb from '../components/global/breadcrumbs/breadcrumb';
 
-const PageNotFOund: NextPage = () => {
+const PageNotFOund = () => {
   const imageDimensions = { width: 1024, height: 456 };
-  
+
   return (
     <>
       <Breadcrumb
@@ -26,7 +26,9 @@ const PageNotFOund: NextPage = () => {
               className="mb-8"
             />
           </div>
-          <span className="mb-2 font-bold">Ooops! Error 404</span>
+          <span className="mb-2 font-bold" data-testid="heading">
+            Ooops! Error 404
+          </span>
           <span className="mb-4 text-center font-extralight">
             Sorry, But the page you are looking for doesn&apos;t exist!
           </span>
