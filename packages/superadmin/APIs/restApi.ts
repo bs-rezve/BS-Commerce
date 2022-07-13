@@ -20,6 +20,7 @@ import {
   createCategoryRequest,
   createCategorySuccessResponse,
   GetTagsResponse,
+  GetManufacturersSuccessResponse,
 } from 'models';
 
 import { User } from '../utils/types';
@@ -273,7 +274,17 @@ export async function updateManufacturerRest(
     toast.error(error?.response?.data?.message);
   }
 }
-
+export async function getAllManufacturersRest(): Promise<
+  GetManufacturersSuccessResponse | undefined
+> {
+  try {
+    const response = await axios.get(`${apiEndPoints?.manufacturerList}`);
+    return response.data as GetManufacturersSuccessResponse;
+  } catch (error: any) {
+    toast.error(error.response.message);
+    // return error.response as getCategoryListErrorResponse;
+  }
+}
 export async function getCategoryListRest(): Promise<
   getCategoryListSuccessResponse | undefined
 > {
@@ -326,9 +337,7 @@ export async function getUserProfileRest(
   }
 }
 
-export async function getTagsRest(): Promise<
-  GetTagsResponse | undefined
-> {
+export async function getTagsRest(): Promise<GetTagsResponse | undefined> {
   try {
     const response = await axios.get(`${apiEndPoints.tags}`);
 

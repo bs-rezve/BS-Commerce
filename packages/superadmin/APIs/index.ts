@@ -20,6 +20,7 @@ import {
   getCategoryRest,
   createCategoryRest,
   getTagsRest,
+  getAllManufacturersRest,
 } from './restApi';
 import {
   getProductsGraphQL,
@@ -78,6 +79,7 @@ const restApi: apiFunction = {
   getManufacturer: getManufacturerRest,
   deleteManufacturer: deleteManufacturerRest,
   getSingleManufacturer: getSingleManufacturerRest,
+  getAllManufacturers: getAllManufacturersRest,
   updateManufacturer: updateManufacturerRest,
   getUserProfile: getUserProfileRest,
   getTags: getTagsRest,

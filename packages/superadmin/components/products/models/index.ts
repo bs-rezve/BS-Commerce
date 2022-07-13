@@ -1,4 +1,4 @@
-import { Product } from "models";
+import { Product } from 'models';
 
 export interface CategoryInterface {
   id?: number | string | undefined;
@@ -40,6 +40,8 @@ export interface FormDataInterFace {
   SelectedCategoryIds?: string | number;
   isFeaturedCategory?: boolean;
   displayOrderCategory?: number;
+  manufacturerId?: string | number;
+  manufacturerName?: string;
 }
 export interface ProductListProps {
   productsList: Product[];
@@ -76,7 +78,6 @@ export interface TemplateInteface {
   ismulti?: boolean;
 }
 export interface tagsOption {
-  label?: string,
-  value?: string,
+  label?: string;
+  value?: string;
 }
-
