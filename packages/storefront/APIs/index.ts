@@ -1,7 +1,11 @@
 import {
+  addToWishlistRest,
+  deleteFullWishlistRest,
+  deleteWishlistItemRest,
   addToCompareRest,
   deleteFromCompareRest,
   forgotPasswordRest,
+  getCustomerWishlistRest,
   getFeaturedProductsRest,
   getPublicProductByIdRest,
   getPublicProductByCategoryIDRest,
@@ -13,9 +17,13 @@ import {
   getCategoryListRest,
 } from './restApi';
 import {
+  addToWishlistGraphql,
+  deleteFullWishlistGraphql,
+  deleteWishlistItemGraphql,
   addToCompareGraphql,
   deleteFromCompareGraphql,
   forgotPasswordGraphql,
+  getCustomerWishlistGraphql,
   getFeaturedProductsGraphql,
   getPublicProductByIdGraphql,
   getPublicProductsGraphql,
@@ -40,6 +48,10 @@ const graphqlApi: apiFunction = {
   getPublicProductByCategoryId: getPublicProductByCategoryIDGraphql,
   getFeaturedProducts: getFeaturedProductsGraphql,
   getCategoryList: getCategoryListGraphql,
+  addToWishList: addToWishlistGraphql,
+  getCustomerWishlist: getCustomerWishlistGraphql,
+  deleteWishlistItem: deleteWishlistItemGraphql,
+  deleteFullWishlist: deleteFullWishlistGraphql,
   addToCompare: addToCompareGraphql,
   deleteFromCompare: deleteFromCompareGraphql,
 };
@@ -55,6 +67,10 @@ const restApi: apiFunction = {
   getPublicProductByCategoryId: getPublicProductByCategoryIDRest,
   getFeaturedProducts: getFeaturedProductsRest,
   getCategoryList: getCategoryListRest,
+  addToWishList: addToWishlistRest,
+  getCustomerWishlist: getCustomerWishlistRest,
+  deleteWishlistItem: deleteWishlistItemRest,
+  deleteFullWishlist: deleteFullWishlistRest,
   addToCompare: addToCompareRest,
   deleteFromCompare: deleteFromCompareRest
 };

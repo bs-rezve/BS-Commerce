@@ -1,11 +1,5 @@
 import {
-  addToCartRequest,
-  AddToCartResponse,
-  Cart,
   CustomerSignInResponse,
-  deleteAllCartItemsResponse,
-  deleteCartItemRequest,
-  deleteCartItemResponse,
   GetCustomerQuery,
   GetCustomerResponse,
   GetCustomerProductParams,
@@ -14,14 +8,18 @@ import {
   ForgotPasswordRequest,
   ForgotPasswordResponse,
   CreateCustomerResponse,
-  updateCartItemResponse,
-  updateCartItemRequest,
   CreateCustomerRequest,
   CustomerSignInRequest,
   getCategoryListResponse,
   GetProductsByConditionQuery,
   GetProductsByConditionSuccessResponse,
   GetCustomerAllProductsQuery,
+  addToWishlistRequest,
+  AddToWishlistResponse,
+  getUserWishlistResponse,
+  DeleteWishlistItemParams,
+  deleteWishlistItemResponse,
+  deleteAllWishlistItemsResponse,
   AddCompareItem,
   CompareResponse,
 } from 'models';
@@ -100,6 +98,10 @@ export interface apiFunction {
   getPublicProductByCategoryId: (
     CategoryId: GetCustomerAllProductsQuery
   ) => Promise<GetProductsByConditionSuccessResponse | undefined>;
+  addToWishList: (data: addToWishlistRequest) => Promise<AddToWishlistResponse | undefined>;
+  getCustomerWishlist: (token: string) => Promise<getUserWishlistResponse | undefined>;
+  deleteWishlistItem: (data: string) => Promise<deleteWishlistItemResponse | undefined>
+  deleteFullWishlist: () => Promise<deleteAllWishlistItemsResponse | undefined>
   addToCompare: (productId: AddCompareItem) => Promise<CompareResponse | undefined>
   deleteFromCompare: (productId: AddCompareItem) => {}
 }

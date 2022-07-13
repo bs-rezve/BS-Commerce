@@ -18,6 +18,12 @@ import {
   getCategoryListSuccessResponse,
   GetProductsByConditionQuery,
   GetProductsByConditionSuccessResponse,
+  addToWishlistRequest,
+  AddToWishlistResponse,
+  getUserWishlistResponse,
+  DeleteWishlistItemParams,
+  deleteWishlistItemResponse,
+  deleteAllWishlistItemsResponse,
   AddCompareItem,
   CompareResponse,
 } from 'models';
@@ -47,7 +53,8 @@ export async function getSignedInUserRest(
 ): Promise<GetCustomerResponse | undefined> {
   try {
     const res = await axios.get(
-      `${apiEndPoints.getSignedInUser}${isEmail ? `?email=${data.email}` : `?phone=${data.phone}`
+      `${apiEndPoints.getSignedInUser}${
+        isEmail ? `?email=${data.email}` : `?phone=${data.phone}`
       }`
     );
     return res.data;
@@ -128,13 +135,23 @@ export async function getPublicProductByIdRest(
   }
 }
 
-export async function getCategoryListRest(): Promise<getCategoryListSuccessResponse
-  | undefined> {
+export async function getCategoryListRest(): Promise<
+  getCategoryListSuccessResponse | undefined
+> {
   try {
-    const res = await axios.get(
-      `${apiEndPoints.getCatagoryList}`
-    );
+    const res = await axios.get(`${apiEndPoints.getCatagoryList}`);
     return res.data.data as getCategoryListSuccessResponse;
+  } catch (error: any) {
+    return error;
+  }
+}
+
+export async function addToWishlistRest(
+  data: addToWishlistRequest
+): Promise<AddToWishlistResponse | undefined> {
+  try {
+    const res = await axios.post(`${apiEndPoints.addToWishList}`, data);
+    return res.data.data;
   } catch (error: any) {
     return error;
   }
@@ -165,6 +182,45 @@ export async function getPublicProductByCategoryIDRest(
       `${apiEndPoints.getPublicProducts}?categoryId=${CategoryId}`
     );
     return res.data.data.products;
+  } catch (error: any) {
+    return error;
+  }
+}
+
+export async function getCustomerWishlistRest(
+  token: string
+): Promise<getUserWishlistResponse | undefined> {
+  try {
+    const res = await axios.get(`${apiEndPoints.getCustomerWishlist}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+
+    return res.data.data;
+  } catch (error: any) {
+    return error;
+  }
+}
+
+export async function deleteWishlistItemRest(
+  data: string
+): Promise<deleteWishlistItemResponse | undefined> {
+  try {
+    const res = await axios.delete(
+      `${apiEndPoints.deleteWishlistItem}/${data}`
+    );
+
+    return res.data.data;
+  } catch (error: any) {
+    return error;
+  }
+}
+
+export async function deleteFullWishlistRest(): Promise<
+  deleteAllWishlistItemsResponse | undefined
+> {
+  try {
+    const res = await axios.delete(`${apiEndPoints.deleteFullWishlist}`);
+    return res.data.message;
   } catch (error: any) {
     return error;
   }
