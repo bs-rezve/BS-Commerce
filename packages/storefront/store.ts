@@ -7,6 +7,9 @@ import authReducer from "./toolkit/authSlice";
 import cartReducer from "toolkit/cartSlice";
 import userReducer from "toolkit/userSlice";
 import categoryReducer from "toolkit/categorySlice"
+import modalReducer from "toolkit/modalSlice";
+import compareReducer from "toolkit/compareSlice";
+
 
 const reducers = combineReducers({
   product: productsReducer,
@@ -14,6 +17,8 @@ const reducers = combineReducers({
   cart: cartReducer,
   user: userReducer,
   category: categoryReducer,
+  modal: modalReducer,
+  compare: compareReducer,
 });
 
 const persistConfig = {

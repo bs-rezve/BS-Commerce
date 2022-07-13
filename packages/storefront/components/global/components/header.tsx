@@ -13,15 +13,15 @@ import Language from '@/components/global/components/languages';
 import Search from '@/components/global/components/search';
 import { userAPI } from 'APIs';
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const res = await userAPI.getCategoryList();
-  console.log(res);
-  return {
-    props: {
-      menuItems: res,
-    },
-  };
-};
+// export const getServerSideProps: GetServerSideProps = async (context) => {
+//   const res = await userAPI.getCategoryList();
+//   console.log(res);
+//   return {
+//     props: {
+//       menuItems: res,
+//     },
+//   };
+// };
 interface menuLink {
   name: string;
   link: object;
@@ -44,7 +44,6 @@ const Header: NextComponentType = () => {
     (state) => state.persistedReducer.category.category
   );
 
-  console.log(categories);
 
   const allCategories: menuLink[] = [];
   categories.categories.forEach((category) => {
@@ -246,7 +245,7 @@ const Header: NextComponentType = () => {
                 >
                   <Link
                     href={category.link}
-                    // as={`collections/${category.name}`}
+                    as={category.link.pathname}
                   >
                     <a className="cursor-pointer capitalize transition-all duration-100 ease-linear hover:text-green-600">
                       {category.name}

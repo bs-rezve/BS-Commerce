@@ -17,13 +17,14 @@ interface SingleProduct {
 
 const CategoryProductsPage: NextPage<SingleProduct> = ({ products, name }) => {
   const dispatch = useAppDispatch();
+  dispatch(storeCategorizedProduct(products));
 
-  const handleCartItemDelete = async () => {
-    dispatch(storeCategorizedProduct(products));
-  };
-  useEffect(() => {
-    handleCartItemDelete();
-  });
+  // const handleCartItemDelete = async () => {
+  //   dispatch(storeCategorizedProduct(products));
+  // };
+  // useEffect(() => {
+  //   handleCartItemDelete();
+  // });
   return (
     <>
       <CategoryPageComponent categoryName={name} />

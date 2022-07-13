@@ -21,6 +21,8 @@ import {
   getCategoryListResponse,
   GetProductsByConditionQuery,
   GetProductsByConditionSuccessResponse,
+  AddCompareItem,
+  CompareResponse,
 } from 'models';
 
 import { User } from 'utils/types';
@@ -113,4 +115,12 @@ export async function getCategoryListGraphql(): Promise<
   getCategoryListResponse | undefined
 > {
   return undefined;
+}
+export async function addToCompareGraphql(productId: AddCompareItem): Promise<
+  CompareResponse | undefined
+> {
+  return undefined;
+}
+
+export async function deleteFromCompareGraphql(productId: AddCompareItem) {
 }

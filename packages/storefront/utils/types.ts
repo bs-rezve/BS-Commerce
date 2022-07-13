@@ -22,6 +22,8 @@ import {
   GetProductsByConditionQuery,
   GetProductsByConditionSuccessResponse,
   GetCustomerAllProductsQuery,
+  AddCompareItem,
+  CompareResponse,
 } from 'models';
 
 export interface accordionBody {
@@ -98,6 +100,8 @@ export interface apiFunction {
   getPublicProductByCategoryId: (
     CategoryId: GetCustomerAllProductsQuery
   ) => Promise<GetProductsByConditionSuccessResponse | undefined>;
+  addToCompare: (productId: AddCompareItem) => Promise<CompareResponse | undefined>
+  deleteFromCompare: (productId: AddCompareItem) => {}
 }
 
 export interface ProductStore {

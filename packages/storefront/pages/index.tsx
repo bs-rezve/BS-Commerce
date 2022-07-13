@@ -30,8 +30,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const allProducts = await userAPI.getPublicProducts();
   const featuredProducts = await userAPI.getFeaturedProducts();
   const category = await userAPI.getCategoryList();
-  // JSON.parse(JSON.stringify(category));
-  console.log(category);
   return {
     props: {
       products: allProducts,
