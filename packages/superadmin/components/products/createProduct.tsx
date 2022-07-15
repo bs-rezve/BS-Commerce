@@ -86,7 +86,7 @@ const CreateProduct: NextComponentType = () => {
       includeInTopMenu: data.includeInTopMenu,
       allowToSelectPageSize: data.allowToSelectPageSize,
       published: data.published,
-      displayOrder: +data.displayOrder,
+      displayOrder: +data.displayOrder!,
       isFeatured: data.isFeatured,
     };
     const meta = {
@@ -136,11 +136,10 @@ const CreateProduct: NextComponentType = () => {
         const categories: any = [];
         response?.data.categories.forEach((category, index) => {
           categories.push({
-            id: index + 1,
-            value: category.name,
+            id: category.id,
+            name: category.name,
             isSelected: false,
-            isFeatured: false,
-            displayOrder: 0,
+            displayOrder: category.displayOrder,
           });
         });
         setCategoryData(categories);
