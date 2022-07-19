@@ -46,31 +46,35 @@ const Header: NextComponentType = () => {
 
   // console.log(categories);
 
-  const allCategories: menuLink[] = [];
-  categories?.categories?.forEach((category) => {
-    allCategories.push({
-      name: category.name,
-      link: {
-        pathname: `/collections/${category.name}`,
-        query: {
-          categoryId: category.id,
-          name: category.name,
-        },
-      },
-      hasSubmenu: false,
-    });
-  });
-  // const allCategories: menuLink[] = [
-  //   { name: "vegetable", link: "/", hasSubmenu: true },
-  //   { name: "fruits", link: "/", hasSubmenu: true },
-  //   { name: "salads", link: "/", hasSubmenu: true },
-  //   { name: "fish & seafood", link: "/", hasSubmenu: false },
-  //   { name: "fresh meat", link: "/", hasSubmenu: false },
-  //   { name: "butter & eggs", link: "/", hasSubmenu: false },
-  //   { name: "milk", link: "/", hasSubmenu: false },
-  //   { name: "oil & vinegars", link: "/", hasSubmenu: false },
-  //   { name: "bread", link: "/", hasSubmenu: false },
-  // ];
+  // const allCategories: menuLink[] = [];
+  // categories?.categories?.forEach((category) => {
+  //   allCategories.push({
+  //     name: category.name,
+  //     link: {
+  //       pathname: `/collections/${category.name}`,
+  //       query: {
+  //         categoryId: category.id,
+  //         name: category.name,
+  //       },
+  //     },
+  //     hasSubmenu: false,
+  //   });
+  // });
+  const allCategories: menuLink[] = [
+    { name: "vegetable", link: "/", hasSubmenu: true, submenu: [
+      { name: 'About Us', link: '/about' },
+      { name: 'Service', link: '/service' },
+      { name: 'FAQ', link: '/faq' },
+    ], },
+    { name: "fruits", link: "/", hasSubmenu: true },
+    { name: "salads", link: "/", hasSubmenu: true },
+    { name: "fish & seafood", link: "/", hasSubmenu: false },
+    { name: "fresh meat", link: "/", hasSubmenu: false },
+    { name: "butter & eggs", link: "/", hasSubmenu: false },
+    { name: "milk", link: "/", hasSubmenu: false },
+    { name: "oil & vinegars", link: "/", hasSubmenu: false },
+    { name: "bread", link: "/", hasSubmenu: false },
+  ];
 
   const menus: menuLink[] = [
     {
@@ -242,7 +246,7 @@ const Header: NextComponentType = () => {
               {allCategories.map((category) => (
                 <div
                   key={category.name}
-                  className="flex flex-row justify-between text-sm"
+                  className="flex flex-row group justify-between text-sm"
                 >
                   <Link
                     href={category.link}
@@ -252,7 +256,7 @@ const Header: NextComponentType = () => {
                       {category.name}
                     </a>
                   </Link>
-                  <div className="md:hidden">
+                  <div className="">
                     {category.hasSubmenu && (
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -266,8 +270,27 @@ const Header: NextComponentType = () => {
                           clipRule="evenodd"
                         />
                       </svg>
+
                     )}
                   </div>
+                  {category.hasSubmenu && (
+                      <div
+                        className="relative hidden overflow-hidden bg-white px-6 py-6 shadow-lg transition-all duration-300 ease-in lg:group-hover:block"
+                      >
+                        <ul className="">
+                          {category.submenu?.map((menu) => (
+                            <li
+                              key={menu.name}
+                              className="cursor-pointer py-2 text-sm transition-all duration-100 ease-linear hover:text-green-600"
+                            >
+                              <Link href={menu.link}>
+                                <a>{menu.name}</a>
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                 </div>
               ))}
             </div>

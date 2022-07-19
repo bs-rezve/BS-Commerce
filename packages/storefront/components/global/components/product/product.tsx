@@ -23,7 +23,7 @@ const Product = (props: SingleProduct) => {
             name: product.info.name,
           },
         }}
-        as={`product/${product.info.name}`}
+        //as={`product/${product.info.name}`}
       >
         <div className="mb-0 overflow-hidden" key={product?.info?.name}>
           <div className="transition duration-0 hover:duration-700 group hover:bg-white cursor-pointer">

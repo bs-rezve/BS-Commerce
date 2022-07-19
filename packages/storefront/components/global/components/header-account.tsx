@@ -29,8 +29,16 @@ const HeaderAccount: React.FC<Properties> = () => {
   const wishlistItems = useAppSelector(
     (state) => state.persistedReducer.product.wishlist
   );
+  const email = useAppSelector((state) => state.persistedReducer.user.user);
+  let user= email;
 
-  const user = useAppSelector((state) => state.persistedReducer.user.user);
+  // const customer = useAppSelector((state) => state.persistedReducer.user.customerDetails);
+  // if(customer.firstName === undefined){
+  //   user = customer.email;
+  // }
+  // else {
+  //   user = customer.firstName;
+  // }
 
   const handleLogout = () => {
     localStorage.clear();

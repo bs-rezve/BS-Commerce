@@ -1,10 +1,12 @@
 import { GetServerSideProps, NextPage } from 'next';
 var cookie = require('cookie');
 
-import { CustomerProduct, Category, Wishlist } from 'models';
+import { CustomerProduct, Category, Wishlist, Customer } from 'models';
 import { userAPI } from 'APIs';
 import { useAppDispatch } from 'customHooks/hooks';
 import { storeCategory } from 'toolkit/categorySlice';
+import { storeCustomerDetails } from 'toolkit/userSlice';
+
 import {
   storeFeaturedProducts,
   storeProducts,
@@ -18,6 +20,7 @@ interface Props {
   featuredProducts: CustomerProduct[];
   category: Category[];
   wishlistedProducts: Wishlist;
+  customerProfile: Customer;
 }
 
 const Home: NextPage<Props> = ({
@@ -25,6 +28,7 @@ const Home: NextPage<Props> = ({
   featuredProducts,
   category,
   wishlistedProducts,
+  customerProfile,
 }: Props) => {
   const dispatch = useAppDispatch();
 
@@ -32,6 +36,7 @@ const Home: NextPage<Props> = ({
   dispatch(storeProducts(products));
   dispatch(storeFeaturedProducts(featuredProducts));
   dispatch(storeWishlist(wishlistedProducts));
+  dispatch(storeCustomerDetails(customerProfile));
 
   return <HomeComponent />;
 };
@@ -42,6 +47,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const allProducts = await userAPI.getPublicProducts();
   const featuredProducts = await userAPI.getFeaturedProducts();
   const category = await userAPI.getCategoryList();
+  const customerProfile = await userAPI.getCustomerProfile(token.token);
   // JSON.parse(JSON.stringify(category));
   let wishlistedProducts;
   if (reqCookie) {
@@ -54,6 +60,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       featuredProducts: featuredProducts,
       category: category,
       wishlistedProducts: wishlistedProducts || [],
+      customerProfile: customerProfile,
     },
   };
 };
